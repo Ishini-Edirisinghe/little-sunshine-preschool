@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="manageStudentWindow" prefHeight="537.0" prefWidth="845.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.preschool.controller.ManageStudentWindowController">
+   <children>
+      <JFXButton layoutX="60.0" layoutY="92.0" onAction="#btnAddStudentOnAction" prefHeight="35.0" prefWidth="123.0" style="-fx-background-color: pink;" text="add student" />
+      <JFXButton layoutX="72.0" layoutY="288.0" onAction="#btnUpdateStudentOnAction" prefHeight="35.0" prefWidth="123.0" style="-fx-background-color: pink;" text="update student" />
+      <JFXButton layoutX="60.0" layoutY="206.0" onAction="#btnDeleteStudentOnAction" prefHeight="35.0" prefWidth="123.0" style="-fx-background-color: pink;" text="delete student" />
+      <Label alignment="CENTER" layoutX="109.0" layoutY="27.0" prefHeight="46.0" prefWidth="240.0" text="Manage Student">
+         <font>
+            <Font name="Comic Sans MS" size="22.0" />
+         </font>
+      </Label>
+      <JFXButton layoutX="83.0" layoutY="489.0" onAction="#btnBackOnAction" style="-fx-background-color: yellow;" text="back" />
+   </children>
+</AnchorPane>

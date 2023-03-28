@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="loginContext" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: linear-gradient(to top right, #00FFF0, #F8FB61); -fx-border-radius: 50;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.preschool.controller.LoginWindowController">
+   <children>
+      <Label alignment="CENTER" layoutX="96.0" layoutY="25.0" prefHeight="50.0" prefWidth="287.0" text="Welcome Back !" textFill="#686d6f">
+         <font>
+            <Font name="Gabriola" size="52.0" />
+         </font>
+      </Label>
+      <TextField layoutX="240.0" layoutY="141.0" promptText="username" />
+      <TextField layoutX="234.0" layoutY="207.0" promptText="password" style="-fx-border-radius: 50;" />
+      <Label alignment="CENTER" layoutX="39.0" layoutY="135.0" prefHeight="36.0" prefWidth="91.0" text="Username :">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="36.0" layoutY="207.0" prefHeight="36.0" prefWidth="97.0" text="Password :">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+      </Label>
+      <JFXButton layoutX="240.0" layoutY="302.0" onAction="#btnLoginOnAction" prefHeight="36.0" prefWidth="83.0" style="-fx-background-color: yellow;" text="Login">
+         <font>
+            <Font name="Comic Sans MS Bold Italic" size="16.0" />
+         </font>
+         <textFill>
+            <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.4699999988079071" green="0.41359999775886536" blue="0.41359999775886536" opacity="0.8969465494155884" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color />
+                     </color>
+                  </Stop>
+               </stops>
+            </RadialGradient>
+         </textFill>
+      </JFXButton>
+   </children>
+</AnchorPane>

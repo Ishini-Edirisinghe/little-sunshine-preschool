@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="dashboardMainAnchorPane" blendMode="DARKEN" minHeight="650.0" minWidth="1366.0" prefHeight="650.0" prefWidth="1366.0" style="-fx-background-color: pink;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.preschool.controller.DashboardWindowController">
+   <children>
+      <Label alignment="CENTER" prefHeight="49.0" prefWidth="265.0" text="Dashboard">
+         <font>
+            <Font name="Comic Sans MS Bold Italic" size="31.0" />
+         </font>
+         <textFill>
+            <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.4775219261646271" green="0.5090003609657288" blue="0.5131579041481018" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.17105263471603394" green="0.9473684430122375" blue="0.8179824352264404" />
+                     </color>
+                  </Stop>
+               </stops>
+            </RadialGradient>
+         </textFill>
+      </Label>
+      <Pane layoutX="26.0" layoutY="67.0" prefHeight="521.0" prefWidth="200.0" style="-fx-background-color: green; -fx-background-radius: 20;">
+         <children>
+            <JFXButton layoutX="28.0" layoutY="382.0" style="-fx-background-color: yellow; -fx-background-radius: 10;" text="Attendance">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </JFXButton>
+            <JFXButton layoutX="14.0" layoutY="450.0" prefHeight="25.0" prefWidth="133.0" style="-fx-background-color: yellow;" text="Student skills status" />
+            <JFXButton layoutX="23.0" layoutY="313.0" prefHeight="25.0" prefWidth="87.0" style="-fx-background-color: yellow;" text="Payments" />
+            <JFXButton layoutX="23.0" layoutY="184.0" onAction="#btnSyllabusOnAction" prefHeight="25.0" prefWidth="87.0" style="-fx-background-color: yellow;" text="Sylabus" />
+            <JFXButton layoutX="23.0" layoutY="145.0" onAction="#btnEventOnAction" prefHeight="25.0" prefWidth="87.0" style="-fx-background-color: yellow;" text="Events" textFill="#322929" />
+            <JFXButton layoutX="37.0" layoutY="226.0" onAction="#btnGetReportOnAction" prefHeight="35.0" prefWidth="87.0" style="-fx-background-color: yellow;" text="Get Report" />
+            <JFXButton layoutX="28.0" layoutY="56.0" onAction="#btnManageStudentOnAction" prefHeight="35.0" prefWidth="113.0" style="-fx-background-color: yellow;" text="Manage Student" />
+         </children>
+      </Pane>
+      <AnchorPane fx:id="dashboardAnchorPane" layoutX="321.0" layoutY="67.0" prefHeight="537.0" prefWidth="845.0" style="-fx-background-color: white;" />
+   </children>
+</AnchorPane>
