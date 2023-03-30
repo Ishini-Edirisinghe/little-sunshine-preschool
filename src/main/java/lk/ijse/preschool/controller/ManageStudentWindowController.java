@@ -3,6 +3,7 @@ package lk.ijse.preschool.controller;
 import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -16,18 +17,23 @@ public class ManageStudentWindowController {
 
 
     public void btnAddStudentOnAction(ActionEvent actionEvent) throws IOException {
-        Stage stage = (Stage) manageStudentWindow.getScene().getWindow();
-        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/add-student-window-view.fxml"))));
+        Parent load= FXMLLoader.load(getClass().getResource("/view/add-student-window-view.fxml"));
+        manageStudentWindow.getChildren().clear();
+        manageStudentWindow.getChildren().add(load);
+        // ene(new Scene(FXMLLoader.load(getClass().getResource("/view/add-student-window-view.fxml"))));
     }
 
     public void btnDeleteStudentOnAction(ActionEvent actionEvent) throws IOException {
-        Stage stage = (Stage) manageStudentWindow.getScene().getWindow();
-        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/delete-student-window-view.fxml"))));
+        Parent load= FXMLLoader.load(getClass().getResource("/view/delete-student-window-view.fxml"));
+        manageStudentWindow.getChildren().clear();
+        manageStudentWindow.getChildren().add(load);
+
     }
 
     public void btnUpdateStudentOnAction(ActionEvent actionEvent) throws IOException {
-        Stage stage = (Stage) manageStudentWindow.getScene().getWindow();
-        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/update-student-window-view.fxml"))));
+        Parent load= FXMLLoader.load(getClass().getResource("/view/update-student-window-view.fxml"));
+        manageStudentWindow.getChildren().clear();
+        manageStudentWindow.getChildren().add(load);
     }
 
     public void btnBackOnAction(ActionEvent actionEvent) throws IOException {

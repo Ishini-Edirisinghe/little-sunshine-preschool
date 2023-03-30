@@ -15,6 +15,5 @@
             <Font name="Comic Sans MS" size="22.0" />
          </font>
       </Label>
-      <JFXButton layoutX="83.0" layoutY="489.0" onAction="#btnBackOnAction" style="-fx-background-color: yellow;" text="back" />
    </children>
 </AnchorPane>

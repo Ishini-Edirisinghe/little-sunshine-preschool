@@ -27,7 +27,10 @@ public class DashboardWindowController {
     }
 
     @FXML
-    void btnGetReportOnAction(ActionEvent event) {
+    void btnGetReportOnAction(ActionEvent event) throws IOException {
+        Parent load= FXMLLoader.load(getClass().getResource("/view/get-report-window-view.fxml"));
+        dashboardAnchorPane.getChildren().clear();
+        dashboardAnchorPane.getChildren().add(load);
 
     }
 
@@ -39,7 +42,10 @@ public class DashboardWindowController {
     }
 
     @FXML
-    void btnSyllabusOnAction(ActionEvent event) {
+    void btnSyllabusOnAction(ActionEvent event) throws IOException {
+        Parent load= FXMLLoader.load(getClass().getResource("/view/syllabus-window-view.fxml"));
+        dashboardAnchorPane.getChildren().clear();
+        dashboardAnchorPane.getChildren().add(load);
 
     }
 }

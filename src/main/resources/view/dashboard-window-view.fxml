@@ -36,7 +36,7 @@
       </Label>
       <Pane layoutX="26.0" layoutY="67.0" prefHeight="521.0" prefWidth="200.0" style="-fx-background-color: green; -fx-background-radius: 20;">
          <children>
-            <JFXButton layoutX="28.0" layoutY="382.0" style="-fx-background-color: yellow; -fx-background-radius: 10;" text="Attendance">
+            <JFXButton fx:id="btnAttendanceOnAction" layoutX="28.0" layoutY="382.0" style="-fx-background-color: yellow; -fx-background-radius: 10;" text="Attendance">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
@@ -44,9 +44,9 @@
                   <DropShadow />
                </effect>
             </JFXButton>
-            <JFXButton layoutX="14.0" layoutY="450.0" prefHeight="25.0" prefWidth="133.0" style="-fx-background-color: yellow;" text="Student skills status" />
-            <JFXButton layoutX="23.0" layoutY="313.0" prefHeight="25.0" prefWidth="87.0" style="-fx-background-color: yellow;" text="Payments" />
-            <JFXButton layoutX="23.0" layoutY="184.0" onAction="#btnSyllabusOnAction" prefHeight="25.0" prefWidth="87.0" style="-fx-background-color: yellow;" text="Sylabus" />
+            <JFXButton fx:id="btnStudentSkillsStatusOnAction" layoutX="14.0" layoutY="450.0" prefHeight="25.0" prefWidth="133.0" style="-fx-background-color: yellow;" text="Student skills status" />
+            <JFXButton layoutX="23.0" layoutY="313.0" onAction="#btnPaymentOnAction" prefHeight="25.0" prefWidth="87.0" style="-fx-background-color: yellow;" text="Payments" />
+            <JFXButton layoutX="23.0" layoutY="186.0" onAction="#btnSyllabusOnAction" prefHeight="25.0" prefWidth="87.0" style="-fx-background-color: yellow;" text="Sylabus" />
             <JFXButton layoutX="23.0" layoutY="145.0" onAction="#btnEventOnAction" prefHeight="25.0" prefWidth="87.0" style="-fx-background-color: yellow;" text="Events" textFill="#322929" />
             <JFXButton layoutX="37.0" layoutY="226.0" onAction="#btnGetReportOnAction" prefHeight="35.0" prefWidth="87.0" style="-fx-background-color: yellow;" text="Get Report" />
             <JFXButton layoutX="28.0" layoutY="56.0" onAction="#btnManageStudentOnAction" prefHeight="35.0" prefWidth="113.0" style="-fx-background-color: yellow;" text="Manage Student" />

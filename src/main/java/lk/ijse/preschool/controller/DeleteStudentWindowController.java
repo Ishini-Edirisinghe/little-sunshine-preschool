@@ -2,6 +2,7 @@ package lk.ijse.preschool.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -11,10 +12,11 @@ import java.io.IOException;
 
 public class DeleteStudentWindowController {
 
-    public AnchorPane Window7;
+    public AnchorPane deleteStudentAnchorPane;
 
     public void btnBackOnAction(ActionEvent actionEvent) throws IOException {
-        Stage stage = (Stage) Window7.getScene().getWindow();
-        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/manage-student-window-view.fxml"))));
+        Parent load= FXMLLoader.load(getClass().getResource("/view/manage-student-window-view.fxml"));
+        deleteStudentAnchorPane.getChildren().clear();
+        deleteStudentAnchorPane.getChildren().add(load);
     }
 }
