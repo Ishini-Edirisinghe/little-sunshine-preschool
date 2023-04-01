@@ -36,17 +36,34 @@ public class DashboardWindowController {
 
     @FXML
     void btnManageStudentOnAction(ActionEvent event) throws IOException {
-        Parent load= FXMLLoader.load(getClass().getResource("/view/manage-student-window-view.fxml"));
+        Parent load = FXMLLoader.load(getClass().getResource("/view/manage-student-window-view.fxml"));
         dashboardAnchorPane.getChildren().clear();
         dashboardAnchorPane.getChildren().add(load);
     }
-
+    @FXML
+        void btnPaymentOnAction(ActionEvent event) throws IOException {
+        Parent load = FXMLLoader.load(getClass().getResource("/view/payments-window-view.fxml"));
+        dashboardAnchorPane.getChildren().clear();
+        dashboardAnchorPane.getChildren().add(load);
+    }
+    @FXML
+    void btnAttendanceOnAction(ActionEvent event) throws IOException {
+        Parent load = FXMLLoader.load(getClass().getResource("/view/attendance-window-view.fxml"));
+        dashboardAnchorPane.getChildren().clear();
+        dashboardAnchorPane.getChildren().add(load);
+    }
     @FXML
     void btnSyllabusOnAction(ActionEvent event) throws IOException {
         Parent load= FXMLLoader.load(getClass().getResource("/view/syllabus-window-view.fxml"));
         dashboardAnchorPane.getChildren().clear();
         dashboardAnchorPane.getChildren().add(load);
 
+    }
+    @FXML
+    void btnStudentSkillsStatusOnAction(ActionEvent event) throws IOException {
+        Parent load= FXMLLoader.load(getClass().getResource("/view/student-skill-status-window-view.fxml"));
+        dashboardAnchorPane.getChildren().clear();
+        dashboardAnchorPane.getChildren().add(load);
     }
 }
 

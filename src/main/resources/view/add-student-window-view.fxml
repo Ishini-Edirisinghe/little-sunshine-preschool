@@ -2,16 +2,29 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="addStudentAnchorPane" maxHeight="710.0" maxWidth="1339.0" minHeight="710.0" minWidth="1339.0" prefHeight="710.0" prefWidth="1339.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.preschool.controller.AddStudentWindowController">
+<AnchorPane fx:id="addStudentAnchorPane" maxHeight="710.0" maxWidth="1339.0" minHeight="710.0" minWidth="1339.0" prefHeight="710.0" prefWidth="1339.0" style="-fx-background-color: linear-gradient(0.25turn, #3f87a6, #ebf8e1, #f69d3c);;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.preschool.controller.AddStudentWindowController">
    <children>
-      <Label alignment="CENTER" layoutX="286.0" layoutY="71.0" prefHeight="66.0" prefWidth="241.0" text="Add student">
+      <Label alignment="CENTER" layoutX="248.0" layoutY="47.0" prefHeight="66.0" prefWidth="241.0" text="Add student">
          <font>
             <Font size="37.0" />
          </font>
       </Label>
-      <JFXButton layoutX="152.0" layoutY="343.0" onAction="#btnBackOnAction" style="-fx-background-color: pink;" text="back" />
+      <JFXButton layoutX="72.0" layoutY="567.0" onAction="#btnBackOnAction" style="-fx-background-color: pink;" text="back" />
+      <TextField layoutX="269.0" layoutY="201.0" promptText="name" />
+      <TextField layoutX="269.0" layoutY="251.0" promptText="address" />
+      <TextField layoutX="269.0" layoutY="302.0" promptText="date of birth" />
+      <TextField layoutX="269.0" layoutY="151.0" promptText="student id" />
+      <TextField layoutX="269.0" layoutY="355.0" promptText="contact" />
+      <TextField layoutX="269.0" layoutY="415.0" promptText="Parents Name" />
+      <Label layoutX="99.0" layoutY="155.0" prefHeight="17.0" prefWidth="88.0" text="Student id" />
+      <Label layoutX="99.0" layoutY="205.0" prefHeight="17.0" prefWidth="88.0" text="name" />
+      <Label layoutX="99.0" layoutY="255.0" prefHeight="17.0" prefWidth="76.0" text="address" />
+      <Label layoutX="99.0" layoutY="306.0" prefHeight="17.0" prefWidth="76.0" text="date of birth" />
+      <Label layoutX="99.0" layoutY="359.0" prefHeight="17.0" prefWidth="67.0" text="Contact" />
+      <Label layoutX="99.0" layoutY="419.0" prefHeight="17.0" prefWidth="88.0" text="Parent name" />
    </children>
 </AnchorPane>
