@@ -2,6 +2,9 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.MotionBlur?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.paint.LinearGradient?>
@@ -9,9 +12,14 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="Window1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: linear-gradient(#F4A7DF 20%, #79E4EB 65%, #DAFAFF 100%);" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.preschool.controller.StartWindowController">
+<AnchorPane fx:id="Window1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #CABBE9;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.preschool.controller.StartWindowController">
    <children>
-      <JFXButton layoutX="195.0" layoutY="272.0" onAction="#btnStartOnAction" prefHeight="53.0" prefWidth="174.0" style="-fx-background-radius: 70; -fx-background-color: linear-gradient(to left, #65E3FF, #FB7CD7);};" text="START">
+      <ImageView fitHeight="265.0" fitWidth="592.0" layoutX="8.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/start.jpg" />
+         </image>
+      </ImageView>
+      <JFXButton layoutX="196.0" layoutY="305.0" onAction="#btnStartOnAction" prefHeight="53.0" prefWidth="174.0" style="-fx-background-radius: 70; -fx-background-color: linear-gradient(to left, #65E3FF, #FB7CD7);};" text="START">
          <font>
             <Font name="Comic Sans MS Bold Italic" size="18.0" />
          </font>
@@ -32,30 +40,9 @@
             </RadialGradient>
          </textFill>
       </JFXButton>
-      <Label alignment="CENTER" layoutX="14.0" layoutY="46.0" prefHeight="113.0" prefWidth="420.0" text="CHATHURA ">
+      <Label alignment="CENTER" layoutX="150.0" layoutY="113.0" prefHeight="87.0" prefWidth="320.0" text="PRESCHOOL ">
          <font>
-            <Font name="Comic Sans MS Bold Italic" size="67.0" />
-         </font>
-         <textFill>
-            <LinearGradient endX="1.0" endY="1.0">
-               <stops>
-                  <Stop>
-                     <color>
-                        <Color red="0.9569931626319885" green="0.09137427061796188" blue="0.9868420958518982" />
-                     </color>
-                  </Stop>
-                  <Stop offset="1.0">
-                     <color>
-                        <Color green="0.9700000286102295" blue="0.9607619047164917" opacity="0.7900000214576721" />
-                     </color>
-                  </Stop>
-               </stops>
-            </LinearGradient>
-         </textFill>
-      </Label>
-      <Label alignment="CENTER" layoutX="203.0" layoutY="159.0" prefHeight="60.0" prefWidth="333.0" text="PRESCHOOL ">
-         <font>
-            <Font name="Comic Sans MS Bold Italic" size="46.0" />
+            <Font name="Comic Sans MS Bold Italic" size="29.0" />
          </font>
          <textFill>
             <LinearGradient endX="1.0" endY="1.0">
@@ -74,5 +61,29 @@
             </LinearGradient>
          </textFill>
       </Label>
+      <Label alignment="CENTER" layoutX="93.0" layoutY="37.0" prefHeight="113.0" prefWidth="420.0" text="CHATHURA ">
+         <font>
+            <Font name="Comic Sans MS Bold Italic" size="33.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.9569931626319885" green="0.09137427061796188" blue="0.9868420958518982" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color green="0.9700000286102295" blue="0.9607619047164917" opacity="0.7900000214576721" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Label>
    </children>
+   <effect>
+      <MotionBlur radius="0.0" />
+   </effect>
 </AnchorPane>

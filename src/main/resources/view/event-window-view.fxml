@@ -1,16 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.preschool.controller.EventWindowController">
+<AnchorPane prefHeight="558.0" prefWidth="836.0" style="-fx-background-color: linear-gradient(#e66465, #9198e5);" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.preschool.controller.EventWindowController">
    <children>
-      <Label alignment="CENTER" layoutX="168.0" layoutY="136.0" prefHeight="49.0" prefWidth="145.0" text="event">
+      <Label alignment="CENTER" layoutX="328.0" layoutY="35.0" prefHeight="49.0" prefWidth="145.0" text="Event">
          <font>
-            <Font size="25.0" />
+            <Font name="Comic Sans MS Bold Italic" size="44.0" />
          </font>
       </Label>
+      <Label alignment="CENTER" layoutX="29.0" layoutY="124.0" prefHeight="49.0" prefWidth="113.0" text="Event No" />
+      <TextField fx:id="txtEventNo" layoutX="133.0" layoutY="136.0" prefHeight="25.0" prefWidth="198.0" promptText="event no" />
+      <TextField fx:id="txtEventName" layoutX="489.0" layoutY="136.0" prefHeight="25.0" prefWidth="191.0" promptText="event name" />
+      <TextField fx:id="txtMonth" layoutX="133.0" layoutY="199.0" prefHeight="25.0" prefWidth="198.0" promptText="month" />
+      <Label layoutX="418.0" layoutY="136.0" prefHeight="25.0" prefWidth="71.0" text="Event name" />
+      <Label layoutX="59.0" layoutY="203.0" prefHeight="17.0" prefWidth="54.0" text="Month" />
+      <JFXButton layoutX="390.0" layoutY="196.0" onAction="#btnSaveOnAction" prefHeight="32.0" prefWidth="71.0" style="-fx-background-color: white;" text="Save" />
+      <JFXButton layoutX="499.0" layoutY="196.0" onAction="#btnDeleteOnAction" prefHeight="32.0" prefWidth="71.0" style="-fx-background-color: white;" text="Delete" />
+      <JFXButton layoutX="609.0" layoutY="196.0" onAction="#btnUpdateOnAction" prefHeight="32.0" prefWidth="71.0" style="-fx-background-color: white;" text="Update" />
+      <TableView layoutX="59.0" layoutY="279.0" prefHeight="239.0" prefWidth="616.0">
+        <columns>
+          <TableColumn prefWidth="170.0" text="Event No" />
+          <TableColumn prefWidth="205.0" text="Event Name" />
+            <TableColumn prefWidth="189.0" text="Month" />
+        </columns>
+      </TableView>
    </children>
 </AnchorPane>
-

@@ -1,14 +1,13 @@
 package lk.ijse.preschool.controller;
 
-import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import javafx.stage.Window;
 
 import java.io.IOException;
 
@@ -64,6 +63,18 @@ public class DashboardWindowController {
         Parent load= FXMLLoader.load(getClass().getResource("/view/student-skill-status-window-view.fxml"));
         dashboardAnchorPane.getChildren().clear();
         dashboardAnchorPane.getChildren().add(load);
+    }
+
+    public void btnDashboardOnAction(ActionEvent actionEvent) throws IOException {
+        Stage thisStage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
+        FXMLLoader fxmlLoader= new FXMLLoader(LoginWindowController.class.getResource("/view/dashboard-window-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        thisStage.setScene(scene);
+        thisStage.setMaximized(true);
+
+    }
+
+    public void btnLogoutOnAction(ActionEvent actionEvent) {
     }
 }
 
