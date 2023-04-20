@@ -2,7 +2,10 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.paint.RadialGradient?>
@@ -11,24 +14,22 @@
 
 <AnchorPane fx:id="loginContext" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: linear-gradient(to top right, #00FFF0, #F8FB61); -fx-border-radius: 50;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.preschool.controller.LoginWindowController">
    <children>
-      <Label alignment="CENTER" layoutX="96.0" layoutY="25.0" prefHeight="50.0" prefWidth="287.0" text="Welcome Back !" textFill="#686d6f">
-         <font>
-            <Font name="Gabriola" size="52.0" />
-         </font>
-      </Label>
-      <TextField layoutX="240.0" layoutY="141.0" promptText="username" />
-      <TextField layoutX="234.0" layoutY="207.0" promptText="password" style="-fx-border-radius: 50;" />
-      <Label alignment="CENTER" layoutX="39.0" layoutY="135.0" prefHeight="36.0" prefWidth="91.0" text="Username :">
+      <ImageView fitHeight="450.0" fitWidth="809.0" layoutX="-102.0" layoutY="-43.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/login1.jpg" />
+         </image>
+      </ImageView>
+      <Label alignment="CENTER" layoutX="14.0" layoutY="146.0" prefHeight="36.0" prefWidth="91.0" text="Username :">
          <font>
             <Font name="System Bold Italic" size="12.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" layoutX="36.0" layoutY="207.0" prefHeight="36.0" prefWidth="97.0" text="Password :">
+      <Label alignment="CENTER" layoutX="11.0" layoutY="201.0" prefHeight="36.0" prefWidth="97.0" text="Password :">
          <font>
             <Font name="System Bold Italic" size="12.0" />
          </font>
       </Label>
-      <JFXButton layoutX="240.0" layoutY="302.0" onAction="#btnLoginOnAction" prefHeight="36.0" prefWidth="83.0" style="-fx-background-color: yellow;" text="Login">
+      <JFXButton layoutX="164.0" layoutY="275.0" onAction="#btnLoginOnAction" prefHeight="36.0" prefWidth="83.0" style="-fx-background-color: yellow; -fx-background-radius: 20;" text="Login">
          <font>
             <Font name="Comic Sans MS Bold Italic" size="16.0" />
          </font>
@@ -49,5 +50,7 @@
             </RadialGradient>
          </textFill>
       </JFXButton>
+      <TextField fx:id="txtUserName" layoutX="115.0" layoutY="152.0" onAction="#txtUserNameOnAction" prefHeight="25.0" prefWidth="198.0" promptText="username" />
+      <PasswordField fx:id="txtPassword" layoutX="115.0" layoutY="207.0" onAction="#txtPasswordOnAction" prefHeight="25.0" prefWidth="198.0" promptText="password" />
    </children>
 </AnchorPane>

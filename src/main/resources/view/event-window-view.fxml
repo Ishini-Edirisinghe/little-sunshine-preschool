@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="558.0" prefWidth="836.0" style="-fx-background-color: linear-gradient(#e66465, #9198e5);" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.preschool.controller.EventWindowController">
+<AnchorPane prefHeight="558.0" prefWidth="836.0" style="-fx-background-color: linear-gradient(#eeaeca,#94bbe9 100%);" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.preschool.controller.EventWindowController">
    <children>
       <Label alignment="CENTER" layoutX="328.0" layoutY="35.0" prefHeight="49.0" prefWidth="145.0" text="Event">
          <font>
@@ -20,16 +20,18 @@
       <TextField fx:id="txtEventName" layoutX="489.0" layoutY="136.0" prefHeight="25.0" prefWidth="191.0" promptText="event name" />
       <TextField fx:id="txtMonth" layoutX="133.0" layoutY="199.0" prefHeight="25.0" prefWidth="198.0" promptText="month" />
       <Label layoutX="418.0" layoutY="136.0" prefHeight="25.0" prefWidth="71.0" text="Event name" />
-      <Label layoutX="59.0" layoutY="203.0" prefHeight="17.0" prefWidth="54.0" text="Month" />
+      <Label layoutX="59.0" layoutY="204.0" prefHeight="17.0" prefWidth="54.0" text="Month" />
       <JFXButton layoutX="390.0" layoutY="196.0" onAction="#btnSaveOnAction" prefHeight="32.0" prefWidth="71.0" style="-fx-background-color: white;" text="Save" />
       <JFXButton layoutX="499.0" layoutY="196.0" onAction="#btnDeleteOnAction" prefHeight="32.0" prefWidth="71.0" style="-fx-background-color: white;" text="Delete" />
       <JFXButton layoutX="609.0" layoutY="196.0" onAction="#btnUpdateOnAction" prefHeight="32.0" prefWidth="71.0" style="-fx-background-color: white;" text="Update" />
-      <TableView layoutX="59.0" layoutY="279.0" prefHeight="239.0" prefWidth="616.0">
+      <TableView fx:id="tblEvent" layoutX="59.0" layoutY="279.0" prefHeight="239.0" prefWidth="616.0">
         <columns>
-          <TableColumn prefWidth="170.0" text="Event No" />
-          <TableColumn prefWidth="205.0" text="Event Name" />
-            <TableColumn prefWidth="189.0" text="Month" />
+          <TableColumn fx:id="colEventNo" prefWidth="104.0" text="Event No" />
+          <TableColumn fx:id="colEventName" prefWidth="316.0" text="Event Name" />
+            <TableColumn fx:id="colMonth" prefWidth="106.0" text="Month" />
+            <TableColumn fx:id="colAction" prefWidth="89.0" text="Action" />
         </columns>
       </TableView>
+      <JFXButton layoutX="341.0" layoutY="136.0" onAction="#btnSearchEventOnAction" style="-fx-background-color: white;" text="search" />
    </children>
 </AnchorPane>

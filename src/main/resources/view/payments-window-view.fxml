@@ -1,14 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="639.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.preschool.controller.PaymentsWindowController">
+<AnchorPane prefHeight="606.0" prefWidth="1000.0" style="-fx-background-color: linear-gradient(#eeaeca,#94bbe9 100%);" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.preschool.controller.PaymentsWindowController">
    <children>
-      <Label alignment="CENTER" layoutX="139.0" layoutY="93.0" prefHeight="77.0" prefWidth="297.0" text=" payments">
+      <Label alignment="CENTER" layoutX="216.0" layoutY="14.0" prefHeight="77.0" prefWidth="297.0" text=" Payments">
          <font>
-            <Font size="29.0" />
+            <Font name="Comic Sans MS Bold Italic" size="29.0" />
          </font></Label>
+      <Label layoutX="71.0" layoutY="132.0" text="Reference No" />
+      <Label layoutX="71.0" layoutY="184.0" text="Date" />
+      <Label layoutX="398.0" layoutY="132.0" text="Student Id" />
+      <Label layoutX="398.0" layoutY="184.0" prefHeight="17.0" prefWidth="55.0" text="Type" />
+      <TextField fx:id="txtRefNo" layoutX="155.0" layoutY="128.0" onAction="#txtRefNoOnAction" prefHeight="25.0" prefWidth="184.0" promptText="Referance No" />
+      <TextField fx:id="txtStId" layoutX="480.0" layoutY="128.0" prefHeight="25.0" prefWidth="227.0" promptText="Student Id" />
+      <TextField fx:id="txtType" layoutX="480.0" layoutY="180.0" prefHeight="25.0" prefWidth="227.0" promptText="Type" />
+      <JFXButton layoutX="178.0" layoutY="246.0" onAction="#btnSaveOnAction" style="-fx-background-color: white;" text="Add" />
+      <JFXButton layoutX="322.0" layoutY="246.0" onAction="#btnDeleteOnAction" style="-fx-background-color: white;" text="delete" />
+      <JFXButton layoutX="473.0" layoutY="246.0" onAction="#btnUpdateOnAction" style="-fx-background-color: white;" text="update" />
+      <TableView fx:id="tblPayment" layoutX="60.0" layoutY="311.0" prefHeight="246.0" prefWidth="698.0">
+        <columns>
+          <TableColumn fx:id="colRefNo" prefWidth="127.0" text="Reference No" />
+          <TableColumn fx:id="colDate" prefWidth="191.0" text="Date" />
+            <TableColumn fx:id="colStId" prefWidth="214.0" text="Student Id" />
+            <TableColumn fx:id="colType" prefWidth="59.0" text="Type" />
+            <TableColumn fx:id="colAction" prefWidth="75.0" text="Action" />
+        </columns>
+      </TableView>
+      <DatePicker fx:id="dtpckrDate" layoutX="155.0" layoutY="180.0" prefHeight="25.0" prefWidth="184.0" promptText="date" />
+      <JFXButton layoutX="345.0" layoutY="128.0" onAction="#btnSearchOnAction" style="-fx-background-color: white;" text="search" />
    </children>
 </AnchorPane>

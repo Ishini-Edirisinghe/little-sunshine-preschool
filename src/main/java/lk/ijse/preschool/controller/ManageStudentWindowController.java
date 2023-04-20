@@ -86,29 +86,47 @@ public class ManageStudentWindowController implements Initializable {
         setCellValueFactory(); //To show table data
         getAllStudentsToTable(searchText); //To get all students details to table(Not show)
         loadTeacherids();
+
+        tblStudent.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> { //Add ActionListener to selected column and display text field values
+            //Check select value is not null
+            if(null!=newValue) { //newValue!=null --> Get more time to compare (newValue object compare)
+               // btnSaveSupplier.setText("Update Supplier");
+                setDataToTextFields(newValue); //Set data to text field of selected row data of table
+            }
+        });
+    }
+
+    private void setDataToTextFields(StudentTM studentTM) {
+        txtStId.setText(studentTM.getStId());
+        txtName.setText(studentTM.getName());
+        txtAddress.setText(studentTM.getAddress());
+        dtpckrDOB.setValue(LocalDate.parse(studentTM.getDOB()));
+        txtContact.setText(studentTM.getContact());
+        txtParentName.setText(studentTM.getParentsName());
+        cmbTeacherId.setValue(studentTM.getTeacherId());
     }
 
     private void getAllStudentsToTable(String searchText) {
-        try {
-            List<Student> studentList = StudentModel.getAll();
-            for(Student student : studentList) {
-                if (student.getName().contains(searchText) || student.getAddress().contains(searchText)){  //Check pass text contains of the supName
-                    JFXButton btnDel=new JFXButton("Delete");
-                    btnDel.setAlignment(Pos.CENTER);
-                    btnDel.setStyle("-fx-background-color: #686de0; ");
-                    btnDel.setCursor(Cursor.HAND);
+            try {
+                List<Student> studentList = StudentModel.getAll();
+                for(Student student : studentList) {
+                    if (student.getName().contains(searchText) || student.getAddress().contains(searchText)){  //Check pass text contains of the supName
+                        JFXButton btnDel=new JFXButton("Delete");
+                        btnDel.setAlignment(Pos.CENTER);
+                        btnDel.setStyle("-fx-background-color: #686de0; ");
+                        btnDel.setCursor(Cursor.HAND);
 
-                    StudentTM tm=new StudentTM(
-                            student.getStId(),
-                            student.getName(),
-                            student.getAddress(),
-                            student.getDOB(),
-                            student.getContact(),
-                            student.getParentName(),
+                        StudentTM tm=new StudentTM(
+                                student.getStId(),
+                                student.getName(),
+                                student.getAddress(),
+                                student.getDOB(),
+                                student.getContact(),
+                                student.getParentName(),
 
-                            (String) cmbTeacherId.getSelectionModel().getSelectedItem(),btnDel);
+                                (String) cmbTeacherId.getSelectionModel().getSelectedItem(),btnDel);
 
-                    obList.add(tm);
+                        obList.add(tm);
 
                     setDeleteButtonTableOnAction(btnDel);
                 }
@@ -221,11 +239,7 @@ public class ManageStudentWindowController implements Initializable {
         String contact = txtContact.getText();
         String parentName = txtParentName.getText();
 
-     //var student = new Student(id, name, address,DOB, contact,parentName);   //type inference
-
-        //            boolean isUpdated = ItemModel.update(code, description, unitPrice, qtyOnHand);
         try {
-//            boolean isUpdated = ItemModel.update(code, description, unitPrice, qtyOnHand);
             boolean isUpdated = StudentModel.update(id, name, address,DOB, contact,parentName);
             if (isUpdated) {
 
@@ -253,7 +267,7 @@ public class ManageStudentWindowController implements Initializable {
                 txtStId.setText(student.getStId());
                 txtName.setText(student.getName());
                 txtAddress.setText(String.valueOf(student.getAddress()));
-
+                cmbTeacherId.setValue(student.getTeachId());
                 dtpckrDOB.setValue(LocalDate.parse(student.getDOB()));
                 txtContact.setText(String.valueOf(student.getContact()));
                 txtParentName.setText(String.valueOf(student.getParentName()));

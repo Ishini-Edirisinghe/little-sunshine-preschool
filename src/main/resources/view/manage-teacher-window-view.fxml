@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="606.0" prefWidth="1000.0" style="-fx-background-color: linear-gradient(#eeaeca,#94bbe9 100%);" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.preschool.controller.ManageTeacherWindowController">
+   <children>
+      <Label alignment="CENTER" layoutX="156.0" layoutY="23.0" prefHeight="44.0" prefWidth="250.0" text="Manage Teachers">
+         <font>
+            <Font name="System Bold Italic" size="24.0" />
+         </font></Label>
+      <Label layoutX="25.0" layoutY="94.0" prefHeight="17.0" prefWidth="71.0" text="Teacher Id" />
+      <Label layoutX="40.0" layoutY="144.0" prefHeight="17.0" prefWidth="41.0" text="Name" />
+      <Label layoutX="39.0" layoutY="196.0" text="Address" />
+      <Label layoutX="474.0" layoutY="85.0" prefHeight="17.0" prefWidth="77.0" text="Date Of Birth" />
+      <Label layoutX="473.0" layoutY="144.0" prefHeight="17.0" prefWidth="55.0" text="Contact" />
+      <TextField fx:id="txtTeachId" layoutX="110.0" layoutY="90.0" onAction="#txtTeachIdOnAction" prefHeight="25.0" prefWidth="221.0" />
+      <TextField fx:id="txtTeachName" layoutX="110.0" layoutY="140.0" prefHeight="25.0" prefWidth="221.0" />
+      <TextField fx:id="txtTeachAddress" layoutX="110.0" layoutY="192.0" prefHeight="25.0" prefWidth="221.0" />
+      <TextField fx:id="txtContact" layoutX="576.0" layoutY="140.0" prefHeight="25.0" prefWidth="189.0" />
+      <JFXButton layoutX="354.0" layoutY="90.0" onAction="#btnSearchOnAction" style="-fx-background-color: white;" text="Search" />
+      <JFXButton layoutX="398.0" layoutY="192.0" onAction="#btnSaveOnAction" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: white;" text="Add" />
+      <JFXButton layoutX="502.0" layoutY="192.0" onAction="#btnDeleteOnAction" style="-fx-background-color: white;" text="Delete" />
+      <JFXButton layoutX="619.0" layoutY="192.0" onAction="#btnUpdateOnUpdate" style="-fx-background-color: white;" text="Update" />
+      <TableView fx:id="tblTeacher" layoutX="16.0" layoutY="283.0" prefHeight="291.0" prefWidth="968.0">
+        <columns>
+          <TableColumn fx:id="colTeachId" prefWidth="103.0" text="Teacher ID" />
+          <TableColumn fx:id="colName" minWidth="0.0" prefWidth="181.0" text="Name" />
+            <TableColumn fx:id="colAddress" prefWidth="188.0" text="Address" />
+            <TableColumn fx:id="colDOB" prefWidth="201.0" text="Date Of Birth" />
+            <TableColumn fx:id="colContact" prefWidth="169.0" text="Contact" />
+            <TableColumn fx:id="colAction" prefWidth="125.0" text="Action" />
+        </columns>
+      </TableView>
+      <DatePicker fx:id="dtpckrDOB" layoutX="576.0" layoutY="81.0" />
+   </children>
+</AnchorPane>

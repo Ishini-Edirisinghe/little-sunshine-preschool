@@ -1,6 +1,7 @@
 package lk.ijse.preschool.model;
 
 import lk.ijse.preschool.db.DBConnection;
+import lk.ijse.preschool.dto.Student;
 import lk.ijse.preschool.dto.Teacher;
 import lk.ijse.preschool.util.CrudUtil;
 
@@ -52,5 +53,51 @@ public class TeacherModel {
             codes.add(resultSet.getString(1));
         }
         return codes;
+    }
+
+    public static Teacher search(String teachId) throws SQLException {
+        String sql = "SELECT * FROM teacher WHERE teachId = ?";
+        ResultSet resultSet = CrudUtil.execute(sql,teachId);
+
+        if(resultSet.next()) {
+            String teacher_teachId = resultSet.getString(1);
+            String teacher_name = resultSet.getString(2);
+            String teacher_address = resultSet.getString(3);
+            String teacher_DOB = resultSet.getString(4);
+            String teacher_contact = resultSet.getString(5);
+
+
+            return new Teacher(teacher_teachId, teacher_name, teacher_address, teacher_DOB,teacher_contact);
+        }
+        return null;
+    }
+
+    public static boolean deleteStudent(String code) throws SQLException {
+        String sql = "DELETE FROM teacher WHERE teachId = ?";
+        return CrudUtil.execute(sql,code);
+    }
+
+    public static boolean update(String teachId, String name, String address, String DOB, String contact) throws SQLException {
+        String sql = "UPDATE student SET  name = ?, address = ?,DOB=?,contact=? WHERE teachId = ?";
+        return CrudUtil.execute(sql,name, address,DOB, contact,teachId);
+    }
+
+    public static List<Teacher> getAll() throws SQLException {
+        String sql = "SELECT * FROM teacher";
+
+        List<Teacher> teaData = new ArrayList<>();
+
+        ResultSet resultSet = CrudUtil.execute(sql);
+        while (resultSet.next()) {
+            teaData.add(new Teacher(
+                    resultSet.getString(1),
+                    resultSet.getString(2),
+                    resultSet.getString(3),
+                    resultSet.getString(4),
+                    resultSet.getString(5)
+
+            ));
+        }
+        return teaData;
     }
 }
