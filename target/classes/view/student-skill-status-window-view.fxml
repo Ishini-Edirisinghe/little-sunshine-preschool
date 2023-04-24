@@ -27,9 +27,7 @@
          </font></Label>
       <JFXComboBox fx:id="cmbCountngStatus" layoutX="341.0" layoutY="223.0" prefHeight="25.0" prefWidth="155.0" />
       <JFXComboBox fx:id="cmbStId" layoutX="141.0" layoutY="132.0" onAction="#cmbStIdOnActon" prefHeight="25.0" prefWidth="192.0" />
-      <JFXButton layoutX="678.0" layoutY="132.0" prefHeight="25.0" prefWidth="55.0" style="-fx-background-color: white;" text="Add" />
-      <JFXButton layoutX="680.0" layoutY="172.0" style="-fx-background-color: white;" text="Delete" />
-      <JFXButton layoutX="678.0" layoutY="210.0" style="-fx-background-color: white;" text="Update" />
+      <JFXButton layoutX="683.0" layoutY="134.0" style="-fx-background-color: white;" text="Update" />
       <Label layoutX="360.0" layoutY="136.0" text="Student Name">
          <font>
             <Font size="14.0" />
