@@ -123,9 +123,7 @@ public class ManageStudentWindowController implements Initializable {
                                 student.getDOB(),
                                 student.getContact(),
                                 student.getParentName(),
-
-                                (String) cmbTeacherId.getSelectionModel().getSelectedItem(),btnDel);
-
+                                student.getTeachId(),btnDel);
                         obList.add(tm);
 
                     setDeleteButtonTableOnAction(btnDel);
@@ -180,22 +178,19 @@ public class ManageStudentWindowController implements Initializable {
         String DOB = String.valueOf(dtpckrDOB.getValue());
         String contact = txtContact.getText();
         String parentName = txtParentName.getText();
+        String teachId = String.valueOf(cmbTeacherId.getSelectionModel().getSelectedItem());
 
         try {
-            boolean isSaved = StudentModel.save(id, name, address,DOB, contact,parentName);
+            boolean isSaved = StudentModel.save(id, name, address,DOB, contact,parentName,teachId);
             if (isSaved) {
               new Alert(Alert.AlertType.CONFIRMATION, "Student saved!!!").show();
+               clearFieldsRefreshTable();
             }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, "OOPSSS!! something happened!!!").show();
+           clearFieldsRefreshTable();
         }
-        txtStId.clear();
-        txtName.clear();
-        txtAddress.clear();
-        dtpckrDOB.setValue(null);
-        txtContact.clear();
-        txtParentName.clear();
-        cmbTeacherId.getItems().clear();
+
 
     }
     private void loadTeacherids(){
@@ -220,14 +215,12 @@ public class ManageStudentWindowController implements Initializable {
         boolean isDeleted = StudentModel.deleteStudent(code);
         if(isDeleted) {
             new Alert(Alert.AlertType.CONFIRMATION, "Student deleted !").show();
+           clearFieldsRefreshTable();
+
+        }else {
+            new Alert(Alert.AlertType.CONFIRMATION, "Student not deleted !").show();
+           clearFieldsRefreshTable();
         }
-        txtStId.clear();
-        txtName.clear();
-        txtAddress.clear();
-        dtpckrDOB.setValue(null);
-        txtContact.clear();
-        txtParentName.clear();
-        cmbTeacherId.getItems().clear();
 
     }
 
@@ -238,25 +231,20 @@ public class ManageStudentWindowController implements Initializable {
         String DOB =  String.valueOf(dtpckrDOB.getValue());
         String contact = txtContact.getText();
         String parentName = txtParentName.getText();
+        String teachId = String.valueOf(cmbTeacherId.getSelectionModel().getSelectedItem());
 
         try {
-            boolean isUpdated = StudentModel.update(id, name, address,DOB, contact,parentName);
+            boolean isUpdated = StudentModel.update(id, name, address,DOB, contact,parentName,teachId);
             if (isUpdated) {
 
                 new Alert(Alert.AlertType.CONFIRMATION, "huree! Student Updated!").show();
+                clearFieldsRefreshTable();
             }
         } catch (SQLException e) {
-            System.out.println(e);
-            //   new Alert(Alert.AlertType.ERROR, "oops! something happened!").show();
-        }
-        txtStId.clear();
-        txtName.clear();
-        txtAddress.clear();
-        dtpckrDOB.setValue(null);
-        txtContact.clear();
-        txtParentName.clear();
-        cmbTeacherId.getItems().clear();
 
+              new Alert(Alert.AlertType.ERROR, "oops! something happened!").show();
+            clearFieldsRefreshTable();
+        }
     }
 
     public void btnSearchStudentOnAction(ActionEvent actionEvent) {
@@ -284,6 +272,17 @@ public class ManageStudentWindowController implements Initializable {
     public void txtStIdOnAction(ActionEvent actionEvent) {
         btnSearchStudentOnAction(actionEvent);
     }
-
+    private void clearFieldsRefreshTable(){
+        txtStId.clear();
+        txtName.clear();
+        txtAddress.clear();
+        dtpckrDOB.setValue(null);
+        txtContact.clear();
+        txtParentName.clear();
+        cmbTeacherId.getItems().clear();
+        tblStudent.getItems().clear();
+        getAllStudentsToTable("");
+        loadTeacherids();
+    }
 
 }

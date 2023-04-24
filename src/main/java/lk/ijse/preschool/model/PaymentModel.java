@@ -1,9 +1,11 @@
 package lk.ijse.preschool.model;
 
+import lk.ijse.preschool.db.DBConnection;
 import lk.ijse.preschool.dto.Payment;
 import lk.ijse.preschool.dto.Student;
 import lk.ijse.preschool.util.CrudUtil;
 
+import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -58,5 +60,18 @@ public class PaymentModel {
             ));
         }
         return payData;
+    }
+
+    public static List<String> getType() throws SQLException {
+        Connection con = DBConnection.getInstance().getConnection();
+
+        List<String> codes = new ArrayList<>();
+
+        String sql = "SELECT type FROM payment";
+        ResultSet resultSet = con.createStatement().executeQuery(sql);
+        while(resultSet.next()) {
+            codes.add(resultSet.getString(1));
+        }
+        return codes;
     }
 }

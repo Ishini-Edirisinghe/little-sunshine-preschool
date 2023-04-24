@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
@@ -20,8 +21,6 @@
       <Label layoutX="398.0" layoutY="132.0" text="Student Id" />
       <Label layoutX="398.0" layoutY="184.0" prefHeight="17.0" prefWidth="55.0" text="Type" />
       <TextField fx:id="txtRefNo" layoutX="155.0" layoutY="128.0" onAction="#txtRefNoOnAction" prefHeight="25.0" prefWidth="184.0" promptText="Referance No" />
-      <TextField fx:id="txtStId" layoutX="480.0" layoutY="128.0" prefHeight="25.0" prefWidth="227.0" promptText="Student Id" />
-      <TextField fx:id="txtType" layoutX="480.0" layoutY="180.0" prefHeight="25.0" prefWidth="227.0" promptText="Type" />
       <JFXButton layoutX="178.0" layoutY="246.0" onAction="#btnSaveOnAction" style="-fx-background-color: white;" text="Add" />
       <JFXButton layoutX="322.0" layoutY="246.0" onAction="#btnDeleteOnAction" style="-fx-background-color: white;" text="delete" />
       <JFXButton layoutX="473.0" layoutY="246.0" onAction="#btnUpdateOnAction" style="-fx-background-color: white;" text="update" />
@@ -36,5 +35,7 @@
       </TableView>
       <DatePicker fx:id="dtpckrDate" layoutX="155.0" layoutY="180.0" prefHeight="25.0" prefWidth="184.0" promptText="date" />
       <JFXButton layoutX="345.0" layoutY="128.0" onAction="#btnSearchOnAction" style="-fx-background-color: white;" text="search" />
+      <JFXComboBox fx:id="cmbType" layoutX="479.0" layoutY="172.0" prefHeight="25.0" prefWidth="227.0" />
+      <JFXComboBox fx:id="cmbStId" layoutX="472.0" layoutY="120.0" prefHeight="25.0" prefWidth="227.0" />
    </children>
 </AnchorPane>

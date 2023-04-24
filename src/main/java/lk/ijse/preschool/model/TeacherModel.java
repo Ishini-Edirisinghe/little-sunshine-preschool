@@ -78,7 +78,7 @@ public class TeacherModel {
     }
 
     public static boolean update(String teachId, String name, String address, String DOB, String contact) throws SQLException {
-        String sql = "UPDATE student SET  name = ?, address = ?,DOB=?,contact=? WHERE teachId = ?";
+        String sql = "UPDATE teacher SET name = ?, address = ?,DOB=?,contact=? WHERE teachId = ?";
         return CrudUtil.execute(sql,name, address,DOB, contact,teachId);
     }
 

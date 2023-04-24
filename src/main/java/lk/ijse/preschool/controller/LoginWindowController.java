@@ -11,9 +11,12 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import lk.ijse.preschool.model.LoginModel;
+import lk.ijse.preschool.util.Regex;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 
@@ -27,27 +30,47 @@ public class LoginWindowController implements Initializable {
     private TextField txtUserName;
 
 
-    private static final String VALID_USERNAME = "admin";
-    private static final String VALID_PASSWORD = "admin";
+   // private static final String VALID_USERNAME = "admin";
+   // private static final String VALID_PASSWORD = "admin";
 
     public void btnLoginOnAction(ActionEvent actionEvent) throws IOException {
         Stage stage = (Stage) loginContext.getScene().getWindow();
         stage.close();
+
         Stage stage1 = new Stage();
         stage1.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/dashboard-window-view.fxml"))));
         String username = txtUserName.getText();
         String password = txtPassword.getText();
-        if (username.equals(VALID_USERNAME) && password.equals(VALID_PASSWORD)) {
-            new Alert(Alert.AlertType.CONFIRMATION, "Login successful!").showAndWait();
+        if (Regex.validateUsername(username)&&Regex.validatePassword(password)) {
+
+            boolean isUserVerified ; //check in the DB
+            try {
+                isUserVerified = LoginModel.userCheckedInDB(username,password);
+                if (isUserVerified) {
+
+                    new Alert(Alert.AlertType.CONFIRMATION, "Login successful!").showAndWait();
+                    stage.close();
+                    stage1.setMaximized(true);
+                    stage1.show();
+                }else{
+                    new Alert(Alert.AlertType.WARNING, "User Not Found in DB!!!").show();
+                }
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+
+
+           /* new Alert(Alert.AlertType.CONFIRMATION, "Login successful!").showAndWait();
             stage.close();
             stage1.setMaximized(true);
-            stage1.show();
+            stage1.show();*/
         } else {
             new Alert(Alert.AlertType.WARNING, "Invalid username or password").showAndWait();
             txtUserName.clear();
             txtPassword.clear();
             txtUserName.requestFocus();
-          //  stage1.setMaximized(true);
+            //  stage1.setMaximized(true);
             stage.show();
         }
     }
@@ -70,7 +93,7 @@ public class LoginWindowController implements Initializable {
 
 
 
-    /*Stage stage = (Stage) loginContext.getScene().getWindow();
+  /*  Stage stage = (Stage) loginContext.getScene().getWindow();
 
 
     Stage stage2 = new Stage();
@@ -81,12 +104,24 @@ public class LoginWindowController implements Initializable {
 
                 String username = txtUsername.getText();
                 String password = txtPassword.getText();
-                if (username.equals(VALID_USERNAME) && password.equals(VALID_PASSWORD)) {
+
+                if(Regex.validateUsername(username)&&Regex.validatePassword(password)){
+
+                try {
+                boolean isUserVerified = LoginModel.userCheckedInDB(username,password); //check in the DB
+                if (isUserVerified) {
+
                 new Alert(Alert.AlertType.CONFIRMATION,"Login successful!").showAndWait();
                 stage.close();
                 stage2.show();
                 } else {
-                new Alert(Alert.AlertType.WARNING,"Invalid username or password").show();
+                new Alert(Alert.AlertType.WARNING, "User Not Found in DB!!!").show();
+                }
+                }catch (SQLException | ClassNotFoundException e){
+                new Alert(Alert.AlertType.ERROR,"Oops something wrong!!!").show();
+                }
+                }else {
+                new Alert(Alert.AlertType.ERROR,"Invalid Input !").show();
                 txtUsername.clear();
                 txtPassword.clear();
                 txtUsername.requestFocus();

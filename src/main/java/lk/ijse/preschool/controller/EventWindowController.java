@@ -64,7 +64,19 @@ public class EventWindowController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         setCellValueFactory(); //To show table data
         getAlleventsToTable(searchText); //To get all event details to table(Not show)
+        tblEvent.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> { //Add ActionListener to selected column and display text field values
+            //Check select value is not null
+            if(null!=newValue) { //newValue!=null --> Get more time to compare (newValue object compare)
+                // btnSaveSupplier.setText("Update Supplier");
+                setDataToTextFields(newValue); //Set data to text field of selected row data of table
+            }
+        });
+    }
 
+    private void setDataToTextFields(EventTM eventTM) {
+        txtEventNo.setText(eventTM.getEvent_no());
+        txtEventName.setText(eventTM.getName());
+        txtMonth.setText(eventTM.getMonth());
     }
 
     private void getAlleventsToTable(String searchText) {

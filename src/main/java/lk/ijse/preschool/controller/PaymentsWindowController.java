@@ -1,6 +1,7 @@
 package lk.ijse.preschool.controller;
 
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXComboBox;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -16,6 +17,7 @@ import lk.ijse.preschool.dto.tm.PaymentTM;
 import lk.ijse.preschool.dto.tm.StudentTM;
 import lk.ijse.preschool.model.PaymentModel;
 import lk.ijse.preschool.model.StudentModel;
+import lk.ijse.preschool.model.TeacherModel;
 
 import java.net.URL;
 import java.sql.SQLException;
@@ -26,17 +28,36 @@ import java.util.ResourceBundle;
 
 public class PaymentsWindowController implements Initializable {
 
-    public TextField txtRefNo;
-    public TextField txtStId;
-    public TextField txtType;
-    public TableView tblPayment;
-    public TableColumn colRefNo;
-    public TableColumn colStId;
-    public TableColumn colDate;
-    public TableColumn colType;
     @FXML
     private TableColumn<?, ?> colAction;
-    public DatePicker dtpckrDate;
+
+    @FXML
+    private TableColumn<?, ?> colDate;
+
+    @FXML
+    private TableColumn<?, ?> colRefNo;
+
+    @FXML
+    private TableColumn<?, ?> colStId;
+
+    @FXML
+    private TableColumn<?, ?> colType;
+
+    @FXML
+    private DatePicker dtpckrDate;
+
+    @FXML
+    private TableView<PaymentTM> tblPayment;
+
+    @FXML
+    private TextField txtRefNo;
+
+    @FXML
+    private JFXComboBox<String> cmbStId;
+
+    @FXML
+    private JFXComboBox<String> cmbType;
+
 
     private ObservableList<PaymentTM> obList = FXCollections.observableArrayList();
     private String searchText="";
@@ -46,24 +67,24 @@ public class PaymentsWindowController implements Initializable {
         btnSearchOnAction(actionEvent);
     }
 
+
     public void btnSaveOnAction(ActionEvent actionEvent) {
         String ref_no = txtRefNo.getText();
         String date = String.valueOf(dtpckrDate.getValue());
-        String stid = txtStId.getText();
-        String type = txtType.getText();
+        String stid = String.valueOf(cmbStId.getSelectionModel().getSelectedItem());
+        String type = String.valueOf(cmbType.getSelectionModel().getSelectedItem());
 
         try {
             boolean isSaved = PaymentModel.save(ref_no, date, stid,type);
             if (isSaved) {
                 new Alert(Alert.AlertType.CONFIRMATION, "Payment saved!!!").show();
+                clearFieldsRefreshTable();
             }
         } catch (SQLException e) {
-            new Alert(Alert.AlertType.ERROR, "OOPSSS!! something happened!!!").show();
+            System.out.println(e);
+            //new Alert(Alert.AlertType.ERROR, "OOPSSS!! something happened!!!").show();
+            clearFieldsRefreshTable();
         }
-        txtRefNo.clear();
-        dtpckrDate.setValue(null);
-        txtStId.clear();
-        txtType.clear();
     }
 
     public void btnDeleteOnAction(ActionEvent actionEvent) throws SQLException {
@@ -72,33 +93,31 @@ public class PaymentsWindowController implements Initializable {
         boolean isDeleted = PaymentModel.deletePayment(code);
         if(isDeleted) {
             new Alert(Alert.AlertType.CONFIRMATION, "Payment deleted !").show();
+            clearFieldsRefreshTable();
+        }else{
+            new Alert(Alert.AlertType.CONFIRMATION, "Payment not deleted !").show();
+            clearFieldsRefreshTable();
         }
-        txtRefNo.clear();
-        dtpckrDate.setValue(null);
-        txtStId.clear();
-        txtType.clear();
     }
 
     public void btnUpdateOnAction(ActionEvent actionEvent) {
         String ref_no = txtRefNo.getText();
         String date =  String.valueOf(dtpckrDate.getValue());
-        String stid = txtStId.getText();
-        String type = txtType.getText();
+        String stid = String.valueOf(cmbStId.getSelectionModel().getSelectedItem());
+        String type = String.valueOf(cmbType.getSelectionModel().getSelectedItem());
 
         try {
             boolean isUpdated = PaymentModel.update(ref_no, date, stid,type);
             if (isUpdated) {
 
                 new Alert(Alert.AlertType.CONFIRMATION, "huree! Payment Updated!").show();
+                clearFieldsRefreshTable();
             }
         } catch (SQLException e) {
             System.out.println(e);
-            //   new Alert(Alert.AlertType.ERROR, "oops! something happened!").show();
+              new Alert(Alert.AlertType.ERROR, "oops! something happened!").show();
+                clearFieldsRefreshTable();
         }
-        txtRefNo.clear();
-        dtpckrDate.setValue(null);
-        txtStId.clear();
-        txtType.clear();
     }
 
     public void btnSearchOnAction(ActionEvent actionEvent) {
@@ -108,8 +127,8 @@ public class PaymentsWindowController implements Initializable {
             if (payment != null) {
                 txtRefNo.setText(payment.getRef_no());
                 dtpckrDate.setValue(LocalDate.parse(payment.getDate()));
-                txtStId.setText(String.valueOf(payment.getStid()));
-                txtType.setText(String.valueOf(payment.getType()));
+                cmbStId.setValue(payment.getStid());
+                cmbType.setValue(payment.getType());
             } else {
                 new Alert(Alert.AlertType.WARNING, "no student found :(").show();
             }
@@ -120,9 +139,59 @@ public class PaymentsWindowController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        loadType();
+        loadStid();
         setCellValueFactory(); //To show table data
         getAllPaymentsToTable(searchText); //To get all students details to table(Not show)
+        loadType();
+        loadStid();
+        tblPayment.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> { //Add ActionListener to selected column and display text field values
+            //Check select value is not null
+            if(null!=newValue) { //newValue!=null --> Get more time to compare (newValue object compare)
+                // btnSaveSupplier.setText("Update Supplier");
+                setDataToTextFields(newValue); //Set data to text field of selected row data of table
+            }
+        });
     }
+
+    private void loadStid() {
+        try {
+            List<String>  ids = StudentModel.getIds();
+            ObservableList<String> obList = FXCollections.observableArrayList();
+
+            for (String id : ids) {
+                obList.add(id);
+            }
+            cmbStId.setItems(obList);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void loadType() {
+       //  ids = null;
+        try {
+            List<String>  ids = PaymentModel.getType();
+            ObservableList<String> obList = FXCollections.observableArrayList();
+
+            for (String id : ids) {
+                obList.add(id);
+            }
+            cmbType.setItems(obList);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+
+    }
+
+    private void setDataToTextFields(PaymentTM paymentTM) {
+        txtRefNo.setText(paymentTM.getRef_no());
+        dtpckrDate.setValue(LocalDate.parse(paymentTM.getDate()));
+        cmbStId.setValue(paymentTM.getType());
+        cmbType.setValue(paymentTM.getType());
+    }
+
 
     private void setCellValueFactory() {
         colRefNo.setCellValueFactory(new PropertyValueFactory<>("ref_no")); //SupplierTM class attributes names
@@ -182,5 +251,16 @@ public class PaymentsWindowController implements Initializable {
                 getAllPaymentsToTable(searchText);
             }
         });
+    }
+    private void clearFieldsRefreshTable(){
+        txtRefNo.clear();
+        dtpckrDate.setValue(null);
+        cmbStId.getItems().clear();
+        cmbType.getItems().clear();
+        tblPayment.getItems().clear();
+        getAllPaymentsToTable("");
+        loadStid();
+        loadType();
+
     }
 }

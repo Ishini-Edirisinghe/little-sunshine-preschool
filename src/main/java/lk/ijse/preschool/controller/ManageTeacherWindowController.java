@@ -4,6 +4,7 @@ import com.jfoenix.controls.JFXButton;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
 import javafx.scene.Cursor;
@@ -14,6 +15,7 @@ import lk.ijse.preschool.dto.Student;
 import lk.ijse.preschool.dto.Teacher;
 import lk.ijse.preschool.dto.tm.EventTM;
 import lk.ijse.preschool.dto.tm.StudentTM;
+import lk.ijse.preschool.dto.tm.SyllabusTM;
 import lk.ijse.preschool.dto.tm.TeacherTM;
 import lk.ijse.preschool.model.EventModel;
 import lk.ijse.preschool.model.StudentModel;
@@ -29,19 +31,41 @@ import java.util.ResourceBundle;
 public class ManageTeacherWindowController implements Initializable {
 
 
-    public TextField txtTeachId;
-    public TextField txtTeachName;
-    public TextField txtTeachAddress;
-    public TextField txtContact;
-    public TableView tblTeacher;
-    public TableColumn colTeachId;
-    public TableColumn colName;
-    public TableColumn colAddress;
-    public TableColumn colDOB;
-    public TableColumn colContact;
-    public TableColumn colAction;
-    public DatePicker dtpckrDOB;
+    @FXML
+    private TableColumn<?, ?> colAction;
 
+    @FXML
+    private TableColumn<?, ?> colAddress;
+
+    @FXML
+    private TableColumn<?, ?> colContact;
+
+    @FXML
+    private TableColumn<?, ?> colDOB;
+
+    @FXML
+    private TableColumn<?, ?> colName;
+
+    @FXML
+    private TableColumn<?, ?> colTeachId;
+
+    @FXML
+    private DatePicker dtpckrDOB;
+
+    @FXML
+    private TableView<TeacherTM> tblTeacher;
+
+    @FXML
+    private TextField txtContact;
+
+    @FXML
+    private TextField txtTeachAddress;
+
+    @FXML
+    private TextField txtTeachId;
+
+    @FXML
+    private TextField txtTeachName;
     private ObservableList<TeacherTM> obList = FXCollections.observableArrayList();
     private String searchText="";
 
@@ -50,10 +74,29 @@ public class ManageTeacherWindowController implements Initializable {
         setCellValueFactory(); //To show table data
         getAllTeachersToTable(searchText); //To get all Teacher details to table(Not show)
 
+        tblTeacher.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> { //Add ActionListener to selected column and display text field values
+            //Check select value is not null
+            if(null!=newValue) { //newValue!=null --> Get more time to compare (newValue object compare)
+                // btnSaveSupplier.setText("Update Supplier");
+                setDataToTextFields(newValue); //Set data to text field of selected row data of table
+            }
+        });
     }
+
+    private void setDataToTextFields(TeacherTM teacherTM) {
+        txtTeachId.setText(teacherTM.getTeachId());
+        txtTeachName.setText(teacherTM.getName());
+        txtTeachAddress.setText(teacherTM.getAddress());
+        dtpckrDOB.setValue(LocalDate.parse(teacherTM.getDOB()));
+        txtContact.setText(teacherTM.getContact());
+    }
+
+
     public void txtTeachIdOnAction(ActionEvent actionEvent) {
         btnSearchOnAction(actionEvent);
     }
+
+
 
     public void btnSaveOnAction(ActionEvent actionEvent) {
         String teachId = txtTeachId.getText();
@@ -62,21 +105,17 @@ public class ManageTeacherWindowController implements Initializable {
         String DOB = String.valueOf(dtpckrDOB.getValue());
         String contact = txtContact.getText();
 
-
         try {
             boolean isSaved = TeacherModel.save(teachId, name, address,DOB, contact);
             if (isSaved) {
                 new Alert(Alert.AlertType.CONFIRMATION, "Teacher saved!!!").show();
-
+                clearFieldsRefreshTable();
             }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, "OOPSSS!! something happened!!!").show();
+            clearFieldsRefreshTable();
         }
-        txtTeachId.clear();
-        txtTeachName.clear();
-        txtTeachAddress.clear();
-        dtpckrDOB.setValue(null);
-        txtContact.clear();
+
 
     }
 
@@ -86,13 +125,11 @@ public class ManageTeacherWindowController implements Initializable {
         boolean isDeleted = TeacherModel.deleteStudent(code);
         if(isDeleted) {
             new Alert(Alert.AlertType.CONFIRMATION, "Teacher deleted !").show();
+            clearFieldsRefreshTable();
+        }else {
+            new Alert(Alert.AlertType.CONFIRMATION, "Teacher not deleted !").show();
+            clearFieldsRefreshTable();
         }
-        txtTeachId.clear();
-        txtTeachName.clear();
-        txtTeachAddress.clear();
-        dtpckrDOB.setValue(null);
-        txtContact.clear();
-
 
     }
 
@@ -109,16 +146,14 @@ public class ManageTeacherWindowController implements Initializable {
             if (isUpdated) {
 
                 new Alert(Alert.AlertType.CONFIRMATION, "huree! Teacher Updated!").show();
+                clearFieldsRefreshTable();
+
             }
         } catch (SQLException e) {
-            System.out.println(e);
-            //   new Alert(Alert.AlertType.ERROR, "oops! something happened!").show();
+              new Alert(Alert.AlertType.ERROR, "oops! something happened!").show();
+         //   clearFieldsRefreshTable();
         }
-        txtTeachId.clear();
-        txtTeachName.clear();
-        txtTeachAddress.clear();
-        dtpckrDOB.setValue(null);
-        txtContact.clear();
+
     }
 
     public void btnSearchOnAction(ActionEvent actionEvent) {
@@ -189,7 +224,7 @@ public class ManageTeacherWindowController implements Initializable {
             Optional<ButtonType> buttonType = new Alert(Alert.AlertType.INFORMATION, "Are you sure to Delete?", yes, no).showAndWait();
 
             if (buttonType.get() == yes) {
-             //   txtTeachId.setText(tblTeacher.getSelectionModel().getSelectedItem().);
+               //txtTeachId.setText(tblTeacher.getSelectionModel().getSelectedItem().);
                // btnSearchEventOnAction(e);
                 try {
                     btnDeleteOnAction(e);
@@ -202,5 +237,14 @@ public class ManageTeacherWindowController implements Initializable {
                 getAllTeachersToTable(searchText);
             }
         });
+    }
+    private void clearFieldsRefreshTable(){
+        txtTeachId.clear();
+        txtTeachName.clear();
+        txtTeachAddress.clear();
+        dtpckrDOB.setValue(null);
+        txtContact.clear();
+        tblTeacher.getItems().clear();
+        getAllTeachersToTable("");
     }
 }

@@ -1,10 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: linear-gradient(#eeaeca,#94bbe9 100%);" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.preschool.controller.StudentSkillStatusWindowController">
+<AnchorPane prefHeight="606.0" prefWidth="1000.0" style="-fx-background-color: linear-gradient(#eeaeca,#94bbe9 100%);" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.preschool.controller.StudentSkillStatusWindowController">
    <children>
-      <Label alignment="CENTER" layoutX="152.0" layoutY="62.0" prefHeight="61.0" prefWidth="250.0" text="Student Skill Status" />
+      <Label alignment="CENTER" layoutX="168.0" layoutY="51.0" prefHeight="61.0" prefWidth="250.0" text="Student Skill Status">
+         <font>
+            <Font name="System Bold Italic" size="27.0" />
+         </font></Label>
+      <Label layoutX="57.0" layoutY="187.0" prefHeight="17.0" prefWidth="69.0" text="Skill Name">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <Label layoutX="360.0" layoutY="187.0" text="Status">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <Label layoutX="57.0" layoutY="136.0" text="Student Id">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <JFXComboBox fx:id="cmbCountngStatus" layoutX="341.0" layoutY="223.0" prefHeight="25.0" prefWidth="155.0" />
+      <JFXComboBox fx:id="cmbStId" layoutX="141.0" layoutY="132.0" onAction="#cmbStIdOnActon" prefHeight="25.0" prefWidth="192.0" />
+      <JFXButton layoutX="678.0" layoutY="132.0" prefHeight="25.0" prefWidth="55.0" style="-fx-background-color: white;" text="Add" />
+      <JFXButton layoutX="680.0" layoutY="172.0" style="-fx-background-color: white;" text="Delete" />
+      <JFXButton layoutX="678.0" layoutY="210.0" style="-fx-background-color: white;" text="Update" />
+      <Label layoutX="360.0" layoutY="136.0" text="Student Name">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtStudentName" editable="false" layoutX="481.0" layoutY="132.0" prefHeight="25.0" prefWidth="168.0" />
+      <Label layoutX="92.0" layoutY="225.0" prefHeight="17.0" prefWidth="192.0" text="Counting">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="90.0" layoutY="259.0" prefHeight="17.0" prefWidth="192.0" text="Drawing">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="92.0" layoutY="406.0" prefHeight="17.0" prefWidth="192.0" text="Crafting">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="90.0" layoutY="369.0" prefHeight="17.0" prefWidth="192.0" text="Reading">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="90.0" layoutY="333.0" prefHeight="17.0" prefWidth="192.0" text="Writing">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="90.0" layoutY="293.0" prefHeight="17.0" prefWidth="192.0" text="Singing">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <JFXComboBox fx:id="cmbDrawingStatus" layoutX="341.0" layoutY="257.0" prefHeight="25.0" prefWidth="155.0" />
+      <JFXComboBox fx:id="cmbSingingStatus" layoutX="341.0" layoutY="291.0" prefHeight="25.0" prefWidth="155.0" />
+      <JFXComboBox fx:id="cmbWritingStatus" layoutX="341.0" layoutY="331.0" prefHeight="25.0" prefWidth="155.0" />
+      <JFXComboBox fx:id="cmbReadingStatus" layoutX="341.0" layoutY="367.0" prefHeight="25.0" prefWidth="155.0" />
+      <JFXComboBox fx:id="cmbCraftingStatus" layoutX="341.0" layoutY="404.0" prefHeight="25.0" prefWidth="155.0" />
    </children>
 </AnchorPane>

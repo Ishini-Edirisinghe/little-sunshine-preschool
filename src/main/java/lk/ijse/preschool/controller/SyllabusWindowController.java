@@ -11,6 +11,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Cursor;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import lk.ijse.preschool.dto.Student;
 import lk.ijse.preschool.dto.Syllabus;
@@ -29,12 +30,24 @@ import java.util.ResourceBundle;
 
 public class SyllabusWindowController implements Initializable {
 
-    public TextField txtConNo;
-    public TextField txtConName;
-    public TableView tblSyllabus;
-    public TableColumn colConNo;
-    public TableColumn colConName;
-    public TableColumn colAction;
+    @FXML
+    private TableColumn<?, ?> colAction;
+
+    @FXML
+    private TableColumn<?, ?> colConName;
+
+    @FXML
+    private TableColumn<?, ?> colConNo;
+
+    @FXML
+    private TableView<SyllabusTM> tblSyllabus;
+
+    @FXML
+    private TextField txtConName;
+
+    @FXML
+    private TextField txtConNo;
+
 
     private ObservableList<SyllabusTM> obList = FXCollections.observableArrayList();
     private String searchText="";
@@ -47,12 +60,12 @@ public class SyllabusWindowController implements Initializable {
 
         boolean isDeleted = SyllabusModel.deleteSyllabus(code);
         if(isDeleted) {
-            new Alert(Alert.AlertType.CONFIRMATION, "Student deleted !").show();
+            new Alert(Alert.AlertType.CONFIRMATION, "Content deleted !").show();
+            clearFieldsRefreshTable();
+        }else {
+            new Alert(Alert.AlertType.CONFIRMATION, "Content not deleted !").show();
+            clearFieldsRefreshTable();
         }
-        txtConNo.clear();
-        txtConName.clear();
-
-
     }
 
     @FXML
@@ -63,15 +76,13 @@ public class SyllabusWindowController implements Initializable {
         try {
             boolean isSaved = SyllabusModel.save(subject_id,sub_name);
             if (isSaved) {
-                new Alert(Alert.AlertType.CONFIRMATION, "Student saved!!!").show();
+                new Alert(Alert.AlertType.CONFIRMATION, "Content saved!!!").show();
+                clearFieldsRefreshTable();
             }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, "OOPSSS!! something happened!!!").show();
+            clearFieldsRefreshTable();
         }
-        txtConNo.clear();
-        txtConName.clear();
-
-
     }
 
     @FXML
@@ -84,7 +95,7 @@ public class SyllabusWindowController implements Initializable {
                 txtConName.setText(syllabus.getSub_name());
 
             } else {
-                new Alert(Alert.AlertType.WARNING, "no student found :(").show();
+                new Alert(Alert.AlertType.WARNING, "no Content found :(").show();
             }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, "oops! something went wrong :(").show();
@@ -102,15 +113,13 @@ public class SyllabusWindowController implements Initializable {
             boolean isUpdated = SyllabusModel.update(subject_id,sub_name);
             if (isUpdated) {
 
-                new Alert(Alert.AlertType.CONFIRMATION, "huree! Student Updated!").show();
+                new Alert(Alert.AlertType.CONFIRMATION, "huree! Content Updated!").show();
+                clearFieldsRefreshTable();
             }
         } catch (SQLException e) {
-            System.out.println(e);
-            //   new Alert(Alert.AlertType.ERROR, "oops! something happened!").show();
+               new Alert(Alert.AlertType.ERROR, "oops! something happened!").show();
+                clearFieldsRefreshTable();
         }
-        txtConNo.clear();
-        txtConName.clear();
-
     }
 
     @FXML
@@ -121,8 +130,26 @@ public class SyllabusWindowController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        //setCellValueFactory(); //To show table data
+        setCellValueFactory(); //To show table data
         getAllSyllabusToTable(searchText); //To get all students details to table(Not show)
+        tblSyllabus.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> { //Add ActionListener to selected column and display text field values
+            //Check select value is not null
+            if(null!=newValue) { //newValue!=null --> Get more time to compare (newValue object compare)
+                // btnSaveSupplier.setText("Update Supplier");
+                setDataToTextFields(newValue); //Set data to text field of selected row data of table
+            }
+        });
+    }
+
+    private void setDataToTextFields(SyllabusTM syllabusTM) {
+        txtConNo.setText(syllabusTM.getSubject_id());
+        txtConName.setText(syllabusTM.getSub_name());
+    }
+
+    private void setCellValueFactory() {
+        colConNo.setCellValueFactory(new PropertyValueFactory<>("subject_id")); //SupplierTM class attributes names
+        colConName.setCellValueFactory(new PropertyValueFactory<>("sub_name"));
+        colAction.setCellValueFactory(new PropertyValueFactory<>("btn"));
     }
 
     private void getAllSyllabusToTable(String searchText) {
@@ -134,6 +161,7 @@ public class SyllabusWindowController implements Initializable {
                     btnDel.setAlignment(Pos.CENTER);
                     btnDel.setStyle("-fx-background-color: #686de0; ");
                     btnDel.setCursor(Cursor.HAND);
+
 
                     SyllabusTM tm=new SyllabusTM(
                             syllabus.getSubject_id(),
@@ -174,5 +202,12 @@ public class SyllabusWindowController implements Initializable {
                 getAllSyllabusToTable(searchText);
             }
         });
+    }
+    private void clearFieldsRefreshTable(){
+        txtConNo.clear();
+        txtConName.clear();
+        tblSyllabus.getItems().clear();
+        getAllSyllabusToTable("");
+
     }
 }

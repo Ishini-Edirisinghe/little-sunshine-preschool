@@ -8,10 +8,10 @@ import lombok.*;
 @Setter
 
 public class Teacher {
-    String teachId;
-    String name;
-    String address;
-    String DOB;
-    String contact;
+   private String teachId;
+   private String name;
+   private String address;
+   private String DOB;
+   private String contact;
 
 }
