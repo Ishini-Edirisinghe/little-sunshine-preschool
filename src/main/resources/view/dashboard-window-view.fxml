@@ -16,7 +16,7 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="dashboardMainAnchorPane" blendMode="DARKEN" minHeight="650.0" minWidth="1366.0" prefHeight="650.0" prefWidth="1366.0" style="-fx-background-color: #82589F;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.preschool.controller.DashboardWindowController">
+<AnchorPane fx:id="dashboardMainAnchorPane" blendMode="DARKEN" minHeight="650.0" minWidth="1366.0" prefHeight="650.0" prefWidth="1366.0" style="-fx-background-color: #82589F;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.preschool.controller.DashboardWindowController">
    <children>
       <AnchorPane fx:id="dashboardAnchorPane" layoutX="309.0" layoutY="30.0" prefHeight="606.0" prefWidth="1000.0" style="-fx-background-color: linear-gradient(#eeaeca,#94bbe9 100%); -fx-background-radius: 20;" styleClass="btn" stylesheets="@../stylesheet/stylesheet.css">
          <children>
@@ -29,12 +29,12 @@
                      <stops>
                         <Stop>
                            <color>
-                              <Color red="0.4775219261646271" green="0.5090003609657288" blue="0.5131579041481018" />
+                              <Color blue="0.5131579041481018" green="0.5090003609657288" red="0.4775219261646271" />
                            </color>
                         </Stop>
                         <Stop offset="1.0">
                            <color>
-                              <Color red="0.20999999344348907" green="0.4056190550327301" blue="1.0" />
+                              <Color blue="1.0" green="0.4056190550327301" red="0.20999999344348907" />
                            </color>
                         </Stop>
                      </stops>
@@ -65,7 +65,7 @@
          </children></AnchorPane>
       <Pane layoutX="43.0" layoutY="22.0" prefHeight="606.0" prefWidth="237.0" style="-fx-background-color: #d2dae2; -fx-background-radius: 30;">
          <children>
-            <JFXButton layoutX="11.0" layoutY="245.0" onAction="#btnManageTeacherOnAction" prefHeight="49.0" prefWidth="214.0" style="-fx-background-color: #D6A2E8; -fx-background-radius: 20;" text="Manage Teacher">
+            <JFXButton layoutX="11.0" layoutY="254.0" onAction="#btnManageTeacherOnAction" prefHeight="49.0" prefWidth="214.0" style="-fx-background-color: #D6A2E8; -fx-background-radius: 20;" text="Manage Teacher">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
@@ -73,14 +73,13 @@
                   <DropShadow />
                </effect>
             </JFXButton>
-            <JFXButton layoutX="13.0" layoutY="489.0" onAction="#btnStudentSkillsStatusOnAction" prefHeight="49.0" prefWidth="214.0" style="-fx-background-color: #D6A2E8; -fx-background-radius: 20;" text="Student skills status" />
-            <JFXButton layoutX="11.0" layoutY="370.0" onAction="#btnPaymentOnAction" prefHeight="49.0" prefWidth="214.0" style="-fx-background-color: #D6A2E8; -fx-background-radius: 20;" text="Payments" />
-            <JFXButton layoutX="18.0" layoutY="429.0" onAction="#btnSyllabusOnAction" prefHeight="49.0" prefWidth="208.0" style="-fx-background-color: #D6A2E8; -fx-background-radius: 20;" text="Sylabus" />
-            <JFXButton layoutX="15.0" layoutY="185.0" onAction="#btnEventOnAction" prefHeight="49.0" prefWidth="208.0" style="-fx-background-color: #D6A2E8; -fx-background-radius: 20;" text="Events" textFill="#322929" />
-            <JFXButton layoutX="14.0" layoutY="303.0" onAction="#btnGetReportOnAction" prefHeight="49.0" prefWidth="208.0" style="-fx-background-color: #D6A2E8; -fx-background-radius: 20;" text="Get Report" />
-            <JFXButton layoutX="18.0" layoutY="125.0" onAction="#btnManageStudentOnAction" prefHeight="49.0" prefWidth="208.0" style="-fx-background-color: #D6A2E8; -fx-background-radius: 20;" text="Manage Student" />
+            <JFXButton layoutX="11.0" layoutY="470.0" onAction="#btnStudentSkillsStatusOnAction" prefHeight="49.0" prefWidth="214.0" style="-fx-background-color: #D6A2E8; -fx-background-radius: 20;" text="Student skills status" />
+            <JFXButton layoutX="12.0" layoutY="327.0" onAction="#btnPaymentOnAction" prefHeight="49.0" prefWidth="214.0" style="-fx-background-color: #D6A2E8; -fx-background-radius: 20;" text="Payments" />
+            <JFXButton layoutX="18.0" layoutY="396.0" onAction="#btnSyllabusOnAction" prefHeight="49.0" prefWidth="208.0" style="-fx-background-color: #D6A2E8; -fx-background-radius: 20;" text="Sylabus" />
+            <JFXButton layoutX="16.0" layoutY="174.0" onAction="#btnEventOnAction" prefHeight="49.0" prefWidth="208.0" style="-fx-background-color: #D6A2E8; -fx-background-radius: 20;" text="Events" textFill="#322929" />
+            <JFXButton layoutX="18.0" layoutY="107.0" onAction="#btnManageStudentOnAction" prefHeight="49.0" prefWidth="208.0" style="-fx-background-color: #D6A2E8; -fx-background-radius: 20;" text="Manage Student" />
             <JFXButton layoutX="16.0" layoutY="549.0" onAction="#btnLogoutOnAction" prefHeight="49.0" prefWidth="208.0" style="-fx-background-color: #D6A2E8; -fx-background-radius: 20;" text="Logout" />
-            <JFXButton layoutX="11.0" layoutY="58.0" onAction="#btnDashboardOnAction" prefHeight="49.0" prefWidth="208.0" style="-fx-background-color: #D6A2E8; -fx-background-radius: 20;" stylesheets="@../stylesheet/stylesheet.css" text="Dashboard">
+            <JFXButton layoutX="16.0" layoutY="31.0" onAction="#btnDashboardOnAction" prefHeight="49.0" prefWidth="208.0" style="-fx-background-color: #D6A2E8; -fx-background-radius: 20;" stylesheets="@../stylesheet/stylesheet.css" text="Dashboard">
                <styleClass>
                   <String fx:value="btn" />
                   <String fx:value="btn" />

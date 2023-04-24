@@ -79,13 +79,7 @@ public class DashboardWindowController implements Initializable {
         dashboardAnchorPane.getChildren().add(load);
     }
 
-    @FXML
-    void btnGetReportOnAction(ActionEvent event) throws IOException {
-        Parent load= FXMLLoader.load(getClass().getResource("/view/get-report-window-view.fxml"));
-        dashboardAnchorPane.getChildren().clear();
-        dashboardAnchorPane.getChildren().add(load);
 
-    }
 
     @FXML
     void btnManageStudentOnAction(ActionEvent event) throws IOException {
