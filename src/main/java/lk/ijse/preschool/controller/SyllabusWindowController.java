@@ -52,7 +52,19 @@ public class SyllabusWindowController implements Initializable {
     private ObservableList<SyllabusTM> obList = FXCollections.observableArrayList();
     private String searchText="";
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        setCellValueFactory(); //To show table data
+        getAllSyllabusToTable(searchText); //To get all students details to table(Not show)
 
+        tblSyllabus.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> { //Add ActionListener to selected column and display text field values
+            //Check select value is not null
+            if(null!=newValue) { //newValue!=null --> Get more time to compare (newValue object compare)
+                // btnSaveSupplier.setText("Update Supplier");
+                setDataToTextFields(newValue); //Set data to text field of selected row data of table
+            }
+        });
+    }
 
     @FXML
     void btnDeleteOnAction(ActionEvent event) throws SQLException {
@@ -128,18 +140,7 @@ public class SyllabusWindowController implements Initializable {
 
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        setCellValueFactory(); //To show table data
-        getAllSyllabusToTable(searchText); //To get all students details to table(Not show)
-        tblSyllabus.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> { //Add ActionListener to selected column and display text field values
-            //Check select value is not null
-            if(null!=newValue) { //newValue!=null --> Get more time to compare (newValue object compare)
-                // btnSaveSupplier.setText("Update Supplier");
-                setDataToTextFields(newValue); //Set data to text field of selected row data of table
-            }
-        });
-    }
+
 
     private void setDataToTextFields(SyllabusTM syllabusTM) {
         txtConNo.setText(syllabusTM.getSubject_id());
