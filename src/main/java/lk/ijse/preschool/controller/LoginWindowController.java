@@ -29,10 +29,6 @@ public class LoginWindowController implements Initializable {
     @FXML
     private TextField txtUserName;
 
-
-   // private static final String VALID_USERNAME = "admin";
-   // private static final String VALID_PASSWORD = "admin";
-
     public void btnLoginOnAction(ActionEvent actionEvent) throws IOException {
         Stage stage = (Stage) loginContext.getScene().getWindow();
         stage.close();
@@ -53,7 +49,11 @@ public class LoginWindowController implements Initializable {
                     stage1.setMaximized(true);
                     stage1.show();
                 }else{
-                    new Alert(Alert.AlertType.WARNING, "User Not Found in DB!!!").show();
+                    new Alert(Alert.AlertType.WARNING, "User Not Found in DB!!!").showAndWait();
+                    txtUserName.clear();
+                    txtPassword.clear();
+                    txtUserName.requestFocus();
+                    stage.show();
                 }
 
             } catch (SQLException e) {

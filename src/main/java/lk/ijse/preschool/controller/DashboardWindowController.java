@@ -91,12 +91,6 @@ public class DashboardWindowController implements Initializable {
         dashboardAnchorPane.getChildren().clear();
         dashboardAnchorPane.getChildren().add(load);
     }
-   /* @FXML
-    void btnManageTeacherOnAction(ActionEvent event) throws IOException {
-        Parent load = FXMLLoader.load(getClass().getResource("/view/manage-teacher-window-view.fxml"));
-        dashboardAnchorPane.getChildren().clear();
-        dashboardAnchorPane.getChildren().add(load);
-    }*/
 
     @FXML
     void btnManageTeacherOnAction(ActionEvent event) throws IOException {
@@ -127,7 +121,12 @@ public class DashboardWindowController implements Initializable {
 
     }
 
-    public void btnLogoutOnAction(ActionEvent actionEvent) {
+    public void btnLogoutOnAction(ActionEvent actionEvent) throws IOException {
+        Stage stage = (Stage) dashboardMainAnchorPane.getScene().getWindow();
+        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/login-window-view.fxml"))));
+
+        stage.centerOnScreen();
+        stage.show();
     }
 
 
