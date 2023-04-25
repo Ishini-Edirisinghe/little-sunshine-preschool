@@ -1,29 +1,20 @@
 package lk.ijse.preschool.controller;
 
-import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.geometry.Pos;
-import javafx.scene.Cursor;
 import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
 import lk.ijse.preschool.dto.SkillStatus;
 import lk.ijse.preschool.dto.Student;
-import lk.ijse.preschool.dto.tm.SkillStatusTM;
-import lk.ijse.preschool.dto.tm.StudentTM;
 import lk.ijse.preschool.model.SkillStatusModel;
 import lk.ijse.preschool.model.StudentModel;
 
 import java.net.URL;
 import java.sql.SQLException;
-import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class StudentSkillStatusWindowController implements Initializable {
@@ -35,7 +26,7 @@ public class StudentSkillStatusWindowController implements Initializable {
     @FXML
     private TextField txtStudentName;
 
-    private ObservableList<SkillStatusTM> obList = FXCollections.observableArrayList();
+   // private ObservableList<SkillStatusTM> obList = FXCollections.observableArrayList();
     private String searchText="";
 
     @FXML
@@ -56,7 +47,8 @@ public class StudentSkillStatusWindowController implements Initializable {
     @FXML
     private JFXComboBox<String> cmbWritingStatus;
 
-    ObservableList<String> items = FXCollections.observableArrayList("Excellent", "Good", "Weak");
+    private static ObservableList<String> items = FXCollections.observableArrayList("Excellent", "Good", "Weak");
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -74,9 +66,6 @@ public class StudentSkillStatusWindowController implements Initializable {
         cmbSingingStatus.getItems().addAll(items);
         cmbWritingStatus.getItems().addAll(items);
     }
-
-
-
 
     private void loadStid() {
         try {
@@ -128,7 +117,71 @@ public class StudentSkillStatusWindowController implements Initializable {
         }
     }
 
+    @FXML
+    void btnAddOnAction(ActionEvent event) {
+        String id = cmbStId.getSelectionModel().getSelectedItem();
+        String name=txtStudentName.getText();
+        String counting = cmbCountngStatus.getSelectionModel().getSelectedItem();
+        String crafting = cmbCraftingStatus.getSelectionModel().getSelectedItem();
+        String drawing = cmbDrawingStatus.getSelectionModel().getSelectedItem();
+        String reading = cmbReadingStatus.getSelectionModel().getSelectedItem();
+        String singing = cmbSingingStatus.getSelectionModel().getSelectedItem();
+        String writing = cmbWritingStatus.getSelectionModel().getSelectedItem();
 
+        boolean isSaved;
 
+            try {
+                isSaved = SkillStatusModel.save(id, name,counting, crafting,drawing, reading,singing, writing);
+                if (isSaved) {
+                    new Alert(Alert.AlertType.CONFIRMATION, "Student Skills saved!!!").show();
+                  //  tblStudent.getItems().clear();
+                  //  getAllStudentsToTable("");
+                    // clearFieldsRefreshTable();
+                    cmbStIdOnActon(event);
+                }
+            } catch (SQLException e) {
+                // System.out.println(e);
+                new Alert(Alert.AlertType.ERROR, "OOPSSS!! something happened!!!").show();
+                // clearFieldsRefreshTable();
+            }
+        }
 
+    @FXML
+    void btnUpdateOnAction(ActionEvent event) {
+        String id = cmbStId.getSelectionModel().getSelectedItem();
+        String name=txtStudentName.getText();
+        String counting = cmbCountngStatus.getSelectionModel().getSelectedItem();
+        String crafting = cmbCraftingStatus.getSelectionModel().getSelectedItem();
+        String drawing = cmbDrawingStatus.getSelectionModel().getSelectedItem();
+        String reading = cmbReadingStatus.getSelectionModel().getSelectedItem();
+        String singing = cmbSingingStatus.getSelectionModel().getSelectedItem();
+        String writing = cmbWritingStatus.getSelectionModel().getSelectedItem();
+
+            try {
+                boolean isUpdated = SkillStatusModel.update(id, name,counting, crafting,drawing, reading,singing, writing);
+                if (isUpdated) {
+
+                    new Alert(Alert.AlertType.CONFIRMATION, "huree! Student Skill Updated!").show();
+                  //  cmbStIdOnActon(event);
+                }
+            } catch (SQLException e) {
+                    new Alert(Alert.AlertType.ERROR, "oops! something happened!").show();
+                //  clearFieldsRefreshTable();
+            }
+        }
+
+    @FXML
+    void btnClearOnAction(ActionEvent event) {
+
+        txtStudentName.clear();
+        cmbCountngStatus.getItems().clear();
+        cmbCraftingStatus.getItems().clear();
+        cmbDrawingStatus.getItems().clear();
+        cmbReadingStatus.getItems().clear();
+        cmbSingingStatus.getItems().clear();
+        cmbWritingStatus.getItems().clear();
+
+        loadStatus();
+
+    }
 }

@@ -25,50 +25,51 @@
          <font>
             <Font size="14.0" />
          </font></Label>
-      <JFXComboBox fx:id="cmbCountngStatus" layoutX="341.0" layoutY="223.0" prefHeight="25.0" prefWidth="155.0" styleClass="cmb" />
-      <JFXComboBox fx:id="cmbStId" layoutX="141.0" layoutY="132.0" onAction="#cmbStIdOnActon" prefHeight="25.0" prefWidth="192.0" styleClass="cmb" />
-      <JFXButton layoutX="609.0" layoutY="261.0" prefHeight="38.0" prefWidth="88.0" styleClass="btnSearch" text="Update" />
+      <JFXComboBox fx:id="cmbCountngStatus" layoutX="341.0" layoutY="223.0" prefHeight="25.0" prefWidth="155.0" promptText="counting status" styleClass="cmb" />
+      <JFXComboBox fx:id="cmbStId" layoutX="141.0" layoutY="132.0" onAction="#cmbStIdOnActon" prefHeight="25.0" prefWidth="192.0" promptText="student id" styleClass="cmb" />
+      <JFXButton layoutX="609.0" layoutY="261.0" onAction="#btnUpdateOnAction" prefHeight="38.0" prefWidth="88.0" styleClass="btnSearch" text="Update" />
       <Label layoutX="360.0" layoutY="136.0" text="Student Name">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="txtStudentName" editable="false" layoutX="515.0" layoutY="132.0" prefHeight="25.0" prefWidth="168.0" />
+      <TextField fx:id="txtStudentName" editable="false" layoutX="515.0" layoutY="132.0" prefHeight="25.0" prefWidth="168.0" promptText="student name" />
       <Label layoutX="92.0" layoutY="225.0" prefHeight="17.0" prefWidth="192.0" text="Counting">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="90.0" layoutY="259.0" prefHeight="17.0" prefWidth="192.0" text="Drawing">
+      <Label layoutX="92.0" layoutY="304.0" prefHeight="17.0" prefWidth="192.0" text="Drawing">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="92.0" layoutY="406.0" prefHeight="17.0" prefWidth="192.0" text="Crafting">
+      <Label layoutX="92.0" layoutY="266.0" prefHeight="17.0" prefWidth="192.0" text="Crafting">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="90.0" layoutY="369.0" prefHeight="17.0" prefWidth="192.0" text="Reading">
+      <Label layoutX="92.0" layoutY="346.0" prefHeight="17.0" prefWidth="192.0" text="Reading">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="90.0" layoutY="333.0" prefHeight="17.0" prefWidth="192.0" text="Writing">
+      <Label layoutX="92.0" layoutY="428.0" prefHeight="17.0" prefWidth="192.0" text="Writing">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="90.0" layoutY="293.0" prefHeight="17.0" prefWidth="192.0" text="Singing">
+      <Label layoutX="92.0" layoutY="384.0" prefHeight="17.0" prefWidth="192.0" text="Singing">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <JFXComboBox fx:id="cmbDrawingStatus" layoutX="341.0" layoutY="257.0" prefHeight="25.0" prefWidth="155.0" styleClass="cmb" />
-      <JFXComboBox fx:id="cmbSingingStatus" layoutX="341.0" layoutY="291.0" prefHeight="25.0" prefWidth="155.0" styleClass="cmb" />
-      <JFXComboBox fx:id="cmbWritingStatus" layoutX="341.0" layoutY="331.0" prefHeight="25.0" prefWidth="155.0" styleClass="cmb" />
-      <JFXComboBox fx:id="cmbReadingStatus" layoutX="341.0" layoutY="367.0" prefHeight="25.0" prefWidth="155.0" styleClass="cmb" />
-      <JFXComboBox fx:id="cmbCraftingStatus" layoutX="341.0" layoutY="404.0" prefHeight="25.0" prefWidth="155.0" styleClass="cmb" />
-      <JFXButton layoutX="609.0" layoutY="189.0" prefHeight="38.0" prefWidth="88.0" styleClass="btnadd" stylesheets="@../stylesheet/stylesheet.css" text="Add" />
+      <JFXComboBox fx:id="cmbDrawingStatus" layoutX="341.0" layoutY="302.0" prefHeight="25.0" prefWidth="155.0" promptText="drawing status" styleClass="cmb" />
+      <JFXComboBox fx:id="cmbSingingStatus" layoutX="341.0" layoutY="382.0" prefHeight="25.0" prefWidth="155.0" promptText="singing status" styleClass="cmb" />
+      <JFXComboBox fx:id="cmbWritingStatus" layoutX="341.0" layoutY="426.0" prefHeight="25.0" prefWidth="155.0" promptText="writing status" styleClass="cmb" />
+      <JFXComboBox fx:id="cmbReadingStatus" layoutX="341.0" layoutY="344.0" prefHeight="25.0" prefWidth="155.0" promptText="reading status" styleClass="cmb" />
+      <JFXComboBox fx:id="cmbCraftingStatus" layoutX="341.0" layoutY="264.0" prefHeight="25.0" prefWidth="155.0" promptText="crafting status" styleClass="cmb" />
+      <JFXButton layoutX="609.0" layoutY="189.0" onAction="#btnAddOnAction" prefHeight="38.0" prefWidth="88.0" styleClass="btnadd" stylesheets="@../stylesheet/stylesheet.css" text="Add" />
+      <JFXButton layoutX="609.0" layoutY="329.0" onAction="#btnClearOnAction" prefHeight="38.0" prefWidth="88.0" styleClass="btnclear" stylesheets="@../stylesheet/stylesheet.css" text="Clear" />
    </children>
 </AnchorPane>

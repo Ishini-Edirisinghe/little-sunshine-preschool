@@ -9,8 +9,8 @@ import lombok.*;
 @Data
 
 public class SkillStatus {
-    private String stid;
-    private String stName;
+  //  private String stid;
+  //  private String stName;
     private String counting ;
     private String crafting ;
     private String drawing  ;
