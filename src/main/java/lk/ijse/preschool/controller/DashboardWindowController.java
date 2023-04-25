@@ -79,8 +79,6 @@ public class DashboardWindowController implements Initializable {
         dashboardAnchorPane.getChildren().add(load);
     }
 
-
-
     @FXML
     void btnManageStudentOnAction(ActionEvent event) throws IOException {
         Parent load = FXMLLoader.load(getClass().getResource("/view/manage-student-window-view.fxml"));

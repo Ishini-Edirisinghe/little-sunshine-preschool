@@ -9,25 +9,25 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="606.0" prefWidth="1000.0" style="-fx-background-color: linear-gradient(#eeaeca,#94bbe9 100%);" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.preschool.controller.ManageTeacherWindowController">
+<AnchorPane prefHeight="606.0" prefWidth="1000.0" styleClass="pane" stylesheets="@../stylesheet/stylesheet.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.preschool.controller.ManageTeacherWindowController">
    <children>
-      <Label alignment="CENTER" layoutX="156.0" layoutY="23.0" prefHeight="44.0" prefWidth="250.0" text="Manage Teachers">
+      <Label alignment="TOP_LEFT" contentDisplay="TOP" layoutX="16.0" layoutY="14.0" prefHeight="44.0" prefWidth="250.0" text="Manage Teachers">
          <font>
             <Font name="System Bold Italic" size="24.0" />
          </font></Label>
       <Label layoutX="25.0" layoutY="94.0" prefHeight="17.0" prefWidth="71.0" text="Teacher Id" />
       <Label layoutX="40.0" layoutY="144.0" prefHeight="17.0" prefWidth="41.0" text="Name" />
       <Label layoutX="39.0" layoutY="196.0" text="Address" />
-      <Label layoutX="474.0" layoutY="85.0" prefHeight="17.0" prefWidth="77.0" text="Date Of Birth" />
+      <Label layoutX="474.0" layoutY="85.0" prefHeight="21.0" prefWidth="112.0" text="Date Of Birth" />
       <Label layoutX="473.0" layoutY="144.0" prefHeight="17.0" prefWidth="55.0" text="Contact" />
       <TextField fx:id="txtTeachId" layoutX="110.0" layoutY="90.0" onAction="#txtTeachIdOnAction" prefHeight="25.0" prefWidth="221.0" />
       <TextField fx:id="txtTeachName" layoutX="110.0" layoutY="140.0" prefHeight="25.0" prefWidth="221.0" />
       <TextField fx:id="txtTeachAddress" layoutX="110.0" layoutY="192.0" prefHeight="25.0" prefWidth="221.0" />
-      <TextField fx:id="txtContact" layoutX="576.0" layoutY="140.0" prefHeight="25.0" prefWidth="189.0" />
-      <JFXButton layoutX="354.0" layoutY="90.0" onAction="#btnSearchOnAction" style="-fx-background-color: white;" text="Search" />
-      <JFXButton layoutX="398.0" layoutY="192.0" onAction="#btnSaveOnAction" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: white;" text="Add" />
-      <JFXButton layoutX="502.0" layoutY="192.0" onAction="#btnDeleteOnAction" style="-fx-background-color: white;" text="Delete" />
-      <JFXButton layoutX="619.0" layoutY="192.0" onAction="#btnUpdateOnUpdate" style="-fx-background-color: white;" text="Update" />
+      <TextField fx:id="txtContact" layoutX="586.0" layoutY="140.0" prefHeight="25.0" prefWidth="189.0" />
+      <JFXButton layoutX="354.0" layoutY="90.0" onAction="#btnSearchOnAction" styleClass="btnSearch" text="Search" />
+      <JFXButton layoutX="398.0" layoutY="192.0" onAction="#btnSaveOnAction" prefHeight="25.0" prefWidth="65.0" styleClass="btnadd" text="Add" />
+      <JFXButton layoutX="536.0" layoutY="192.0" onAction="#btnDeleteOnAction" styleClass="btndelete" text="Delete" />
+      <JFXButton layoutX="673.0" layoutY="192.0" onAction="#btnUpdateOnUpdate" styleClass="btnclear" text="Update" />
       <TableView fx:id="tblTeacher" layoutX="16.0" layoutY="283.0" prefHeight="291.0" prefWidth="968.0">
         <columns>
           <TableColumn fx:id="colTeachId" prefWidth="103.0" text="Teacher ID" />
@@ -38,6 +38,6 @@
             <TableColumn fx:id="colAction" prefWidth="125.0" text="Action" />
         </columns>
       </TableView>
-      <DatePicker fx:id="dtpckrDOB" layoutX="576.0" layoutY="81.0" />
+      <DatePicker fx:id="dtpckrDOB" layoutX="584.0" layoutY="83.0" prefHeight="25.0" prefWidth="189.0" />
    </children>
 </AnchorPane>

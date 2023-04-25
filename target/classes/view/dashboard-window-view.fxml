@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
-<?import java.lang.String?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.LineChart?>
@@ -16,11 +15,11 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="dashboardMainAnchorPane" blendMode="DARKEN" minHeight="650.0" minWidth="1366.0" prefHeight="650.0" prefWidth="1366.0" style="-fx-background-color: #82589F;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.preschool.controller.DashboardWindowController">
+<AnchorPane fx:id="dashboardMainAnchorPane" blendMode="DARKEN" minHeight="650.0" minWidth="1366.0" prefHeight="650.0" prefWidth="1366.0" styleClass="anchorPane" stylesheets="@../stylesheet/stylesheet.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.preschool.controller.DashboardWindowController">
    <children>
-      <AnchorPane fx:id="dashboardAnchorPane" layoutX="309.0" layoutY="30.0" prefHeight="606.0" prefWidth="1000.0" style="-fx-background-color: linear-gradient(#eeaeca,#94bbe9 100%); -fx-background-radius: 20;" styleClass="btn" stylesheets="@../stylesheet/stylesheet.css">
+      <AnchorPane fx:id="dashboardAnchorPane" layoutX="309.0" layoutY="30.0" prefHeight="606.0" prefWidth="1000.0" styleClass="pane" stylesheets="@../stylesheet/stylesheet.css">
          <children>
-            <Label alignment="CENTER" layoutX="39.0" layoutY="29.0" prefHeight="49.0" prefWidth="265.0" text="Dashboard">
+            <Label alignment="TOP_LEFT" contentDisplay="TOP" layoutX="14.0" layoutY="14.0" prefHeight="49.0" prefWidth="265.0" text="Dashboard">
                <font>
                   <Font name="Comic Sans MS Bold Italic" size="31.0" />
                </font>
@@ -41,20 +40,17 @@
                   </LinearGradient>
                </textFill>
             </Label>
-            <Label fx:id="lblGreeting" layoutX="344.0" layoutY="111.0" prefHeight="45.0" prefWidth="280.0">
+            <Label fx:id="lblGreeting" alignment="CENTER" contentDisplay="CENTER" layoutX="118.0" layoutY="14.0" prefHeight="45.0" prefWidth="280.0" styleClass="labelGreeting" textAlignment="CENTER">
                <font>
                   <Font name="System Bold" size="30.0" />
                </font>
             </Label>
-            <Label fx:id="lblTime" layoutX="896.0" layoutY="21.0" prefHeight="17.0" prefWidth="74.0" text="Label" />
-            <Label fx:id="lblDate" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="805.0" layoutY="21.0" prefHeight="17.0" prefWidth="74.0" text="Label" textAlignment="CENTER" />
-            <Separator layoutX="886.0" layoutY="21.0" orientation="VERTICAL" prefHeight="17.0" prefWidth="0.0" />
             <Label layoutX="84.0" layoutY="167.0" prefHeight="25.0" prefWidth="200.0" text="Student Skill">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
-            <LineChart layoutX="39.0" layoutY="192.0" prefHeight="400.0" prefWidth="910.0">
+            <LineChart layoutX="39.0" layoutY="192.0" prefHeight="400.0" prefWidth="946.0">
               <xAxis>
                 <CategoryAxis side="BOTTOM" />
               </xAxis>
@@ -63,9 +59,9 @@
               </yAxis>
             </LineChart>
          </children></AnchorPane>
-      <Pane layoutX="43.0" layoutY="22.0" prefHeight="606.0" prefWidth="237.0" style="-fx-background-color: #d2dae2; -fx-background-radius: 30;">
+      <Pane layoutX="43.0" layoutY="22.0" prefHeight="606.0" prefWidth="237.0" styleClass="dashboardleftsidepane">
          <children>
-            <JFXButton layoutX="11.0" layoutY="254.0" onAction="#btnManageTeacherOnAction" prefHeight="49.0" prefWidth="214.0" style="-fx-background-color: #D6A2E8; -fx-background-radius: 20;" text="Manage Teacher">
+            <JFXButton layoutX="11.0" layoutY="254.0" onAction="#btnManageTeacherOnAction" prefHeight="49.0" prefWidth="214.0" styleClass="dashboardbtn" text="Manage Teacher">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
@@ -73,18 +69,17 @@
                   <DropShadow />
                </effect>
             </JFXButton>
-            <JFXButton layoutX="11.0" layoutY="470.0" onAction="#btnStudentSkillsStatusOnAction" prefHeight="49.0" prefWidth="214.0" style="-fx-background-color: #D6A2E8; -fx-background-radius: 20;" text="Student skills status" />
-            <JFXButton layoutX="12.0" layoutY="327.0" onAction="#btnPaymentOnAction" prefHeight="49.0" prefWidth="214.0" style="-fx-background-color: #D6A2E8; -fx-background-radius: 20;" text="Payments" />
-            <JFXButton layoutX="18.0" layoutY="396.0" onAction="#btnSyllabusOnAction" prefHeight="49.0" prefWidth="208.0" style="-fx-background-color: #D6A2E8; -fx-background-radius: 20;" text="Sylabus" />
-            <JFXButton layoutX="16.0" layoutY="174.0" onAction="#btnEventOnAction" prefHeight="49.0" prefWidth="208.0" style="-fx-background-color: #D6A2E8; -fx-background-radius: 20;" text="Events" textFill="#322929" />
-            <JFXButton layoutX="18.0" layoutY="107.0" onAction="#btnManageStudentOnAction" prefHeight="49.0" prefWidth="208.0" style="-fx-background-color: #D6A2E8; -fx-background-radius: 20;" text="Manage Student" />
-            <JFXButton layoutX="16.0" layoutY="549.0" onAction="#btnLogoutOnAction" prefHeight="49.0" prefWidth="208.0" style="-fx-background-color: #D6A2E8; -fx-background-radius: 20;" text="Logout" />
-            <JFXButton layoutX="16.0" layoutY="31.0" onAction="#btnDashboardOnAction" prefHeight="49.0" prefWidth="208.0" style="-fx-background-color: #D6A2E8; -fx-background-radius: 20;" stylesheets="@../stylesheet/stylesheet.css" text="Dashboard">
-               <styleClass>
-                  <String fx:value="btn" />
-                  <String fx:value="btn" />
-               </styleClass></JFXButton>
+            <JFXButton layoutX="11.0" layoutY="470.0" onAction="#btnStudentSkillsStatusOnAction" prefHeight="49.0" prefWidth="214.0" styleClass="dashboardbtn" text="Student skills status" />
+            <JFXButton layoutX="12.0" layoutY="327.0" onAction="#btnPaymentOnAction" prefHeight="49.0" prefWidth="214.0" styleClass="dashboardbtn" text="Payments" />
+            <JFXButton layoutX="18.0" layoutY="396.0" onAction="#btnSyllabusOnAction" prefHeight="49.0" prefWidth="208.0" styleClass="dashboardbtn" text="Sylabus" />
+            <JFXButton layoutX="16.0" layoutY="174.0" onAction="#btnEventOnAction" prefHeight="49.0" prefWidth="208.0" styleClass="dashboardbtn" text="Events" textFill="#322929" />
+            <JFXButton layoutX="18.0" layoutY="107.0" onAction="#btnManageStudentOnAction" prefHeight="49.0" prefWidth="208.0" styleClass="dashboardbtn" text="Manage Student" />
+            <JFXButton layoutX="16.0" layoutY="549.0" onAction="#btnLogoutOnAction" prefHeight="49.0" prefWidth="208.0" styleClass="dashboardbtn" text="Logout" />
+            <JFXButton layoutX="16.0" layoutY="31.0" onAction="#btnDashboardOnAction" prefHeight="49.0" prefWidth="208.0" styleClass="dashboardbtn" stylesheets="@../stylesheet/stylesheet.css" text="Dashboard" />
          </children>
       </Pane>
+      <Label fx:id="lblTime" layoutX="1197.0" layoutY="-1.0" prefHeight="30.0" prefWidth="112.0" styleClass="labelDateTime" text="Label" />
+      <Separator layoutX="1191.0" layoutY="6.0" orientation="VERTICAL" prefHeight="17.0" prefWidth="0.0" />
+      <Label fx:id="lblDate" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="1061.0" layoutY="-1.0" prefHeight="30.0" prefWidth="123.0" styleClass="labelDateTime" text="Label" textAlignment="CENTER" />
    </children>
 </AnchorPane>

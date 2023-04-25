@@ -10,30 +10,30 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="manageStudentAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="606.0" prefWidth="1000.0" style="-fx-background-color: linear-gradient(#eeaeca,#94bbe9 100%);" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.preschool.controller.ManageStudentWindowController">
+<AnchorPane fx:id="manageStudentAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="606.0" prefWidth="1000.0" styleClass="pane" stylesheets="@../stylesheet/stylesheet.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.preschool.controller.ManageStudentWindowController">
    <children>
-      <Label alignment="CENTER" layoutX="256.0" layoutY="34.0" prefHeight="66.0" prefWidth="289.0" text="Manage student">
+      <Label alignment="TOP_LEFT" layoutX="14.0" layoutY="14.0" prefHeight="66.0" prefWidth="289.0" text="Manage student">
          <font>
             <Font size="37.0" />
          </font>
       </Label>
-      <TextField fx:id="txtName" layoutX="118.0" layoutY="171.0" prefHeight="25.0" prefWidth="267.0" promptText="name" />
-      <TextField fx:id="txtAddress" layoutX="118.0" layoutY="216.0" prefHeight="25.0" prefWidth="267.0" promptText="address" />
-      <TextField fx:id="txtStId" layoutX="118.0" layoutY="127.0" onAction="#txtStIdOnAction" prefHeight="25.0" prefWidth="267.0" promptText="student id" />
-      <TextField fx:id="txtContact" layoutX="537.0" layoutY="128.0" prefHeight="25.0" prefWidth="267.0" promptText="contact" />
-      <TextField fx:id="txtParentName" layoutX="537.0" layoutY="171.0" prefHeight="25.0" prefWidth="267.0" promptText="Parents Name" />
+      <TextField fx:id="txtName" layoutX="139.0" layoutY="171.0" prefHeight="25.0" prefWidth="236.0" promptText="name" />
+      <TextField fx:id="txtAddress" layoutX="139.0" layoutY="218.0" prefHeight="25.0" prefWidth="236.0" promptText="address" />
+      <TextField fx:id="txtStId" layoutX="139.0" layoutY="128.0" onAction="#txtStIdOnAction" prefHeight="25.0" prefWidth="236.0" promptText="student id" />
+      <TextField fx:id="txtContact" layoutX="612.0" layoutY="129.0" prefHeight="25.0" prefWidth="267.0" promptText="contact" />
+      <TextField fx:id="txtParentName" layoutX="612.0" layoutY="173.0" prefHeight="25.0" prefWidth="267.0" promptText="Parents Name" />
       <Label layoutX="40.0" layoutY="131.0" prefHeight="17.0" prefWidth="88.0" text="Student id" />
       <Label layoutX="40.0" layoutY="175.0" prefHeight="17.0" prefWidth="88.0" text="name" />
       <Label layoutX="40.0" layoutY="220.0" prefHeight="17.0" prefWidth="76.0" text="address" />
-      <Label layoutX="40.0" layoutY="267.0" prefHeight="25.0" prefWidth="76.0" text="date of birth" />
-      <Label layoutX="449.0" layoutY="132.0" prefHeight="17.0" prefWidth="67.0" text="Contact" />
-      <Label layoutX="449.0" layoutY="171.0" prefHeight="25.0" prefWidth="88.0" text="Parent name" />
-      <JFXButton layoutX="418.0" layoutY="261.0" onAction="#btnSaveOnAction" prefHeight="38.0" prefWidth="88.0" style="-fx-background-radius: 20; -fx-background-color: linear-gradient(#edd2ff 0%,#ffa7d0 50%,#fff4ea 74%,#f7ebd9 100%);" text="ADD" />
-      <Label layoutX="449.0" layoutY="216.0" prefHeight="25.0" prefWidth="99.0" text="Teacher id" />
-      <ComboBox fx:id="cmbTeacherId" layoutX="537.0" layoutY="216.0" prefWidth="150.0" />
-      <JFXButton layoutX="545.0" layoutY="261.0" onAction="#btnDeleteOnAction" prefHeight="38.0" prefWidth="88.0" style="-fx-background-radius: 20; -fx-background-color: linear-gradient(#edd2ff 0%,#ffa7d0 50%,#fff4ea 74%,#f7ebd9 100%);" text="Delete" />
-      <JFXButton layoutX="671.0" layoutY="261.0" onAction="#btnUpdateOnAction" prefHeight="38.0" prefWidth="88.0" style="-fx-background-radius: 20; -fx-background-color: linear-gradient(#edd2ff 0%,#ffa7d0 50%,#fff4ea 74%,#f7ebd9 100%);" text="Update" />
-      <JFXButton layoutX="385.0" layoutY="122.0" onAction="#btnSearchStudentOnAction" prefHeight="38.0" prefWidth="61.0" text="search" />
+      <Label layoutX="40.0" layoutY="267.0" prefHeight="25.0" prefWidth="99.0" text="date of birth" />
+      <Label layoutX="512.0" layoutY="130.0" prefHeight="17.0" prefWidth="67.0" text="Contact" />
+      <Label layoutX="512.0" layoutY="173.0" prefHeight="25.0" prefWidth="88.0" text="Parent name" />
+      <JFXButton layoutX="418.0" layoutY="261.0" onAction="#btnSaveOnAction" prefHeight="38.0" prefWidth="88.0" styleClass="btnadd" text="ADD" />
+      <Label layoutX="512.0" layoutY="218.0" prefHeight="25.0" prefWidth="106.0" text="Teacher id" />
+      <ComboBox fx:id="cmbTeacherId" layoutX="612.0" layoutY="218.0" prefHeight="25.0" prefWidth="267.0" />
+      <JFXButton layoutX="545.0" layoutY="261.0" onAction="#btnDeleteOnAction" prefHeight="38.0" prefWidth="88.0" styleClass="btndelete" text="Delete" />
+      <JFXButton layoutX="671.0" layoutY="261.0" onAction="#btnUpdateOnAction" prefHeight="38.0" prefWidth="88.0" styleClass="btnclear" text="Update" />
+      <JFXButton layoutX="388.0" layoutY="122.0" onAction="#btnSearchStudentOnAction" prefHeight="38.0" prefWidth="61.0" styleClass="btnSearch" text="search" />
       <TableView fx:id="tblStudent" layoutX="34.0" layoutY="325.0" prefHeight="235.0" prefWidth="852.0">
         <columns>
           <TableColumn fx:id="colStId" prefWidth="94.0" text="Student Id" />
@@ -46,6 +46,6 @@
             <TableColumn fx:id="colAction" prefWidth="81.0" text="Action" />
         </columns>
       </TableView>
-      <DatePicker fx:id="dtpckrDOB" layoutX="118.0" layoutY="268.0" />
+      <DatePicker fx:id="dtpckrDOB" layoutX="139.0" layoutY="268.0" prefHeight="25.0" prefWidth="236.0" />
    </children>
 </AnchorPane>
