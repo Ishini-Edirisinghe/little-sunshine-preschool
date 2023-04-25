@@ -1,6 +1,7 @@
 package lk.ijse.preschool.controller;
 
 import com.jfoenix.controls.JFXButton;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -67,6 +68,10 @@ public class ManageStudentWindowController implements Initializable {
 
 
     @FXML
+    private TextField txtSearch;
+
+
+    @FXML
     private TextField txtParentName;
 
     @FXML
@@ -79,9 +84,12 @@ public class ManageStudentWindowController implements Initializable {
 
     private String searchText="";
 
+    @FXML
+    private JFXButton btnSaveStudent;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        Platform.runLater(() -> txtSearch.requestFocus());
         loadTeacherids();
         setCellValueFactory(); //To show table data
         getAllStudentsToTable(searchText); //To get all students details to table(Not show)
@@ -90,9 +98,15 @@ public class ManageStudentWindowController implements Initializable {
         tblStudent.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> { //Add ActionListener to selected column and display text field values
             //Check select value is not null
             if(null!=newValue) { //newValue!=null --> Get more time to compare (newValue object compare)
-               // btnSaveSupplier.setText("Update Supplier");
+                btnSaveStudent.setText("Update");
                 setDataToTextFields(newValue); //Set data to text field of selected row data of table
             }
+        });
+
+        txtSearch.textProperty().addListener((observable, oldValue, newValue) -> { //Add action listener to txtSearch to search and display table
+            tblStudent.getItems().clear();
+            searchText=newValue;
+            getAllStudentsToTable(searchText);
         });
     }
 
@@ -180,16 +194,38 @@ public class ManageStudentWindowController implements Initializable {
         String parentName = txtParentName.getText();
         String teachId = String.valueOf(cmbTeacherId.getSelectionModel().getSelectedItem());
 
-        try {
-            boolean isSaved = StudentModel.save(id, name, address,DOB, contact,parentName,teachId);
-            if (isSaved) {
-              new Alert(Alert.AlertType.CONFIRMATION, "Student saved!!!").show();
-               clearFieldsRefreshTable();
+        boolean isSaved;
+
+        if (btnSaveStudent.getText().equalsIgnoreCase("Save")){
+            try {
+                isSaved = StudentModel.save(id, name, address,DOB, contact,parentName,teachId);
+                if (isSaved) {
+                    new Alert(Alert.AlertType.CONFIRMATION, "Student saved!!!").show();
+                    tblStudent.getItems().clear();
+                    getAllStudentsToTable("");
+                    // clearFieldsRefreshTable();
+                }
+            } catch (SQLException e) {
+                new Alert(Alert.AlertType.ERROR, "OOPSSS!! something happened!!!").show();
+               // clearFieldsRefreshTable();
             }
-        } catch (SQLException e) {
-            new Alert(Alert.AlertType.ERROR, "OOPSSS!! something happened!!!").show();
-           clearFieldsRefreshTable();
+        }else{
+            try {
+                boolean isUpdated = StudentModel.update(id, name, address,DOB, contact,parentName,teachId);
+                if (isUpdated) {
+
+                    new Alert(Alert.AlertType.CONFIRMATION, "huree! Student Updated!").show();
+                    tblStudent.getItems().clear();
+                    getAllStudentsToTable("");
+                  //  clearFieldsRefreshTable();
+                }
+            } catch (SQLException e) {
+
+                new Alert(Alert.AlertType.ERROR, "oops! something happened!").show();
+              //  clearFieldsRefreshTable();
+            }
         }
+
 
 
     }
@@ -215,16 +251,18 @@ public class ManageStudentWindowController implements Initializable {
         boolean isDeleted = StudentModel.deleteStudent(code);
         if(isDeleted) {
             new Alert(Alert.AlertType.CONFIRMATION, "Student deleted !").show();
-           clearFieldsRefreshTable();
+            tblStudent.getItems().clear();
+            getAllStudentsToTable("");
+          // clearFieldsRefreshTable();
 
         }else {
             new Alert(Alert.AlertType.CONFIRMATION, "Student not deleted !").show();
-           clearFieldsRefreshTable();
+          // clearFieldsRefreshTable();
         }
 
     }
 
-    public void btnUpdateOnAction(ActionEvent actionEvent) throws SQLException {
+   /* public void btnUpdateOnAction(ActionEvent actionEvent) throws SQLException {
         String id = txtStId.getText();
         String name = txtName.getText();
         String address = txtAddress.getText();
@@ -245,7 +283,7 @@ public class ManageStudentWindowController implements Initializable {
               new Alert(Alert.AlertType.ERROR, "oops! something happened!").show();
             clearFieldsRefreshTable();
         }
-    }
+    }*/
 
     public void btnSearchStudentOnAction(ActionEvent actionEvent) {
         String code = txtStId.getText();
@@ -272,7 +310,7 @@ public class ManageStudentWindowController implements Initializable {
     public void txtStIdOnAction(ActionEvent actionEvent) {
         btnSearchStudentOnAction(actionEvent);
     }
-    private void clearFieldsRefreshTable(){
+    /*private void clearFieldsRefreshTable(){
         txtStId.clear();
         txtName.clear();
         txtAddress.clear();
@@ -282,7 +320,23 @@ public class ManageStudentWindowController implements Initializable {
         cmbTeacherId.getItems().clear();
         tblStudent.getItems().clear();
         getAllStudentsToTable("");
-        loadTeacherids();
+
+    }*/
+
+    @FXML
+    void btnClearOnAction(ActionEvent event) {
+            txtSearch.clear();
+            txtStId.requestFocus();
+            btnSaveStudent.setText("Save");
+            txtStId.clear();
+            txtContact.clear();
+            txtName.clear();
+            txtParentName.clear();
+            txtAddress.clear();
+            cmbTeacherId.getItems().clear();
+            dtpckrDOB.getEditor().clear();
+            loadTeacherids();
     }
+
 
 }
