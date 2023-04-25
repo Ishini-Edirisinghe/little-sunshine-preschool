@@ -206,6 +206,7 @@ public class ManageStudentWindowController implements Initializable {
                     // clearFieldsRefreshTable();
                 }
             } catch (SQLException e) {
+               // System.out.println(e);
                 new Alert(Alert.AlertType.ERROR, "OOPSSS!! something happened!!!").show();
                // clearFieldsRefreshTable();
             }
@@ -246,7 +247,7 @@ public class ManageStudentWindowController implements Initializable {
     }
 
     public void btnDeleteOnAction(ActionEvent actionEvent) throws SQLException {
-        String code = txtStId.getText();
+        /*String code = txtStId.getText();
 
         boolean isDeleted = StudentModel.deleteStudent(code);
         if(isDeleted) {
@@ -258,6 +259,37 @@ public class ManageStudentWindowController implements Initializable {
         }else {
             new Alert(Alert.AlertType.CONFIRMATION, "Student not deleted !").show();
           // clearFieldsRefreshTable();
+        }*/
+
+        ButtonType yes = new ButtonType("Yes", ButtonBar.ButtonData.OK_DONE);
+        ButtonType no = new ButtonType("No", ButtonBar.ButtonData.CANCEL_CLOSE);
+
+        Optional<ButtonType> buttonType = new Alert(Alert.AlertType.INFORMATION, "Are you sure to Delete?", yes, no).showAndWait();
+
+        if (buttonType.get() == yes) {
+            txtStId.setText(tblStudent.getSelectionModel().getSelectedItem().getStId());
+            btnSearchStudentOnAction(actionEvent);
+            try {
+                String code = txtStId.getText();
+
+                boolean isDeleted = StudentModel.deleteStudent(code);
+                if(isDeleted) {
+                    new Alert(Alert.AlertType.CONFIRMATION, "Student deleted !").show();
+                    tblStudent.getItems().clear();
+                    getAllStudentsToTable("");
+                    // clearFieldsRefreshTable();
+
+                }else {
+                    new Alert(Alert.AlertType.CONFIRMATION, "Student not deleted !").show();
+                    // clearFieldsRefreshTable();
+                }
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+
+
+            tblStudent.getItems().clear();
+            getAllStudentsToTable(searchText);
         }
 
     }
@@ -286,6 +318,12 @@ public class ManageStudentWindowController implements Initializable {
     }*/
 
     public void btnSearchStudentOnAction(ActionEvent actionEvent) {
+        txtStIdOnAction(actionEvent);
+    }
+
+
+
+    public void txtStIdOnAction(ActionEvent actionEvent) {
         String code = txtStId.getText();
         try {
             Student student = StudentModel.search(code);
@@ -298,17 +336,13 @@ public class ManageStudentWindowController implements Initializable {
                 txtContact.setText(String.valueOf(student.getContact()));
                 txtParentName.setText(String.valueOf(student.getParentName()));
             } else {
-                new Alert(Alert.AlertType.WARNING, "no student found :(").show();
+                new Alert(Alert.AlertType.WARNING, "No student found :(").show();
+                txtName.requestFocus();
             }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, "oops! something went wrong :(").show();
         }
-    }
 
-
-
-    public void txtStIdOnAction(ActionEvent actionEvent) {
-        btnSearchStudentOnAction(actionEvent);
     }
     /*private void clearFieldsRefreshTable(){
         txtStId.clear();
@@ -337,6 +371,27 @@ public class ManageStudentWindowController implements Initializable {
             dtpckrDOB.getEditor().clear();
             loadTeacherids();
     }
+
+    @FXML
+    void txtSearchOnAction(ActionEvent event) {
+        txtStId.requestFocus();
+    }
+    @FXML
+    void txtAddressOnAction(ActionEvent event) {
+        txtContact.requestFocus();
+    }
+
+    @FXML
+    void txtContactOnAction(ActionEvent event) {
+        txtParentName.requestFocus();
+    }
+
+    @FXML
+    void txtNameOnAction(ActionEvent event) {
+        txtAddress.requestFocus();
+    }
+
+
 
 
 }

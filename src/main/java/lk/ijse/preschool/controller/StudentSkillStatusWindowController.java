@@ -56,6 +56,8 @@ public class StudentSkillStatusWindowController implements Initializable {
     @FXML
     private JFXComboBox<String> cmbWritingStatus;
 
+    ObservableList<String> items = FXCollections.observableArrayList("Excellent", "Good", "Weak");
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
@@ -65,15 +67,15 @@ public class StudentSkillStatusWindowController implements Initializable {
     }
 
     private void loadStatus()  {
-        cmbCountngStatus.setItems(items);
-        cmbCraftingStatus.setItems(items);
-        cmbDrawingStatus.setItems(items);
-        cmbReadingStatus.setItems(items);
-        cmbSingingStatus.setItems(items);
-        cmbWritingStatus.setItems(items);
+        cmbCountngStatus.getItems().addAll(items);
+        cmbCraftingStatus.getItems().addAll(items);
+        cmbDrawingStatus.getItems().addAll(items);
+        cmbReadingStatus.getItems().addAll(items);
+        cmbSingingStatus.getItems().addAll(items);
+        cmbWritingStatus.getItems().addAll(items);
     }
 
-    ObservableList<String> items = FXCollections.observableArrayList("Excellent", "Good", "Weak");
+
 
 
     private void loadStid() {
@@ -93,23 +95,40 @@ public class StudentSkillStatusWindowController implements Initializable {
     @FXML
     void cmbStIdOnActon(ActionEvent event) {
         String studentId = cmbStId.getSelectionModel().getSelectedItem();
+
         try {
             Student student = StudentModel.searchById(studentId);
             txtStudentName.setText(student.getName());
-
             SkillStatus skillStatus=SkillStatusModel.searchByIdGetSkills(studentId);
-            cmbWritingStatus.setValue(skillStatus.getWriting());
-            cmbSingingStatus.setValue(skillStatus.getSinging());
-            cmbReadingStatus.setValue(skillStatus.getReading());
-            cmbDrawingStatus.setValue(skillStatus.getDrawing());
-            cmbCraftingStatus.setValue(skillStatus.getCrafting());
-            cmbCountngStatus.setValue(skillStatus.getCrafting());
+
+            if (skillStatus!=null){
+                cmbWritingStatus.setValue(skillStatus.getWriting());
+                cmbSingingStatus.setValue(skillStatus.getSinging());
+                cmbReadingStatus.setValue(skillStatus.getReading());
+                cmbDrawingStatus.setValue(skillStatus.getDrawing());
+                cmbCraftingStatus.setValue(skillStatus.getCrafting());
+                cmbCountngStatus.setValue(skillStatus.getCrafting());
+            }else{
+                cmbWritingStatus.getItems().clear();
+                cmbDrawingStatus.getItems().clear();
+                cmbReadingStatus.getItems().clear();
+                cmbSingingStatus.getItems().clear();
+                cmbCraftingStatus.getItems().clear();
+                cmbCountngStatus.getItems().clear();
+                loadStid();
+                loadStatus();
+                new Alert(Alert.AlertType.ERROR, "No input for Students Skill Please Input Student Skills").show();
+               // return;
+            }
+
 
         } catch (SQLException e) {
-            e.printStackTrace();
+          //  e.printStackTrace();
             new Alert(Alert.AlertType.ERROR, "SQL Error!").show();
         }
     }
+
+
 
 
 }
