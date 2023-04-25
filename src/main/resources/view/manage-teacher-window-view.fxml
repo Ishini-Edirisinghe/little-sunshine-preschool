@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="606.0" prefWidth="1000.0" styleClass="pane" stylesheets="@../stylesheet/stylesheet.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.preschool.controller.ManageTeacherWindowController">
+<AnchorPane prefHeight="606.0" prefWidth="1000.0" styleClass="pane" stylesheets="@../stylesheet/stylesheet.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.preschool.controller.ManageTeacherWindowController">
    <children>
       <Label alignment="TOP_LEFT" contentDisplay="TOP" layoutX="16.0" layoutY="14.0" prefHeight="44.0" prefWidth="250.0" text="Manage Teachers">
          <font>
@@ -23,7 +23,7 @@
       <TextField fx:id="txtTeachId" layoutX="110.0" layoutY="90.0" onAction="#txtTeachIdOnAction" prefHeight="25.0" prefWidth="221.0" />
       <TextField fx:id="txtTeachName" layoutX="110.0" layoutY="140.0" prefHeight="25.0" prefWidth="221.0" />
       <TextField fx:id="txtTeachAddress" layoutX="110.0" layoutY="192.0" prefHeight="25.0" prefWidth="221.0" />
-      <TextField fx:id="txtContact" layoutX="586.0" layoutY="140.0" prefHeight="25.0" prefWidth="189.0" />
+      <TextField fx:id="txtContact" layoutX="586.0" layoutY="140.0" onAction="#txtContactOnAction" prefHeight="25.0" prefWidth="189.0" />
       <JFXButton layoutX="354.0" layoutY="90.0" onAction="#btnSearchOnAction" styleClass="btnSearch" text="Search" />
       <JFXButton layoutX="398.0" layoutY="192.0" onAction="#btnSaveOnAction" prefHeight="25.0" prefWidth="65.0" styleClass="btnadd" text="Add" />
       <JFXButton layoutX="536.0" layoutY="192.0" onAction="#btnDeleteOnAction" styleClass="btndelete" text="Delete" />

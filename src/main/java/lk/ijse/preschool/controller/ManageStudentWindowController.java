@@ -16,6 +16,7 @@ import lk.ijse.preschool.dto.Student;
 import lk.ijse.preschool.dto.tm.StudentTM;
 import lk.ijse.preschool.model.StudentModel;
 import lk.ijse.preschool.model.TeacherModel;
+import lk.ijse.preschool.util.Regex;
 
 import java.net.URL;
 import java.sql.SQLException;
@@ -318,13 +319,38 @@ public class ManageStudentWindowController implements Initializable {
     }*/
 
     public void btnSearchStudentOnAction(ActionEvent actionEvent) {
-        txtStIdOnAction(actionEvent);
+       // txtStIdOnAction(actionEvent);
+        String code = txtStId.getText();
+        try {
+            Student student = StudentModel.search(code);
+            if (student != null) {
+                txtStId.setText(student.getStId());
+                txtName.setText(student.getName());
+                txtAddress.setText(String.valueOf(student.getAddress()));
+                cmbTeacherId.setValue(student.getTeachId());
+                dtpckrDOB.setValue(LocalDate.parse(student.getDOB()));
+                txtContact.setText(String.valueOf(student.getContact()));
+                txtParentName.setText(String.valueOf(student.getParentName()));
+            } else {
+                new Alert(Alert.AlertType.WARNING, "no student found :(").show();
+            }
+        } catch (SQLException e) {
+            new Alert(Alert.AlertType.ERROR, "oops! something went wrong :(").show();
+        }
     }
 
 
 
     public void txtStIdOnAction(ActionEvent actionEvent) {
-        String code = txtStId.getText();
+        String id=txtStId.getText();
+        if (Regex.validateStudentId(id)){
+            btnSearchStudentOnAction(actionEvent);
+            txtName.requestFocus();
+        }else {
+            txtStId.clear();
+            new Alert(Alert.AlertType.WARNING, "No matching Student ID please Input SUP format!!!").show();
+        }
+       /* String code = txtStId.getText();
         try {
             Student student = StudentModel.search(code);
             if (student != null) {
@@ -341,7 +367,7 @@ public class ManageStudentWindowController implements Initializable {
             }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, "oops! something went wrong :(").show();
-        }
+        }*/
 
     }
     /*private void clearFieldsRefreshTable(){
@@ -383,7 +409,14 @@ public class ManageStudentWindowController implements Initializable {
 
     @FXML
     void txtContactOnAction(ActionEvent event) {
-        txtParentName.requestFocus();
+        String contact=txtContact.getText();
+        if (Regex.validateContact(contact)){
+            //  btnSaveOnAction(actionEvent);
+            txtParentName.requestFocus();
+        }else {
+            txtContact.clear();
+            new Alert(Alert.AlertType.WARNING, "No matching contact number please Input SUP format!!!").show();
+        }
     }
 
     @FXML

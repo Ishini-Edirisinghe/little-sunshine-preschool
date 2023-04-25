@@ -19,6 +19,7 @@ import lk.ijse.preschool.dto.tm.StudentTM;
 import lk.ijse.preschool.dto.tm.SyllabusTM;
 import lk.ijse.preschool.model.StudentModel;
 import lk.ijse.preschool.model.SyllabusModel;
+import lk.ijse.preschool.util.Regex;
 
 import java.io.IOException;
 import java.net.URL;
@@ -136,7 +137,15 @@ public class SyllabusWindowController implements Initializable {
 
     @FXML
     void txtConNoOnAction(ActionEvent event) {
-        btnSearchOnAction(event);
+        String subject_id=txtConNo.getText();
+        if (Regex.validateContentNo(subject_id)){
+            btnSearchOnAction(event);
+            txtConName.requestFocus();
+        }else {
+            txtConNo.clear();
+            new Alert(Alert.AlertType.WARNING, "No matching Student ID please Input SUP format!!!").show();
+        }
+
 
     }
 

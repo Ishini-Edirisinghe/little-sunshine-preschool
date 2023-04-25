@@ -18,6 +18,7 @@ import lk.ijse.preschool.dto.tm.StudentTM;
 import lk.ijse.preschool.model.PaymentModel;
 import lk.ijse.preschool.model.StudentModel;
 import lk.ijse.preschool.model.TeacherModel;
+import lk.ijse.preschool.util.Regex;
 
 import java.net.URL;
 import java.sql.SQLException;
@@ -64,7 +65,16 @@ public class PaymentsWindowController implements Initializable {
 
 
     public void txtRefNoOnAction(ActionEvent actionEvent) {
-        btnSearchOnAction(actionEvent);
+
+
+        String ref_no=txtRefNo.getText();
+        if (Regex.validateReferanceNo(ref_no)){
+            btnSearchOnAction(actionEvent);
+            dtpckrDate.requestFocus();
+        }else {
+            txtRefNo.clear();
+            new Alert(Alert.AlertType.WARNING, "No matching Student ID please Input SUP format!!!").show();
+        }
     }
 
 

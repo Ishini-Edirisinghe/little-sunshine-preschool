@@ -20,6 +20,7 @@ import lk.ijse.preschool.dto.tm.TeacherTM;
 import lk.ijse.preschool.model.EventModel;
 import lk.ijse.preschool.model.StudentModel;
 import lk.ijse.preschool.model.TeacherModel;
+import lk.ijse.preschool.util.Regex;
 
 import java.net.URL;
 import java.sql.SQLException;
@@ -93,7 +94,25 @@ public class ManageTeacherWindowController implements Initializable {
 
 
     public void txtTeachIdOnAction(ActionEvent actionEvent) {
-        btnSearchOnAction(actionEvent);
+        String teachId=txtTeachId.getText();
+        if (Regex.validateTeacherId(teachId)){
+            btnSearchOnAction(actionEvent);
+            txtTeachName.requestFocus();
+        }else {
+            txtTeachId.clear();
+            new Alert(Alert.AlertType.WARNING, "No matching Student ID please Input SUP format!!!").show();
+        }
+    }
+    @FXML
+    void txtContactOnAction(ActionEvent event) {
+        String contact=txtContact.getText();
+        if (Regex.validateContact(contact)){
+            btnSaveOnAction(event);
+
+        }else {
+            txtContact.clear();
+            new Alert(Alert.AlertType.WARNING, "No matching contact number please Input SUP format!!!").show();
+        }
     }
 
 
@@ -175,9 +194,6 @@ public class ManageTeacherWindowController implements Initializable {
             new Alert(Alert.AlertType.ERROR, "oops! something went wrong :(").show();
         }
     }
-
-
-
     private void setCellValueFactory() {
         colTeachId.setCellValueFactory(new PropertyValueFactory<>("teachId")); //SupplierTM class attributes names
         colName.setCellValueFactory(new PropertyValueFactory<>("name"));
@@ -203,9 +219,7 @@ public class ManageTeacherWindowController implements Initializable {
                             teacher.getDOB(),
                             teacher.getContact(),
                             btnDel);
-
                     obList.add(tm);
-
                     setDeleteButtonTableOnAction(btnDel);
                 }
             }
