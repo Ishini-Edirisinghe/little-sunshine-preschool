@@ -1,3 +1,10 @@
+.btngetreport{
+    -fx-background-color:  #2980b9;
+    -fx-min-width: 100px;
+    -fx-min-height: 30px;
+    -fx-max-width: 100px;
+    -fx-max-height: 30px;
+}
 .btnclear{
     -fx-background-color:  #d2dae2;
     -fx-background-radius: 10;

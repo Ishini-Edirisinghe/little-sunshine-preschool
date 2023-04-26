@@ -1,6 +1,7 @@
 package lk.ijse.preschool.controller;
 
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXComboBox;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -12,8 +13,10 @@ import javafx.scene.Cursor;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+import lk.ijse.preschool.dto.SkillStatus;
 import lk.ijse.preschool.dto.Student;
 import lk.ijse.preschool.dto.tm.StudentTM;
+import lk.ijse.preschool.model.PlaceStudentModel;
 import lk.ijse.preschool.model.StudentModel;
 import lk.ijse.preschool.model.TeacherModel;
 import lk.ijse.preschool.util.Regex;
@@ -29,7 +32,24 @@ public class ManageStudentWindowController implements Initializable {
     public ComboBox cmbTeacherId;
     public AnchorPane manageStudentAnchorPane;
     public DatePicker dtpckrDOB;
+    @FXML
+    private JFXComboBox<String> cmbCounting;
 
+    @FXML
+    private JFXComboBox<String> cmbCrafting;
+
+    @FXML
+    private JFXComboBox<String> cmbDrawing;
+
+    @FXML
+    private JFXComboBox<String> cmbReading;
+
+    @FXML
+    private JFXComboBox<String> cmbSinging;
+
+
+    @FXML
+    private JFXComboBox<String> cmbWriting;
 
     @FXML
     private TableColumn<?, ?> colAction;
@@ -87,6 +107,7 @@ public class ManageStudentWindowController implements Initializable {
 
     @FXML
     private JFXButton btnSaveStudent;
+    private static ObservableList<String> items = FXCollections.observableArrayList("Excellent", "Good", "Weak");
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -95,7 +116,7 @@ public class ManageStudentWindowController implements Initializable {
         setCellValueFactory(); //To show table data
         getAllStudentsToTable(searchText); //To get all students details to table(Not show)
         loadTeacherids();
-
+        loadStatus();
         tblStudent.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> { //Add ActionListener to selected column and display text field values
             //Check select value is not null
             if(null!=newValue) { //newValue!=null --> Get more time to compare (newValue object compare)
@@ -111,6 +132,15 @@ public class ManageStudentWindowController implements Initializable {
         });
     }
 
+    private void loadStatus() {
+        cmbCounting.getItems().addAll(items);
+        cmbCrafting.getItems().addAll(items);
+        cmbDrawing.getItems().addAll(items);
+        cmbReading.getItems().addAll(items);
+        cmbSinging.getItems().addAll(items);
+        cmbWriting.getItems().addAll(items);
+    }
+
     private void setDataToTextFields(StudentTM studentTM) {
         txtStId.setText(studentTM.getStId());
         txtName.setText(studentTM.getName());
@@ -118,7 +148,6 @@ public class ManageStudentWindowController implements Initializable {
         dtpckrDOB.setValue(LocalDate.parse(studentTM.getDOB()));
         txtContact.setText(studentTM.getContact());
         txtParentName.setText(studentTM.getParentsName());
-        cmbTeacherId.setValue(studentTM.getTeacherId());
     }
 
     private void getAllStudentsToTable(String searchText) {
@@ -137,8 +166,7 @@ public class ManageStudentWindowController implements Initializable {
                                 student.getAddress(),
                                 student.getDOB(),
                                 student.getContact(),
-                                student.getParentName(),
-                                student.getTeachId(),btnDel);
+                                student.getParentName());
                         obList.add(tm);
 
                     setDeleteButtonTableOnAction(btnDel);
@@ -181,8 +209,6 @@ public class ManageStudentWindowController implements Initializable {
         colDOB.setCellValueFactory(new PropertyValueFactory<>("DOB"));
         colContact.setCellValueFactory(new PropertyValueFactory<>("contact"));
         colParentsName.setCellValueFactory(new PropertyValueFactory<>("parentsName"));
-        colTeacherId.setCellValueFactory(new PropertyValueFactory<>("teacherId"));
-        colAction.setCellValueFactory(new PropertyValueFactory<>("btn"));
     }
 
     @FXML
@@ -194,13 +220,22 @@ public class ManageStudentWindowController implements Initializable {
         String contact = txtContact.getText();
         String parentName = txtParentName.getText();
         String teachId = String.valueOf(cmbTeacherId.getSelectionModel().getSelectedItem());
+        String count = cmbCounting.getSelectionModel().getSelectedItem().toString();
+        String craft = cmbCrafting.getSelectionModel().getSelectedItem().toString();
+        String draw = cmbDrawing.getSelectionModel().getSelectedItem().toString();
+        String read = cmbReading.getSelectionModel().getSelectedItem().toString();
+        String sing = cmbSinging.getSelectionModel().getSelectedItem().toString();
+        String write = cmbWriting.getSelectionModel().getSelectedItem().toString();
+
+        SkillStatus s1 = new SkillStatus(id,name,count,craft,draw,read,sing,write);
+        Student s2 = new Student(id,name,address,DOB,contact,parentName,teachId);
 
         boolean isSaved;
 
         if (btnSaveStudent.getText().equalsIgnoreCase("Save")){
             try {
-                isSaved = StudentModel.save(id, name, address,DOB, contact,parentName,teachId);
-                if (isSaved) {
+                Boolean placeStudent = PlaceStudentModel.PlaceStudent(s2, s1);
+                if (placeStudent) {
                     new Alert(Alert.AlertType.CONFIRMATION, "Student saved!!!").show();
                     tblStudent.getItems().clear();
                     getAllStudentsToTable("");

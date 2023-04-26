@@ -13,8 +13,4 @@ public class StudentTM {
     private String DOB;
     private String contact;
     private String parentsName;
-    private String teacherId;
-    private JFXButton btn;
-
-
 }

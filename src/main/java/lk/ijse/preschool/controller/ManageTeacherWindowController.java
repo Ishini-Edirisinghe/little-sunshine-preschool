@@ -115,7 +115,14 @@ public class ManageTeacherWindowController implements Initializable {
         }
     }
 
-
+    @FXML
+    void btnClearOnAction(ActionEvent event) {
+        txtTeachId.clear();
+        txtTeachName.clear();
+        txtTeachAddress.clear();
+        dtpckrDOB.setValue(null);
+        txtContact.clear();
+    }
 
     public void btnSaveOnAction(ActionEvent actionEvent) {
         String teachId = txtTeachId.getText();

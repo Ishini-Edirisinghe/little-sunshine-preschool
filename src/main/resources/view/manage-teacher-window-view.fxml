@@ -39,5 +39,6 @@
         </columns>
       </TableView>
       <DatePicker fx:id="dtpckrDOB" layoutX="584.0" layoutY="83.0" prefHeight="25.0" prefWidth="189.0" />
+      <JFXButton layoutX="813.0" layoutY="192.0" onAction="#btnClearOnAction" prefHeight="25.0" prefWidth="65.0" styleClass="btnadd" text="Clear" />
    </children>
 </AnchorPane>

@@ -88,7 +88,7 @@ public class StudentSkillStatusWindowController implements Initializable {
         try {
             Student student = StudentModel.searchById(studentId);
             txtStudentName.setText(student.getName());
-            SkillStatus skillStatus=SkillStatusModel.searchByIdGetSkills(studentId);
+            SkillStatus skillStatus=SkillStatusModel.search(studentId);
 
             if (skillStatus!=null){
                 cmbWritingStatus.setValue(skillStatus.getWriting());

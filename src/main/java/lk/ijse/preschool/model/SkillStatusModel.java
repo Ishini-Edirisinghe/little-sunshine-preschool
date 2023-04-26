@@ -42,7 +42,7 @@ public class SkillStatusModel {
     }
 
     public static SkillStatus searchByIdGetSkills(String studentId) throws SQLException {
-        String sql = "SELECT counting,crafting,drawing,reading,singing,writing FROM student_skill_status WHERE stId = ?";
+        String sql = "SELECT stName,counting,crafting,drawing,reading,singing,writing FROM student_skill_status WHERE stId = ?";
 
         ResultSet resultSet = CrudUtil.execute(sql, studentId);
         if (resultSet.next()) {
@@ -52,12 +52,34 @@ public class SkillStatusModel {
                     resultSet.getString(3),
                     resultSet.getString(4),
                     resultSet.getString(5),
-                    resultSet.getString(6)
+                    resultSet.getString(6),
+                    resultSet.getString(7),
+                    resultSet.getString(8)
 
             );
         }
         return null;
     }
+
+    public static SkillStatus search(String studentId) throws SQLException {
+        String sql = "SELECT * FROM student_skill_status WHERE stId = ?";
+        ResultSet resultSet = CrudUtil.execute(sql, studentId);
+        if (resultSet.next()) {
+            return new SkillStatus(
+                    resultSet.getString(1),
+                    resultSet.getString(2),
+                    resultSet.getString(3),
+                    resultSet.getString(4),
+                    resultSet.getString(5),
+                    resultSet.getString(6),
+                    resultSet.getString(7),
+                    resultSet.getString(8)
+
+            );
+        }
+        return null;
+    }
+
 
 
     public static int getStatusCount(String subject,String status) throws SQLException {
