@@ -10,16 +10,24 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.chart.BarChart;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import lk.ijse.preschool.model.SkillStatusModel;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.*;
+import java.text.NumberFormat;
+import java.text.ParseException;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class DashboardWindowController implements Initializable {
@@ -38,6 +46,9 @@ public class DashboardWindowController implements Initializable {
     @FXML
     private Label lblTime;
 
+    @FXML
+    private BarChart<String,Number> barChartSkills;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         LocalTime currentTime = LocalTime.now();
@@ -53,9 +64,44 @@ public class DashboardWindowController implements Initializable {
         } else if (hour >= 12 && hour < 17) {
             lblGreeting.setText("Good Afternoon !!!");
         } else {
-            greetingsMessage = "Good evening!";
+            lblGreeting.setText("Good evening !!!");
         }
         dateTimeInit();
+
+        //Charts initialize
+
+        XYChart.Series seriesExcellent = new XYChart.Series<>();
+        seriesExcellent.setName("Excellent");
+
+        XYChart.Series seriesGood = new XYChart.Series<>();
+        seriesGood.setName("Good");
+
+        XYChart.Series seriesWeak = new XYChart.Series<>();
+        seriesWeak.setName("Weak");
+
+       try {
+
+            String[] subjectNames = { "counting", "crafting", "drawing", "reading", "singing", "writing" };
+
+            for (int i = 0; i < subjectNames.length; i++) {
+                String subject = subjectNames[i];
+
+                int excellentCount = SkillStatusModel.getExcellentCount(subject,"Excellent");
+                int goodCount = SkillStatusModel.getExcellentCount(subject,"Good");
+                int weakCount = SkillStatusModel.getExcellentCount(subject,"Weak");
+
+                seriesExcellent.getData().add(new XYChart.Data<>(subject, excellentCount));
+                seriesGood.getData().add(new XYChart.Data<>(subject, goodCount));
+                seriesWeak.getData().add(new XYChart.Data<>(subject, weakCount));
+
+            }
+
+            } catch(SQLException throwables){
+                throwables.printStackTrace();
+            }
+
+        barChartSkills.getData().addAll(seriesExcellent, seriesGood, seriesWeak);
+
     }
 
     private void dateTimeInit() {

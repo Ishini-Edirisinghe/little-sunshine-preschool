@@ -187,15 +187,34 @@
     !* Customize the appearance of the data series area fill *!
 }*/
 
-.bar-chart {
-    -fx-background-color: white;
+/* Styling the chart legend */
+.chart-legend {
+    -fx-background-color: rgba(255, 255, 255, 0.5); /* Set background color to white with 50% opacity */
+}
+
+/* Styling the chart title */
+.chart-legend . chart-title {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill:black ;
 
 }
 
-.bar-chart .series0 {
-    -fx-bar-fill: #0066cc;
+/* Styling the chart axes */
+.chart-legend  . chart-axis {
+    -fx-font-size: 14px;
+    -fx-text-fill: black;
 }
 
-.bar-chart .series1 {
-    -fx-bar-fill: #e84118;
+/* Styling the chart bars */
+.chart-legend .series0 {
+    -fx-bar-fill: #0066cc; /*!* Bar fill color for series 0 *!*/
 }
+
+.chart-legend .series1 {
+    -fx-bar-fill: #e84118; /*!* Bar fill color for series 1 *!*/
+}
+.chart-legend .series2 {
+    -fx-bar-fill:#ff7675; /*!* Bar fill color for series 1 *!*/
+}
+
