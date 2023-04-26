@@ -36,7 +36,7 @@ public class SyllabusModel {
     }
 
     public static boolean update(String subject_id, String sub_name) throws SQLException {
-        String sql = "UPDATE student SET  sub_name=? WHERE subject_id = ?";
+        String sql = "UPDATE syllabus SET  sub_name=? WHERE subject_id = ?";
         return CrudUtil.execute(sql,sub_name,subject_id);
 
     }

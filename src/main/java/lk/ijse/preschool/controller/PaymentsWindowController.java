@@ -198,7 +198,7 @@ public class PaymentsWindowController implements Initializable {
     private void setDataToTextFields(PaymentTM paymentTM) {
         txtRefNo.setText(paymentTM.getRef_no());
         dtpckrDate.setValue(LocalDate.parse(paymentTM.getDate()));
-        cmbStId.setValue(paymentTM.getType());
+        cmbStId.setValue(paymentTM.getStid());
         cmbType.setValue(paymentTM.getType());
     }
 

@@ -41,7 +41,7 @@ public class PaymentModel {
     }
 
     public static boolean update(String ref_no, String date, String stid, String type) throws SQLException {
-        String sql = "UPDATE student SET  date = ?, stid = ?,type=? WHERE ref_no = ?";
+        String sql = "UPDATE payment SET  date = ?, stid = ?,type=? WHERE ref_no = ?";
         return CrudUtil.execute(sql,date,stid, type,ref_no);
     }
 
