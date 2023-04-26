@@ -60,9 +60,9 @@ public class SkillStatusModel {
     }
 
 
-    public static int getExcellentCount(String subject,String status) throws SQLException {
+    public static int getStatusCount(String subject,String status) throws SQLException {
 
-        String sql = "SELECT COUNT(*) AS excellent_count FROM student_skill_status WHERE "+subject+"=?";
+        String sql = "SELECT COUNT(*) AS statusCount FROM student_skill_status WHERE "+subject+"=?";
         ResultSet resultSet=CrudUtil.execute(sql,status);
         String string = null;
         while (resultSet.next()) {

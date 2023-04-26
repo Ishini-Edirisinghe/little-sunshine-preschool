@@ -86,9 +86,9 @@ public class DashboardWindowController implements Initializable {
             for (int i = 0; i < subjectNames.length; i++) {
                 String subject = subjectNames[i];
 
-                int excellentCount = SkillStatusModel.getExcellentCount(subject,"Excellent");
-                int goodCount = SkillStatusModel.getExcellentCount(subject,"Good");
-                int weakCount = SkillStatusModel.getExcellentCount(subject,"Weak");
+                int excellentCount = SkillStatusModel.getStatusCount(subject,"Excellent");
+                int goodCount = SkillStatusModel.getStatusCount(subject,"Good");
+                int weakCount = SkillStatusModel.getStatusCount(subject,"Weak");
 
                 seriesExcellent.getData().add(new XYChart.Data<>(subject, excellentCount));
                 seriesGood.getData().add(new XYChart.Data<>(subject, goodCount));
