@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="558.0" prefWidth="836.0" styleClass="pane" stylesheets="@../stylesheet/stylesheet.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.preschool.controller.EventWindowController">
+<AnchorPane prefHeight="558.0" prefWidth="836.0" styleClass="pane" stylesheets="@../stylesheet/stylesheet.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.preschool.controller.EventWindowController">
    <children>
       <Label alignment="TOP_LEFT" layoutX="13.0" layoutY="14.0" prefHeight="49.0" prefWidth="145.0" text="Event">
          <font>
@@ -21,7 +21,7 @@
       <TextField fx:id="txtMonth" layoutX="133.0" layoutY="199.0" prefHeight="25.0" prefWidth="198.0" promptText="month" />
       <Label layoutX="469.0" layoutY="136.0" prefHeight="25.0" prefWidth="101.0" text="Event name" />
       <Label layoutX="59.0" layoutY="204.0" prefHeight="17.0" prefWidth="54.0" text="Month" />
-      <JFXButton layoutX="406.0" layoutY="196.0" onAction="#btnSaveOnAction" prefHeight="32.0" prefWidth="71.0" styleClass="btnadd" text="Save" />
+      <JFXButton layoutX="368.0" layoutY="196.0" onAction="#btnSaveOnAction" prefHeight="32.0" prefWidth="71.0" styleClass="btnadd" text="Save" />
       <JFXButton layoutX="519.0" layoutY="196.0" onAction="#btnDeleteOnAction" prefHeight="32.0" prefWidth="71.0" styleClass="btndelete" text="Delete" />
       <JFXButton layoutX="640.0" layoutY="196.0" onAction="#btnUpdateOnAction" prefHeight="32.0" prefWidth="71.0" styleClass="btnclear" text="Update" />
       <TableView fx:id="tblEvent" layoutX="59.0" layoutY="279.0" prefHeight="239.0" prefWidth="731.0">
@@ -33,5 +33,6 @@
         </columns>
       </TableView>
       <JFXButton layoutX="341.0" layoutY="136.0" onAction="#btnSearchEventOnAction" styleClass="btnSearch" text="search" />
+      <JFXButton layoutX="688.0" layoutY="39.0" onAction="#btnGetReportOnAction" styleClass="btngetreport" text="Get Report" />
    </children>
 </AnchorPane>

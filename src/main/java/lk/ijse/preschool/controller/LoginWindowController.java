@@ -70,7 +70,7 @@ public class LoginWindowController implements Initializable {
             txtUserName.clear();
             txtPassword.clear();
             txtUserName.requestFocus();
-            //  stage1.setMaximized(true);
+            // stage1.setMaximized(true);
             stage.show();
         }
     }

@@ -13,6 +13,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import lk.ijse.preschool.db.DBConnection;
 import lk.ijse.preschool.dto.Student;
 import lk.ijse.preschool.dto.Syllabus;
 import lk.ijse.preschool.dto.tm.StudentTM;
@@ -20,9 +21,15 @@ import lk.ijse.preschool.dto.tm.SyllabusTM;
 import lk.ijse.preschool.model.StudentModel;
 import lk.ijse.preschool.model.SyllabusModel;
 import lk.ijse.preschool.util.Regex;
+import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.engine.design.JRDesignQuery;
+import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.xml.JRXmlLoader;
+import net.sf.jasperreports.view.JasperViewer;
 
 import java.io.IOException;
 import java.net.URL;
+import java.nio.file.FileSystems;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.List;
@@ -219,5 +226,32 @@ public class SyllabusWindowController implements Initializable {
         tblSyllabus.getItems().clear();
         getAllSyllabusToTable("");
 
+    }
+    @FXML
+    void btnGetReportOnAction(ActionEvent event) {
+        Thread t1=new Thread(
+                () -> {
+                    String reportPath = "H:\\MY FIRST PROJECT =)\\Little Sunshine_Project\\src\\main\\resources\\reports\\syllabus.jrxml";
+                    String sql="select * from syllabus";
+                    String path = FileSystems.getDefault().getPath("/reports/syllabus.jrxml").toAbsolutePath().toString();
+                    JasperDesign jasdi = null;
+                    try {
+                        jasdi = JRXmlLoader.load(reportPath);
+                        JRDesignQuery newQuery = new JRDesignQuery();
+                        newQuery.setText(sql);
+                        jasdi.setQuery(newQuery);
+                        JasperReport js = JasperCompileManager.compileReport(jasdi);
+                        JasperPrint jp = JasperFillManager.fillReport(js, null, DBConnection.getInstance().getConnection());
+                        JasperViewer viewer = new JasperViewer(jp, false);
+                        viewer.show();
+                    } catch (JRException e) {
+                        e.printStackTrace();
+                    } catch (SQLException exception) {
+                        exception.printStackTrace();
+                    }
+
+                });
+
+        t1.start();
     }
 }

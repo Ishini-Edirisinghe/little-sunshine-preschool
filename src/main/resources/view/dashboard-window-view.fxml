@@ -8,6 +8,8 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.paint.Color?>
@@ -15,9 +17,9 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="dashboardMainAnchorPane" blendMode="DARKEN" minHeight="650.0" minWidth="1366.0" prefHeight="650.0" prefWidth="1366.0" styleClass="anchorPane" stylesheets="@../stylesheet/stylesheet.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.preschool.controller.DashboardWindowController">
+<AnchorPane fx:id="dashboardMainAnchorPane" blendMode="DARKEN" minHeight="650.0" minWidth="1366.0" prefHeight="768.0" prefWidth="1366.0" styleClass="anchorPane" stylesheets="@../stylesheet/stylesheet.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.preschool.controller.DashboardWindowController">
    <children>
-      <AnchorPane fx:id="dashboardAnchorPane" layoutX="309.0" layoutY="30.0" prefHeight="606.0" prefWidth="1000.0" styleClass="pane" stylesheets="@../stylesheet/stylesheet.css">
+      <AnchorPane fx:id="dashboardAnchorPane" layoutX="309.0" layoutY="30.0" prefHeight="653.0" prefWidth="1000.0" styleClass="pane" stylesheets="@../stylesheet/stylesheet.css">
          <children>
             <Label alignment="TOP_LEFT" contentDisplay="TOP" layoutX="14.0" layoutY="14.0" prefHeight="49.0" prefWidth="265.0" text="Dashboard">
                <font>
@@ -28,12 +30,12 @@
                      <stops>
                         <Stop>
                            <color>
-                              <Color blue="0.5131579041481018" green="0.5090003609657288" red="0.4775219261646271" />
+                              <Color red="0.4775219261646271" green="0.5090003609657288" blue="0.5131579041481018" />
                            </color>
                         </Stop>
                         <Stop offset="1.0">
                            <color>
-                              <Color blue="1.0" green="0.4056190550327301" red="0.20999999344348907" />
+                              <Color red="0.20999999344348907" green="0.4056190550327301" blue="1.0" />
                            </color>
                         </Stop>
                      </stops>
@@ -59,9 +61,9 @@
               </yAxis>
             </BarChart>
          </children></AnchorPane>
-      <Pane layoutX="43.0" layoutY="22.0" prefHeight="606.0" prefWidth="237.0" styleClass="dashboardleftsidepane">
+      <Pane layoutX="43.0" layoutY="22.0" prefHeight="662.0" prefWidth="237.0" styleClass="dashboardleftsidepane">
          <children>
-            <JFXButton layoutX="11.0" layoutY="254.0" onAction="#btnManageTeacherOnAction" prefHeight="49.0" prefWidth="214.0" styleClass="dashboardbtn" text="Manage Teacher">
+            <JFXButton layoutX="12.0" layoutY="275.0" onAction="#btnManageTeacherOnAction" prefHeight="49.0" prefWidth="214.0" styleClass="dashboardbtn" text="Manage Teacher">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
@@ -69,13 +71,21 @@
                   <DropShadow />
                </effect>
             </JFXButton>
-            <JFXButton layoutX="11.0" layoutY="470.0" onAction="#btnStudentSkillsStatusOnAction" prefHeight="49.0" prefWidth="214.0" styleClass="dashboardbtn" text="Student skills status" />
-            <JFXButton layoutX="12.0" layoutY="327.0" onAction="#btnPaymentOnAction" prefHeight="49.0" prefWidth="214.0" styleClass="dashboardbtn" text="Payments" />
-            <JFXButton layoutX="18.0" layoutY="396.0" onAction="#btnSyllabusOnAction" prefHeight="49.0" prefWidth="208.0" styleClass="dashboardbtn" text="Sylabus" />
-            <JFXButton layoutX="16.0" layoutY="174.0" onAction="#btnEventOnAction" prefHeight="49.0" prefWidth="208.0" styleClass="dashboardbtn" text="Events" textFill="#322929" />
-            <JFXButton layoutX="18.0" layoutY="107.0" onAction="#btnManageStudentOnAction" prefHeight="49.0" prefWidth="208.0" styleClass="dashboardbtn" text="Manage Student" />
-            <JFXButton layoutX="16.0" layoutY="549.0" onAction="#btnLogoutOnAction" prefHeight="49.0" prefWidth="208.0" styleClass="dashboardbtn" text="Logout" />
-            <JFXButton layoutX="16.0" layoutY="31.0" onAction="#btnDashboardOnAction" prefHeight="49.0" prefWidth="208.0" styleClass="dashboardbtn" stylesheets="@../stylesheet/stylesheet.css" text="Dashboard" />
+            <JFXButton layoutX="15.0" layoutY="508.0" onAction="#btnStudentSkillsStatusOnAction" prefHeight="49.0" prefWidth="214.0" styleClass="dashboardbtn" text="Student skills status" />
+            <JFXButton layoutX="12.0" layoutY="353.0" onAction="#btnPaymentOnAction" prefHeight="49.0" prefWidth="214.0" styleClass="dashboardbtn" text="Payments" />
+            <JFXButton layoutX="16.0" layoutY="428.0" onAction="#btnSyllabusOnAction" prefHeight="49.0" prefWidth="208.0" styleClass="dashboardbtn" text="Sylabus" />
+            <JFXButton layoutX="15.0" layoutY="195.0" onAction="#btnEventOnAction" prefHeight="49.0" prefWidth="208.0" styleClass="dashboardbtn" text="Events" textFill="#322929" />
+            <JFXButton layoutX="18.0" layoutY="117.0" onAction="#btnManageStudentOnAction" prefHeight="49.0" prefWidth="208.0" styleClass="dashboardbtn" text="Manage Student" />
+            <JFXButton layoutX="16.0" layoutY="585.0" onAction="#btnLogoutOnAction" prefHeight="49.0" prefWidth="208.0" styleClass="dashboardbtn" text="Logout" />
+            <JFXButton layoutX="16.0" layoutY="31.0" onAction="#btnDashboardOnAction" prefHeight="49.0" prefWidth="208.0" styleClass="dashboardbtn" stylesheets="@../stylesheet/stylesheet.css" text="Dashboard">
+               <graphic>
+                  <ImageView fitHeight="45.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" />
+               </graphic></JFXButton>
+            <ImageView fitHeight="38.0" fitWidth="42.0" layoutX="36.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/dash_icon.png" />
+               </image>
+            </ImageView>
          </children>
       </Pane>
       <Label fx:id="lblTime" layoutX="1197.0" layoutY="-1.0" prefHeight="30.0" prefWidth="112.0" styleClass="labelDateTime" text="Label" />

@@ -1,5 +1,5 @@
 .btngetreport{
-    -fx-background-color:  #2980b9;
+    -fx-background-color:  #079992;
     -fx-min-width: 100px;
     -fx-min-height: 30px;
     -fx-max-width: 100px;
@@ -40,7 +40,7 @@
 }
 .anchorPane{
     -fx-background-color:   #2f3542;
-    -fx-background-radius: 10;
+    /*-fx-background-radius: 10;*/
 }
 
 .pane{

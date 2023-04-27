@@ -14,15 +14,22 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import javafx.stage.Window;
+import lk.ijse.preschool.db.DBConnection;
 import lk.ijse.preschool.dto.Event;
 import lk.ijse.preschool.dto.Student;
 import lk.ijse.preschool.dto.tm.EventTM;
 import lk.ijse.preschool.dto.tm.StudentTM;
 import lk.ijse.preschool.model.EventModel;
 import lk.ijse.preschool.model.StudentModel;
+import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.engine.design.JRDesignQuery;
+import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.xml.JRXmlLoader;
+import net.sf.jasperreports.view.JasperViewer;
 
 import java.io.IOException;
 import java.net.URL;
+import java.nio.file.FileSystems;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.List;
@@ -213,6 +220,36 @@ public class EventWindowController implements Initializable {
             new Alert(Alert.AlertType.ERROR, "oops! something went wrong :(").show();
         }
     }
+    @FXML
+    void btnGetReportOnAction(ActionEvent event) {
+        Thread t1=new Thread(
+                () -> {
+                    String ReportPath = "H:\\MY FIRST PROJECT =)\\Little Sunshine_Project\\src\\main\\resources\\reports\\eventreport.jrxml";
+                    String sql="select * from event";
+                    String path = FileSystems.getDefault().getPath("/reports/eventreport.jrxml").toAbsolutePath().toString();
+                    JasperDesign jasdi = null;
+                    try {
+                        jasdi = JRXmlLoader.load(ReportPath);
+                        JRDesignQuery newQuery = new JRDesignQuery();
+                        newQuery.setText(sql);
+                        jasdi.setQuery(newQuery);
+                        JasperReport js = JasperCompileManager.compileReport(jasdi);
+                        JasperPrint jp = JasperFillManager.fillReport(js, null, DBConnection.getInstance().getConnection());
+                        JasperViewer viewer = new JasperViewer(jp, false);
+                        viewer.show();
+                    } catch (JRException e) {
+                        e.printStackTrace();
+                    } catch (SQLException exception) {
+                        exception.printStackTrace();
+                    }
+
+                });
+
+        t1.start();
+
+
+    }
+
 
 
 }

@@ -54,7 +54,7 @@
             <Image url="@../img/search-user-img.png" />
          </image>
       </ImageView>
-      <JFXButton layoutX="787.0" layoutY="260.0" prefHeight="40.0" prefWidth="185.0" text="Get Report" />
+      <JFXButton layoutX="792.0" layoutY="261.0" onAction="#btnGetReportOnAction" prefHeight="40.0" prefWidth="185.0" styleClass="btngetreport" text="Get Report" />
       <Label layoutX="50.0" layoutY="328.0" prefHeight="21.0" prefWidth="44.0" text="Skills" />
       <Label layoutX="36.0" layoutY="374.0" text="Counting" />
       <Label layoutX="36.0" layoutY="403.0" text="Crafting" />

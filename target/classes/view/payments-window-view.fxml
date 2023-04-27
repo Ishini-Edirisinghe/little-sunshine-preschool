@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="606.0" prefWidth="1000.0" styleClass="pane" stylesheets="@../stylesheet/stylesheet.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.preschool.controller.PaymentsWindowController">
+<AnchorPane prefHeight="606.0" prefWidth="1000.0" styleClass="pane" stylesheets="@../stylesheet/stylesheet.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.preschool.controller.PaymentsWindowController">
    <children>
       <Label alignment="TOP_LEFT" layoutX="13.0" layoutY="14.0" prefHeight="77.0" prefWidth="297.0" text=" Payments">
          <font>
@@ -37,5 +37,6 @@
       <JFXButton layoutX="359.0" layoutY="130.0" onAction="#btnSearchOnAction" styleClass="btnSearch" text="search" />
       <JFXComboBox fx:id="cmbType" layoutX="586.0" layoutY="182.0" prefHeight="25.0" prefWidth="227.0" styleClass="cmb" />
       <JFXComboBox fx:id="cmbStId" layoutX="586.0" layoutY="130.0" prefHeight="25.0" prefWidth="227.0" styleClass="cmb" />
+      <JFXButton layoutX="638.0" layoutY="249.0" onAction="#btnGetReportOnAction" styleClass="btngetreport" text="Get Report" />
    </children>
 </AnchorPane>

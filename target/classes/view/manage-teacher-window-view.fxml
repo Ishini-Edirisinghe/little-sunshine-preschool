@@ -25,9 +25,9 @@
       <TextField fx:id="txtTeachAddress" layoutX="110.0" layoutY="192.0" prefHeight="25.0" prefWidth="221.0" />
       <TextField fx:id="txtContact" layoutX="586.0" layoutY="140.0" onAction="#txtContactOnAction" prefHeight="25.0" prefWidth="189.0" />
       <JFXButton layoutX="354.0" layoutY="90.0" onAction="#btnSearchOnAction" styleClass="btnSearch" text="Search" />
-      <JFXButton layoutX="398.0" layoutY="192.0" onAction="#btnSaveOnAction" prefHeight="25.0" prefWidth="65.0" styleClass="btnadd" text="Add" />
-      <JFXButton layoutX="536.0" layoutY="192.0" onAction="#btnDeleteOnAction" styleClass="btndelete" text="Delete" />
-      <JFXButton layoutX="673.0" layoutY="192.0" onAction="#btnUpdateOnUpdate" styleClass="btnclear" text="Update" />
+      <JFXButton layoutX="354.0" layoutY="192.0" onAction="#btnSaveOnAction" prefHeight="25.0" prefWidth="65.0" styleClass="btnadd" text="Add" />
+      <JFXButton layoutX="475.0" layoutY="192.0" onAction="#btnDeleteOnAction" styleClass="btndelete" text="Delete" />
+      <JFXButton layoutX="594.0" layoutY="192.0" onAction="#btnUpdateOnUpdate" styleClass="btnclear" text="Update" />
       <TableView fx:id="tblTeacher" layoutX="16.0" layoutY="283.0" prefHeight="291.0" prefWidth="968.0">
         <columns>
           <TableColumn fx:id="colTeachId" prefWidth="103.0" text="Teacher ID" />
@@ -39,6 +39,7 @@
         </columns>
       </TableView>
       <DatePicker fx:id="dtpckrDOB" layoutX="584.0" layoutY="83.0" prefHeight="25.0" prefWidth="189.0" />
-      <JFXButton layoutX="813.0" layoutY="192.0" onAction="#btnClearOnAction" prefHeight="25.0" prefWidth="65.0" styleClass="btnadd" text="Clear" />
+      <JFXButton layoutX="710.0" layoutY="192.0" onAction="#btnClearOnAction" prefHeight="25.0" prefWidth="65.0" styleClass="btnadd" text="Clear" />
+      <JFXButton layoutX="856.0" layoutY="195.0" onAction="#btnGetReportOnAction" styleClass="btngetreport" text="Get Report" />
    </children>
 </AnchorPane>
