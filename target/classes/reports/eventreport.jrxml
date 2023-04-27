@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.1.final using JasperReports Library version 6.20.1-7584acb244139816654f64e2fd57a00d3e31921e  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="eventreport" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b1287784-8d27-47d8-9a71-e9fe355242cf">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Preschool Data Adapter "/>
+	<queryString language="SQL">
+		<![CDATA[select * from event;]]>
+	</queryString>
+	<field name="event_no" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="event_no"/>
+		<property name="com.jaspersoft.studio.field.label" value="event_no"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="event"/>
+	</field>
+	<field name="name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="name"/>
+		<property name="com.jaspersoft.studio.field.label" value="name"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="event"/>
+	</field>
+	<field name="month" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="month"/>
+		<property name="com.jaspersoft.studio.field.label" value="month"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="event"/>
+	</field>
+	<group name="event_no">
+		<groupExpression><![CDATA[$F{event_no}]]></groupExpression>
+	</group>
+	<group name="name">
+		<groupExpression><![CDATA[$F{name}]]></groupExpression>
+	</group>
+	<group name="month">
+		<groupExpression><![CDATA[$F{month}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="120" splitType="Stretch">
+			<staticText>
+				<reportElement x="118" y="12" width="320" height="52" uuid="0b992f26-a180-48ff-99df-be85fb97e2db"/>
+				<textElement textAlignment="Center">
+					<font size="22" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Chathura Preschool]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="202" y="44" width="181" height="30" uuid="ee140744-c838-4e64-8c76-eb0cb4f8222a"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Event Details Report]]></text>
+			</staticText>
+			<textField pattern="MMMMM dd, yyyy">
+				<reportElement x="456" y="85" width="100" height="30" uuid="7a9559be-5bd9-4624-be84-81042299145e"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField pattern="HH:mm">
+				<reportElement x="364" y="86" width="100" height="30" uuid="43aebb55-5fc4-4627-969f-7e11d411043d"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="32" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="43" splitType="Stretch">
+			<staticText>
+				<reportElement x="77" y="0" width="100" height="30" uuid="3785c734-9773-4add-b54e-2c33d9c0148d">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="12a8f92e-c69f-4572-ae2e-153427b1c3b1"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Event No]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="264" y="-2" width="100" height="30" uuid="0ea9e78a-357b-4c23-95e5-a3bf1901dcc7">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="2fb49eb7-8baf-4add-94e1-a1521dee5c19"/>
+				</reportElement>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="390" y="-1" width="100" height="30" uuid="d255b88d-7d24-46b7-ae7f-9d79171047da">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="315959f4-1065-403c-a92f-40b0a8df838c"/>
+				</reportElement>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Month]]></text>
+			</staticText>
+			<line>
+				<reportElement x="80" y="-13" width="400" height="1" uuid="78a12bbe-034d-4e92-95b8-ba1f3fda58c5"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="50" splitType="Stretch">
+			<textField>
+				<reportElement x="79" y="6" width="100" height="30" uuid="49e1701a-f9a2-4ed4-938d-50fe3f6f8efb">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="12a8f92e-c69f-4572-ae2e-153427b1c3b1"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{event_no}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="235" y="7" width="100" height="30" uuid="8c39c41b-e275-484d-aeb1-4f975f2d2a5d">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="2fb49eb7-8baf-4add-94e1-a1521dee5c19"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="359" y="8" width="100" height="30" uuid="c068ce90-d811-4995-8eb3-edd9bfeff744">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="315959f4-1065-403c-a92f-40b0a8df838c"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{month}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="78" y="33" width="410" height="1" uuid="2a5625a3-faac-4191-a788-9d0e861b9cf3"/>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

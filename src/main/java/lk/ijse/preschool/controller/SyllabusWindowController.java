@@ -254,4 +254,11 @@ public class SyllabusWindowController implements Initializable {
 
         t1.start();
     }
+    @FXML
+    void btnClearOnAction(ActionEvent event) {
+        txtConNo.clear();
+        txtConName.clear();
+        tblSyllabus.getItems().clear();
+        getAllSyllabusToTable("");
+    }
 }

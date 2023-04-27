@@ -6,15 +6,26 @@
     -fx-max-height: 30px;
 }
 .btnclear{
-    -fx-background-color:  #d2dae2;
+    -fx-text-fill: white;
+    -fx-background-color:  #1289A7;
     -fx-background-radius: 10;
+    -fx-min-width: 100px;
+    -fx-min-height: 30px;
+    -fx-max-width: 100px;
+    -fx-max-height: 30px;
+}.
+ btnupdatek{
+    -fx-text-fill: white;
+    -fx-background-color:  #0a3d62;
+    -fx-background-radius: 20;
     -fx-min-width: 100px;
     -fx-min-height: 30px;
     -fx-max-width: 100px;
     -fx-max-height: 30px;
 }
 .btnadd{
-    -fx-background-color:  #2980b9;
+    -fx-text-fill: white;
+    -fx-background-color: #6F1E51;
     -fx-background-radius: 10;
     -fx-min-width: 100px;
     -fx-min-height: 30px;
@@ -23,6 +34,7 @@
 
 }
 .btndelete{
+    -fx-text-fill: white;
     -fx-background-color:  #e74c3c;
     -fx-background-radius: 10;
     -fx-min-width: 100px;
@@ -39,7 +51,7 @@
     -fx-max-height: 30px;
 }
 .anchorPane{
-    -fx-background-color:   #2f3542;
+    -fx-background-color:   #1B1464;
     /*-fx-background-radius: 10;*/
 }
 
@@ -55,9 +67,11 @@
 }
 
 .dashboardbtn{
-    -fx-background-color: #778beb ;
+    -fx-background-color: #cd84f1;
     -fx-background-radius: 10;
     -fx-text-fill: white;
+    -fx-font-size:15;
+    -fx-font-weight:bold;
 }
 
 .textfield{
@@ -65,18 +79,25 @@
     -fx-prompt-text-fill: white;
 }
 
-.label{
+.labelbig{
+    -fx-text-fill: white;
+    -fx-font-size: 35px;
+    -fx-font-weight:bold;
+
+}
+.labelsmall{
     -fx-text-fill: white;
     -fx-font-size: 15px;
 
-}.labelDateTime{
+}
+.labelDateTime{
     -fx-text-fill: white;
     -fx-font-size: 16px;
 }
 
 .labelGreeting{
-    -fx-text-fill: #0be881;
-    -fx-font-size: 20px;
+    -fx-text-fill: #574b90;
+    -fx-font-size: 35px;
     -fx-font-weight: bold;
 }
 

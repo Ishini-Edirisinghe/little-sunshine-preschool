@@ -309,4 +309,15 @@ public class PaymentsWindowController implements Initializable {
 
 
     }
+    @FXML
+    void btnClearOnAction(ActionEvent event) {
+        txtRefNo.clear();
+        dtpckrDate.setValue(null);
+        cmbStId.getItems().clear();
+        cmbType.getItems().clear();
+        tblPayment.getItems().clear();
+        getAllPaymentsToTable("");
+        loadStid();
+        loadType();
+    }
 }

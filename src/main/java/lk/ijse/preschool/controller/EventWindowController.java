@@ -250,6 +250,11 @@ public class EventWindowController implements Initializable {
 
     }
 
-
+    @FXML
+    void btnClearOnAction(ActionEvent event) {
+        txtEventNo.clear();
+        txtEventName.clear();
+        txtMonth.clear();
+    }
 
 }

@@ -4,12 +4,19 @@
 <?import com.jfoenix.controls.JFXComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="606.0" prefWidth="1000.0" styleClass="pane" stylesheets="@../stylesheet/stylesheet.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.preschool.controller.StudentSkillStatusWindowController">
+<AnchorPane prefHeight="653.0" prefWidth="1000.0" styleClass="pane" stylesheets="@../stylesheet/stylesheet.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.preschool.controller.StudentSkillStatusWindowController">
    <children>
-      <Label alignment="TOP_LEFT" layoutX="16.0" layoutY="14.0" prefHeight="61.0" prefWidth="250.0" text="Student Skill Status">
+      <ImageView fitHeight="653.0" fitWidth="1000.0" layoutX="-2.0" layoutY="-1.0" pickOnBounds="true">
+         <image>
+            <Image url="@../img/2.jpg" />
+         </image>
+      </ImageView>
+      <Label alignment="TOP_LEFT" layoutX="16.0" layoutY="14.0" prefHeight="61.0" prefWidth="250.0" styleClass="labelbig" text="Student Skill Status">
          <font>
             <Font name="System Bold Italic" size="27.0" />
          </font></Label>
@@ -71,5 +78,9 @@
       <JFXComboBox fx:id="cmbCraftingStatus" layoutX="341.0" layoutY="264.0" prefHeight="25.0" prefWidth="155.0" promptText="crafting status" styleClass="cmb" />
       <JFXButton layoutX="609.0" layoutY="189.0" onAction="#btnAddOnAction" prefHeight="38.0" prefWidth="88.0" styleClass="btnadd" stylesheets="@../stylesheet/stylesheet.css" text="Add" />
       <JFXButton layoutX="609.0" layoutY="329.0" onAction="#btnClearOnAction" prefHeight="38.0" prefWidth="88.0" styleClass="btnclear" stylesheets="@../stylesheet/stylesheet.css" text="Clear" />
+      <JFXButton layoutX="556.0" layoutY="506.0" maxWidth="223.0" onAction="#btnReportOnAction" prefHeight="47.0" prefWidth="223.0" style="-fx-background-color: #FC427B; -fx-background-radius: 20;" text="Remedial Student Report" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></JFXButton>
    </children>
 </AnchorPane>

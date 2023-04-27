@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.ColorAdjust?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -12,12 +13,15 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="loginContext" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: linear-gradient(to top right, #00FFF0, #F8FB61); -fx-border-radius: 50;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.preschool.controller.LoginWindowController">
+<AnchorPane fx:id="loginContext" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="724.0" style="-fx-background-color: linear-gradient(to top right, #00FFF0, #F8FB61); -fx-border-radius: 50;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.preschool.controller.LoginWindowController">
    <children>
-      <ImageView fitHeight="450.0" fitWidth="809.0" layoutX="-102.0" layoutY="-43.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView disable="true" fitHeight="461.0" fitWidth="835.0" layoutX="-105.0" layoutY="-61.0" pickOnBounds="true">
          <image>
             <Image url="@../img/login1.jpg" />
          </image>
+         <effect>
+            <ColorAdjust brightness="-0.5" contrast="0.5" hue="0.04" saturation="0.01" />
+         </effect>
       </ImageView>
       <Label alignment="CENTER" layoutX="14.0" layoutY="146.0" prefHeight="36.0" prefWidth="91.0" text="Username :">
          <font>

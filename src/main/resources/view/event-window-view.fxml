@@ -5,12 +5,19 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="558.0" prefWidth="836.0" styleClass="pane" stylesheets="@../stylesheet/stylesheet.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.preschool.controller.EventWindowController">
+<AnchorPane prefHeight="653.0" prefWidth="1000.0" styleClass="pane" stylesheets="@../stylesheet/stylesheet.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.preschool.controller.EventWindowController">
    <children>
-      <Label alignment="TOP_LEFT" layoutX="13.0" layoutY="14.0" prefHeight="49.0" prefWidth="145.0" text="Event">
+      <ImageView fitHeight="653.0" fitWidth="1000.0" layoutY="-2.0" pickOnBounds="true">
+         <image>
+            <Image url="@../img/2.jpg" />
+         </image>
+      </ImageView>
+      <Label alignment="TOP_LEFT" layoutX="13.0" layoutY="14.0" prefHeight="49.0" prefWidth="145.0" styleClass="labelbig" text="Event">
          <font>
             <Font name="Comic Sans MS Bold Italic" size="44.0" />
          </font>
@@ -22,17 +29,23 @@
       <Label layoutX="469.0" layoutY="136.0" prefHeight="25.0" prefWidth="101.0" text="Event name" />
       <Label layoutX="59.0" layoutY="204.0" prefHeight="17.0" prefWidth="54.0" text="Month" />
       <JFXButton layoutX="368.0" layoutY="196.0" onAction="#btnSaveOnAction" prefHeight="32.0" prefWidth="71.0" styleClass="btnadd" text="Save" />
-      <JFXButton layoutX="519.0" layoutY="196.0" onAction="#btnDeleteOnAction" prefHeight="32.0" prefWidth="71.0" styleClass="btndelete" text="Delete" />
+      <JFXButton layoutX="508.0" layoutY="196.0" onAction="#btnDeleteOnAction" prefHeight="32.0" prefWidth="71.0" styleClass="btndelete" text="Delete" />
       <JFXButton layoutX="640.0" layoutY="196.0" onAction="#btnUpdateOnAction" prefHeight="32.0" prefWidth="71.0" styleClass="btnclear" text="Update" />
-      <TableView fx:id="tblEvent" layoutX="59.0" layoutY="279.0" prefHeight="239.0" prefWidth="731.0">
+      <TableView fx:id="tblEvent" layoutX="46.0" layoutY="279.0" prefHeight="352.0" prefWidth="918.0">
         <columns>
           <TableColumn fx:id="colEventNo" prefWidth="104.0" text="Event No" />
-          <TableColumn fx:id="colEventName" prefWidth="316.0" text="Event Name" />
-            <TableColumn fx:id="colMonth" prefWidth="106.0" text="Month" />
-            <TableColumn fx:id="colAction" prefWidth="203.0" text="Action" />
+          <TableColumn fx:id="colEventName" prefWidth="516.0" text="Event Name" />
+            <TableColumn fx:id="colMonth" prefWidth="148.0" text="Month" />
+            <TableColumn fx:id="colAction" prefWidth="161.0" text="Action" />
         </columns>
       </TableView>
-      <JFXButton layoutX="341.0" layoutY="136.0" onAction="#btnSearchEventOnAction" styleClass="btnSearch" text="search" />
+      <JFXButton layoutX="340.0" layoutY="123.0" onAction="#btnSearchEventOnAction" prefHeight="51.0" prefWidth="71.0" text="search" />
       <JFXButton layoutX="688.0" layoutY="39.0" onAction="#btnGetReportOnAction" styleClass="btngetreport" text="Get Report" />
+      <JFXButton layoutX="776.0" layoutY="196.0" onAction="#btnClearOnAction" styleClass="btnclear" text="Clear" />
+      <ImageView fitHeight="49.0" fitWidth="54.0" layoutX="349.0" layoutY="124.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/icons8-search.gif" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

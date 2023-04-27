@@ -6,12 +6,19 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="606.0" prefWidth="1000.0" styleClass="pane" stylesheets="@../stylesheet/stylesheet.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.preschool.controller.ManageTeacherWindowController">
+<AnchorPane prefHeight="653.0" prefWidth="1000.0" styleClass="pane" stylesheets="@../stylesheet/stylesheet.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.preschool.controller.ManageTeacherWindowController">
    <children>
-      <Label alignment="TOP_LEFT" contentDisplay="TOP" layoutX="16.0" layoutY="14.0" prefHeight="44.0" prefWidth="250.0" text="Manage Teachers">
+      <ImageView fitHeight="653.0" fitWidth="1000.0" pickOnBounds="true">
+         <image>
+            <Image url="@../img/2.jpg" />
+         </image>
+      </ImageView>
+      <Label alignment="TOP_LEFT" contentDisplay="TOP" layoutX="16.0" layoutY="14.0" prefHeight="44.0" prefWidth="250.0" styleClass="labelbig" text="Manage Teachers">
          <font>
             <Font name="System Bold Italic" size="24.0" />
          </font></Label>
@@ -24,22 +31,27 @@
       <TextField fx:id="txtTeachName" layoutX="110.0" layoutY="140.0" prefHeight="25.0" prefWidth="221.0" />
       <TextField fx:id="txtTeachAddress" layoutX="110.0" layoutY="192.0" prefHeight="25.0" prefWidth="221.0" />
       <TextField fx:id="txtContact" layoutX="586.0" layoutY="140.0" onAction="#txtContactOnAction" prefHeight="25.0" prefWidth="189.0" />
-      <JFXButton layoutX="354.0" layoutY="90.0" onAction="#btnSearchOnAction" styleClass="btnSearch" text="Search" />
+      <JFXButton layoutX="336.0" layoutY="64.0" onAction="#btnSearchOnAction" prefHeight="61.0" prefWidth="71.0" text="." />
       <JFXButton layoutX="354.0" layoutY="192.0" onAction="#btnSaveOnAction" prefHeight="25.0" prefWidth="65.0" styleClass="btnadd" text="Add" />
       <JFXButton layoutX="475.0" layoutY="192.0" onAction="#btnDeleteOnAction" styleClass="btndelete" text="Delete" />
       <JFXButton layoutX="594.0" layoutY="192.0" onAction="#btnUpdateOnUpdate" styleClass="btnclear" text="Update" />
-      <TableView fx:id="tblTeacher" layoutX="16.0" layoutY="283.0" prefHeight="291.0" prefWidth="968.0">
+      <TableView fx:id="tblTeacher" layoutX="33.0" layoutY="283.0" prefHeight="353.0" prefWidth="929.0">
         <columns>
           <TableColumn fx:id="colTeachId" prefWidth="103.0" text="Teacher ID" />
           <TableColumn fx:id="colName" minWidth="0.0" prefWidth="181.0" text="Name" />
             <TableColumn fx:id="colAddress" prefWidth="188.0" text="Address" />
-            <TableColumn fx:id="colDOB" prefWidth="201.0" text="Date Of Birth" />
-            <TableColumn fx:id="colContact" prefWidth="169.0" text="Contact" />
-            <TableColumn fx:id="colAction" prefWidth="125.0" text="Action" />
+            <TableColumn fx:id="colDOB" prefWidth="153.0" text="Date Of Birth" />
+            <TableColumn fx:id="colContact" minWidth="0.0" prefWidth="166.0" text="Contact" />
+            <TableColumn fx:id="colAction" prefWidth="131.0" text="Action" />
         </columns>
       </TableView>
       <DatePicker fx:id="dtpckrDOB" layoutX="584.0" layoutY="83.0" prefHeight="25.0" prefWidth="189.0" />
       <JFXButton layoutX="710.0" layoutY="192.0" onAction="#btnClearOnAction" prefHeight="25.0" prefWidth="65.0" styleClass="btnadd" text="Clear" />
       <JFXButton layoutX="856.0" layoutY="195.0" onAction="#btnGetReportOnAction" styleClass="btngetreport" text="Get Report" />
+      <ImageView fitHeight="51.0" fitWidth="55.0" layoutX="344.0" layoutY="70.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/search-user-img.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
