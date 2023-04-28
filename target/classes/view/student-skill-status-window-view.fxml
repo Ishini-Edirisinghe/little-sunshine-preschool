@@ -20,53 +20,53 @@
          <font>
             <Font name="System Bold Italic" size="27.0" />
          </font></Label>
-      <Label layoutX="142.0" layoutY="187.0" prefHeight="21.0" prefWidth="88.0" text="Skill Name">
+      <Label layoutX="189.0" layoutY="187.0" prefHeight="21.0" prefWidth="88.0" text="Skill Name" textFill="WHITE" underline="true">
          <font>
-            <Font size="14.0" />
+            <Font name="System Bold Italic" size="16.0" />
          </font></Label>
-      <Label layoutX="360.0" layoutY="187.0" text="Status">
+      <Label layoutX="385.0" layoutY="184.0" text="Status" textFill="WHITE" underline="true">
          <font>
-            <Font size="14.0" />
+            <Font name="System Bold Italic" size="16.0" />
          </font></Label>
-      <Label layoutX="57.0" layoutY="136.0" text="Student Id">
+      <Label layoutX="57.0" layoutY="136.0" styleClass="labeltxt" text="Student Id">
          <font>
             <Font size="14.0" />
          </font></Label>
       <JFXComboBox fx:id="cmbCountngStatus" layoutX="341.0" layoutY="223.0" prefHeight="25.0" prefWidth="155.0" promptText="counting status" styleClass="cmb" />
       <JFXComboBox fx:id="cmbStId" layoutX="141.0" layoutY="132.0" onAction="#cmbStIdOnActon" prefHeight="25.0" prefWidth="192.0" promptText="student id" styleClass="cmb" />
       <JFXButton layoutX="609.0" layoutY="437.0" onAction="#btnUpdateOnAction" prefHeight="38.0" prefWidth="88.0" styleClass="btnclear" text="Update" />
-      <Label layoutX="360.0" layoutY="136.0" text="Student Name">
+      <Label layoutX="360.0" layoutY="136.0" styleClass="labeltxt" text="Student Name">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
       <TextField fx:id="txtStudentName" editable="false" layoutX="515.0" layoutY="132.0" prefHeight="25.0" prefWidth="168.0" promptText="student name" />
-      <Label layoutX="92.0" layoutY="225.0" prefHeight="17.0" prefWidth="192.0" text="Counting">
+      <Label layoutX="198.0" layoutY="225.0" prefHeight="20.0" prefWidth="100.0" styleClass="labeltxt" text="Counting">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="92.0" layoutY="304.0" prefHeight="17.0" prefWidth="192.0" text="Drawing">
+      <Label layoutX="198.0" layoutY="305.0" prefHeight="20.0" prefWidth="100.0" styleClass="labeltxt" text="Drawing">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="92.0" layoutY="266.0" prefHeight="17.0" prefWidth="192.0" text="Crafting">
+      <Label layoutX="198.0" layoutY="267.0" prefHeight="20.0" prefWidth="100.0" styleClass="labeltxt" text="Crafting">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="92.0" layoutY="346.0" prefHeight="17.0" prefWidth="192.0" text="Reading">
+      <Label layoutX="198.0" layoutY="347.0" prefHeight="20.0" prefWidth="100.0" styleClass="labeltxt" text="Reading">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="92.0" layoutY="428.0" prefHeight="17.0" prefWidth="192.0" text="Writing">
+      <Label layoutX="198.0" layoutY="427.0" prefHeight="20.0" prefWidth="100.0" styleClass="labeltxt" text="Writing">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="92.0" layoutY="384.0" prefHeight="17.0" prefWidth="192.0" text="Singing">
+      <Label layoutX="198.0" layoutY="383.0" prefHeight="20.0" prefWidth="100.0" styleClass="labeltxt" text="Singing">
          <font>
             <Font size="14.0" />
          </font>

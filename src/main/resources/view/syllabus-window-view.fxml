@@ -21,8 +21,8 @@
          <font>
             <Font name="Comic Sans MS Bold Italic" size="39.0" />
          </font></Label>
-      <Label layoutX="65.0" layoutY="104.0" text="Content No" />
-      <Label layoutX="65.0" layoutY="140.0" text="Content Name" />
+      <Label layoutX="65.0" layoutY="104.0" styleClass="labeltxt" text="Content No" />
+      <Label layoutX="65.0" layoutY="140.0" styleClass="labeltxt" text="Content Name" />
       <TextField fx:id="txtConNo" layoutX="187.0" layoutY="102.0" onAction="#txtConNoOnAction" prefHeight="25.0" prefWidth="256.0" promptText="Content No" />
       <TextField fx:id="txtConName" layoutX="187.0" layoutY="138.0" prefHeight="25.0" prefWidth="256.0" promptText="Content Name" />
       <JFXButton layoutX="86.0" layoutY="194.0" onAction="#btnSaveOnAction" styleClass="btnadd" text="Add" />

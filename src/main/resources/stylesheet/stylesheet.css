@@ -97,6 +97,19 @@
     -fx-font-size: 15px;
 
 }
+.labelsmall{
+    -fx-text-fill: white;
+    -fx-font-size: 15px;
+}
+.labeltxt{
+    -fx-text-fill: #1B1464;
+    -fx-font-size: 15px;
+    -fx-font-weight:bold;
+}.labeltxtsmall12{
+    -fx-text-fill: #1B1464;
+    -fx-font-size: 12px;
+    -fx-font-weight:bold;
+}
 .labelDateTime{
     -fx-text-fill: white;
     -fx-font-size: 16px;

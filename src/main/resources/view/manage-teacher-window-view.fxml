@@ -22,11 +22,11 @@
          <font>
             <Font name="System Bold Italic" size="24.0" />
          </font></Label>
-      <Label layoutX="25.0" layoutY="94.0" prefHeight="17.0" prefWidth="71.0" text="Teacher Id" />
-      <Label layoutX="40.0" layoutY="144.0" prefHeight="17.0" prefWidth="41.0" text="Name" />
-      <Label layoutX="39.0" layoutY="196.0" text="Address" />
-      <Label layoutX="474.0" layoutY="85.0" prefHeight="21.0" prefWidth="112.0" text="Date Of Birth" />
-      <Label layoutX="473.0" layoutY="144.0" prefHeight="17.0" prefWidth="55.0" text="Contact" />
+      <Label layoutX="25.0" layoutY="94.0" prefHeight="21.0" prefWidth="84.0" styleClass="labeltxt" text="Teacher Id" />
+      <Label layoutX="40.0" layoutY="144.0" prefHeight="21.0" prefWidth="66.0" styleClass="labeltxt" text="Name" />
+      <Label layoutX="39.0" layoutY="196.0" styleClass="labeltxt" text="Address" />
+      <Label layoutX="474.0" layoutY="85.0" prefHeight="21.0" prefWidth="112.0" styleClass="labeltxt" text="Date Of Birth" />
+      <Label layoutX="473.0" layoutY="144.0" prefHeight="17.0" prefWidth="55.0" styleClass="labeltxt" text="Contact" />
       <TextField fx:id="txtTeachId" layoutX="110.0" layoutY="90.0" onAction="#txtTeachIdOnAction" prefHeight="25.0" prefWidth="221.0" />
       <TextField fx:id="txtTeachName" layoutX="110.0" layoutY="140.0" onAction="#txtTeachNameOnAction" prefHeight="25.0" prefWidth="221.0" />
       <TextField fx:id="txtTeachAddress" layoutX="110.0" layoutY="192.0" prefHeight="25.0" prefWidth="221.0" />

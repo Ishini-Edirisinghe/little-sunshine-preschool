@@ -30,14 +30,14 @@
       <TextField fx:id="txtStId" layoutX="139.0" layoutY="128.0" onAction="#txtStIdOnAction" prefHeight="25.0" prefWidth="236.0" promptText="student id" />
       <TextField fx:id="txtContact" layoutX="612.0" layoutY="129.0" onAction="#txtContactOnAction" prefHeight="25.0" prefWidth="267.0" promptText="contact" />
       <TextField fx:id="txtParentName" layoutX="612.0" layoutY="173.0" prefHeight="25.0" prefWidth="267.0" promptText="Parents Name" />
-      <Label layoutX="40.0" layoutY="131.0" prefHeight="17.0" prefWidth="88.0" text="Student id" />
-      <Label layoutX="40.0" layoutY="175.0" prefHeight="17.0" prefWidth="88.0" text="Name" />
-      <Label layoutX="40.0" layoutY="220.0" prefHeight="17.0" prefWidth="76.0" text="Address" />
-      <Label layoutX="40.0" layoutY="267.0" prefHeight="25.0" prefWidth="99.0" text="Date of birth" />
-      <Label layoutX="512.0" layoutY="130.0" prefHeight="17.0" prefWidth="67.0" text="Contact" />
-      <Label layoutX="512.0" layoutY="173.0" prefHeight="25.0" prefWidth="88.0" text="Parent name" />
+      <Label layoutX="40.0" layoutY="131.0" prefHeight="17.0" prefWidth="88.0" styleClass="labeltxt" text="Student id" />
+      <Label layoutX="40.0" layoutY="175.0" prefHeight="17.0" prefWidth="88.0" styleClass="labeltxt" text="Name" />
+      <Label layoutX="40.0" layoutY="220.0" prefHeight="17.0" prefWidth="76.0" styleClass="labeltxt" text="Address" />
+      <Label layoutX="40.0" layoutY="267.0" prefHeight="25.0" prefWidth="99.0" styleClass="labeltxt" text="Date of birth" />
+      <Label layoutX="512.0" layoutY="130.0" prefHeight="17.0" prefWidth="67.0" styleClass="labeltxt" text="Contact" />
+      <Label layoutX="512.0" layoutY="173.0" prefHeight="25.0" prefWidth="106.0" styleClass="labeltxt" text="Parent name" />
       <JFXButton fx:id="btnSaveStudent" layoutX="418.0" layoutY="261.0" onAction="#btnSaveOnAction" prefHeight="38.0" prefWidth="88.0" styleClass="btnadd" text="Save" />
-      <Label layoutX="512.0" layoutY="218.0" prefHeight="25.0" prefWidth="106.0" text="Teacher id" />
+      <Label layoutX="512.0" layoutY="218.0" prefHeight="25.0" prefWidth="106.0" styleClass="labeltxt" text="Teacher id" />
       <ComboBox fx:id="cmbTeacherId" layoutX="612.0" layoutY="218.0" prefHeight="25.0" prefWidth="267.0" promptText="Teacher Id" />
       <JFXButton layoutX="545.0" layoutY="261.0" onAction="#btnDeleteOnAction" prefHeight="38.0" prefWidth="88.0" styleClass="btndelete" text="Delete" />
       <JFXButton layoutX="671.0" layoutY="261.0" onAction="#btnClearOnAction" prefHeight="38.0" prefWidth="88.0" styleClass="btnclear" text="Clear" />
@@ -60,19 +60,22 @@
          </image>
       </ImageView>
       <JFXButton layoutX="792.0" layoutY="261.0" onAction="#btnGetReportOnAction" prefHeight="40.0" prefWidth="185.0" styleClass="btngetreport" text="Get Report" />
-      <Label layoutX="50.0" layoutY="328.0" prefHeight="21.0" prefWidth="44.0" text="Skills" />
-      <Label layoutX="36.0" layoutY="374.0" text="Counting" />
-      <Label layoutX="36.0" layoutY="403.0" text="Crafting" />
-      <Label layoutX="36.0" layoutY="437.0" text="Drawing" />
-      <Label layoutX="36.0" layoutY="469.0" text="Reading" />
-      <Label layoutX="40.0" layoutY="508.0" text="Singing" />
-      <Label layoutX="38.0" layoutY="553.0" text="Writing" />
-      <JFXComboBox fx:id="cmbCounting" layoutX="131.0" layoutY="372.0" prefHeight="25.0" prefWidth="88.0" />
-      <JFXComboBox fx:id="cmbCrafting" layoutX="131.0" layoutY="401.0" prefHeight="25.0" prefWidth="88.0" />
-      <JFXComboBox fx:id="cmbDrawing" layoutX="131.0" layoutY="435.0" prefHeight="25.0" prefWidth="88.0" />
-      <JFXComboBox fx:id="cmbReading" layoutX="128.0" layoutY="467.0" prefHeight="25.0" prefWidth="88.0" />
-      <JFXComboBox fx:id="cmbSinging" layoutX="131.0" layoutY="506.0" prefHeight="25.0" prefWidth="88.0" />
-      <JFXComboBox fx:id="cmbWriting" layoutX="128.0" layoutY="551.0" prefHeight="25.0" prefWidth="88.0" />
+      <Label layoutX="93.0" layoutY="328.0" prefHeight="25.0" prefWidth="59.0" style="-fx-font-weight: bold;" text="Skills" textFill="WHITE" underline="true">
+         <font>
+            <Font name="System Bold Italic" size="18.0" />
+         </font></Label>
+      <Label layoutX="54.0" layoutY="376.0" styleClass="labeltxtsmall12" text="Counting" textFill="WHITE" />
+      <Label layoutX="54.0" layoutY="406.0" styleClass="labeltxtsmall12" text="Crafting" />
+      <Label layoutX="54.0" layoutY="437.0" styleClass="labeltxtsmall12" text="Drawing" />
+      <Label layoutX="54.0" layoutY="471.0" styleClass="labeltxtsmall12" text="Reading" />
+      <Label layoutX="57.0" layoutY="509.0" styleClass="labeltxtsmall12" text="Singing" />
+      <Label layoutX="53.0" layoutY="553.0" styleClass="labeltxtsmall12" text="Writing" />
+      <JFXComboBox fx:id="cmbCounting" layoutX="131.0" layoutY="372.0" prefHeight="25.0" prefWidth="119.0" />
+      <JFXComboBox fx:id="cmbCrafting" layoutX="131.0" layoutY="401.0" prefHeight="25.0" prefWidth="119.0" />
+      <JFXComboBox fx:id="cmbDrawing" layoutX="131.0" layoutY="435.0" prefHeight="25.0" prefWidth="119.0" />
+      <JFXComboBox fx:id="cmbReading" layoutX="128.0" layoutY="467.0" prefHeight="25.0" prefWidth="119.0" />
+      <JFXComboBox fx:id="cmbSinging" layoutX="131.0" layoutY="506.0" prefHeight="25.0" prefWidth="119.0" />
+      <JFXComboBox fx:id="cmbWriting" layoutX="128.0" layoutY="551.0" prefHeight="25.0" prefWidth="119.0" />
       <ImageView fitHeight="53.0" fitWidth="49.0" layoutX="394.0" layoutY="124.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../img/search-user-img.png" />

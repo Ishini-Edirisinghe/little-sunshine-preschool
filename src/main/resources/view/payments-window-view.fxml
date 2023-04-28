@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="606.0" prefWidth="1000.0" styleClass="pane" stylesheets="@../stylesheet/stylesheet.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.preschool.controller.PaymentsWindowController">
+<AnchorPane prefHeight="606.0" prefWidth="1000.0" styleClass="pane" stylesheets="@../stylesheet/stylesheet.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.preschool.controller.PaymentsWindowController">
    <children>
       <ImageView fitHeight="653.0" fitWidth="1000.0" pickOnBounds="true">
          <image>
@@ -24,10 +24,10 @@
          <font>
             <Font name="Comic Sans MS Bold Italic" size="29.0" />
          </font></Label>
-      <Label layoutX="58.0" layoutY="132.0" text="Reference No" />
-      <Label layoutX="58.0" layoutY="184.0" text="Date" />
-      <Label layoutX="489.0" layoutY="132.0" text="Student Id" />
-      <Label layoutX="489.0" layoutY="184.0" prefHeight="17.0" prefWidth="55.0" text="Type" />
+      <Label layoutX="58.0" layoutY="132.0" styleClass="labeltxt" text="Reference No" />
+      <Label layoutX="58.0" layoutY="184.0" styleClass="labeltxt" text="Date" />
+      <Label layoutX="489.0" layoutY="132.0" styleClass="labeltxt" text="Student Id" />
+      <Label layoutX="489.0" layoutY="184.0" prefHeight="17.0" prefWidth="55.0" styleClass="labeltxt" text="Type" />
       <TextField fx:id="txtRefNo" layoutX="162.0" layoutY="130.0" onAction="#txtRefNoOnAction" prefHeight="25.0" prefWidth="184.0" promptText="Referance No" />
       <JFXButton layoutX="163.0" layoutY="246.0" onAction="#btnSaveOnAction" styleClass="btnadd" text="Add" />
       <JFXButton layoutX="300.0" layoutY="246.0" onAction="#btnDeleteOnAction" styleClass="btndelete" text="Delete" />
