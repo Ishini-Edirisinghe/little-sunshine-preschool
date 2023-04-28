@@ -30,6 +30,7 @@ import java.net.URL;
 import java.nio.file.FileSystems;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -187,7 +188,7 @@ public class PaymentsWindowController implements Initializable {
 
     private void loadType() {
        //  ids = null;
-        try {
+        /*try {
             List<String>  ids = PaymentModel.getType();
             ObservableList<String> obList = FXCollections.observableArrayList();
 
@@ -197,8 +198,14 @@ public class PaymentsWindowController implements Initializable {
             cmbType.setItems(obList);
         } catch (SQLException e) {
             e.printStackTrace();
-        }
+        }*/
+        ArrayList<String> paymentType=new ArrayList<> ();
+        paymentType.add("Cash");
+        paymentType.add("Card");
+        paymentType.add("Online");
 
+        ObservableList<String> dataSet = FXCollections.observableArrayList(paymentType);
+        cmbType.setItems(dataSet);
 
     }
 

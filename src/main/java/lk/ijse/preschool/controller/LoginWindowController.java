@@ -47,6 +47,19 @@ public class LoginWindowController implements Initializable {
                     new Alert(Alert.AlertType.CONFIRMATION, "Login successful!").showAndWait();
                     stage.close();
                     stage1.setMaximized(true);
+
+                    Thread mailThread=new Thread(()->{
+                        try {
+                            EmailController.sendMail("ishiniedirisinghe331@gmail.com");
+                        } catch (Exception e) {
+                            // System.out.println("Failed to send e-mail.Network err!");
+                            //e.printStackTrace();
+                            System.out.println(e);
+                        }
+                    });
+
+                    mailThread.start();
+
                     stage1.show();
                 }else{
                     new Alert(Alert.AlertType.WARNING, "User Not Found in DB!!!").showAndWait();

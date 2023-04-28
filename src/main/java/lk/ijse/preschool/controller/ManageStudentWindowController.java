@@ -437,7 +437,15 @@ public class ManageStudentWindowController implements Initializable {
             txtAddress.clear();
             cmbTeacherId.getItems().clear();
             dtpckrDOB.getEditor().clear();
-            loadTeacherids();
+
+            cmbCounting.getItems().clear();
+            cmbCrafting.getItems().clear();
+            cmbDrawing.getItems().clear();
+            cmbReading.getItems().clear();
+            cmbSinging.getItems().clear();
+            cmbWriting.getItems().clear();
+             loadTeacherids();
+             loadStatus();
     }
 
     @FXML

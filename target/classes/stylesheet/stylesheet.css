@@ -4,6 +4,9 @@
     -fx-min-height: 30px;
     -fx-max-width: 100px;
     -fx-max-height: 30px;
+    -fx-background-radius: 10;
+    -fx-text-fill: white;
+
 }
 .btnclear{
     -fx-text-fill: white;
@@ -15,6 +18,7 @@
     -fx-max-height: 30px;
 }.
  btnupdatek{
+    
     -fx-text-fill: white;
     -fx-background-color:  #0a3d62;
     -fx-background-radius: 20;

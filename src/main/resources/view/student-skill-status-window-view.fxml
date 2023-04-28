@@ -16,7 +16,7 @@
             <Image url="@../img/2.jpg" />
          </image>
       </ImageView>
-      <Label alignment="TOP_LEFT" layoutX="16.0" layoutY="14.0" prefHeight="61.0" prefWidth="250.0" styleClass="labelbig" text="Student Skill Status">
+      <Label alignment="TOP_LEFT" layoutX="16.0" layoutY="14.0" prefHeight="61.0" prefWidth="369.0" styleClass="labelbig" text="Student Skill Status">
          <font>
             <Font name="System Bold Italic" size="27.0" />
          </font></Label>
@@ -34,7 +34,7 @@
          </font></Label>
       <JFXComboBox fx:id="cmbCountngStatus" layoutX="341.0" layoutY="223.0" prefHeight="25.0" prefWidth="155.0" promptText="counting status" styleClass="cmb" />
       <JFXComboBox fx:id="cmbStId" layoutX="141.0" layoutY="132.0" onAction="#cmbStIdOnActon" prefHeight="25.0" prefWidth="192.0" promptText="student id" styleClass="cmb" />
-      <JFXButton layoutX="609.0" layoutY="261.0" onAction="#btnUpdateOnAction" prefHeight="38.0" prefWidth="88.0" styleClass="btnSearch" text="Update" />
+      <JFXButton layoutX="609.0" layoutY="437.0" onAction="#btnUpdateOnAction" prefHeight="38.0" prefWidth="88.0" styleClass="btnclear" text="Update" />
       <Label layoutX="360.0" layoutY="136.0" text="Student Name">
          <font>
             <Font size="14.0" />
@@ -76,8 +76,7 @@
       <JFXComboBox fx:id="cmbWritingStatus" layoutX="341.0" layoutY="426.0" prefHeight="25.0" prefWidth="155.0" promptText="writing status" styleClass="cmb" />
       <JFXComboBox fx:id="cmbReadingStatus" layoutX="341.0" layoutY="344.0" prefHeight="25.0" prefWidth="155.0" promptText="reading status" styleClass="cmb" />
       <JFXComboBox fx:id="cmbCraftingStatus" layoutX="341.0" layoutY="264.0" prefHeight="25.0" prefWidth="155.0" promptText="crafting status" styleClass="cmb" />
-      <JFXButton layoutX="609.0" layoutY="189.0" onAction="#btnAddOnAction" prefHeight="38.0" prefWidth="88.0" styleClass="btnadd" stylesheets="@../stylesheet/stylesheet.css" text="Add" />
-      <JFXButton layoutX="609.0" layoutY="329.0" onAction="#btnClearOnAction" prefHeight="38.0" prefWidth="88.0" styleClass="btnclear" stylesheets="@../stylesheet/stylesheet.css" text="Clear" />
+      <JFXButton layoutX="609.0" layoutY="378.0" onAction="#btnAddOnAction" prefHeight="38.0" prefWidth="88.0" styleClass="btnadd" stylesheets="@../stylesheet/stylesheet.css" text="Add" />
       <JFXButton layoutX="556.0" layoutY="506.0" maxWidth="223.0" onAction="#btnReportOnAction" prefHeight="47.0" prefWidth="223.0" style="-fx-background-color: #FC427B; -fx-background-radius: 20;" text="Remedial Student Report" textFill="WHITE">
          <font>
             <Font name="System Bold" size="15.0" />

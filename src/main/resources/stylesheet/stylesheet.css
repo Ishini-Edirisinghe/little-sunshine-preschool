@@ -4,6 +4,10 @@
     -fx-min-height: 30px;
     -fx-max-width: 100px;
     -fx-max-height: 30px;
+    -fx-background-radius: 10;
+    -fx-text-fill: white;
+    -fx-font-weight:bold;
+
 }
 .btnclear{
     -fx-text-fill: white;
@@ -13,11 +17,13 @@
     -fx-min-height: 30px;
     -fx-max-width: 100px;
     -fx-max-height: 30px;
+    -fx-font-weight:bold;
 }.
  btnupdatek{
+     -fx-font-weight:bold;
     -fx-text-fill: white;
     -fx-background-color:  #0a3d62;
-    -fx-background-radius: 20;
+    -fx-background-radius: 10;
     -fx-min-width: 100px;
     -fx-min-height: 30px;
     -fx-max-width: 100px;
@@ -31,7 +37,7 @@
     -fx-min-height: 30px;
     -fx-max-width: 100px;
     -fx-max-height: 30px;
-
+    -fx-font-weight:bold;
 }
 .btndelete{
     -fx-text-fill: white;
@@ -41,6 +47,7 @@
     -fx-min-height: 30px;
     -fx-max-width: 100px;
     -fx-max-height: 30px;
+    -fx-font-weight:bold;
 }
 .btnSearch{
     -fx-background-color: #9b59b6;

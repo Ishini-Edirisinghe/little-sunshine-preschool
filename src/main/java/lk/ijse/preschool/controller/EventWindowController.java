@@ -21,6 +21,7 @@ import lk.ijse.preschool.dto.tm.EventTM;
 import lk.ijse.preschool.dto.tm.StudentTM;
 import lk.ijse.preschool.model.EventModel;
 import lk.ijse.preschool.model.StudentModel;
+import lk.ijse.preschool.util.Regex;
 import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.engine.design.JRDesignQuery;
 import net.sf.jasperreports.engine.design.JasperDesign;
@@ -255,6 +256,21 @@ public class EventWindowController implements Initializable {
         txtEventNo.clear();
         txtEventName.clear();
         txtMonth.clear();
+    }
+    @FXML
+    void txtEventNoOnAction(ActionEvent event) {
+        String event_no=txtEventNo.getText();
+        if (Regex.validateEventNo(event_no)){
+            btnSearchEventOnAction(event);
+            txtEventName.requestFocus();
+        }else {
+            txtEventNo.clear();
+            new Alert(Alert.AlertType.WARNING, "No matching Student ID please Input SUP format!!!").show();
+        }
+    }
+    @FXML
+    void txtEventNameOnAction(ActionEvent event) {
+        txtMonth.requestFocus();
     }
 
 }

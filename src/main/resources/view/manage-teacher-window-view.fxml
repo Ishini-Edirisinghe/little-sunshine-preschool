@@ -18,7 +18,7 @@
             <Image url="@../img/2.jpg" />
          </image>
       </ImageView>
-      <Label alignment="TOP_LEFT" contentDisplay="TOP" layoutX="16.0" layoutY="14.0" prefHeight="44.0" prefWidth="250.0" styleClass="labelbig" text="Manage Teachers">
+      <Label alignment="TOP_LEFT" contentDisplay="TOP" layoutX="16.0" layoutY="14.0" prefHeight="51.0" prefWidth="351.0" styleClass="labelbig" text="Manage Teachers">
          <font>
             <Font name="System Bold Italic" size="24.0" />
          </font></Label>
@@ -28,10 +28,10 @@
       <Label layoutX="474.0" layoutY="85.0" prefHeight="21.0" prefWidth="112.0" text="Date Of Birth" />
       <Label layoutX="473.0" layoutY="144.0" prefHeight="17.0" prefWidth="55.0" text="Contact" />
       <TextField fx:id="txtTeachId" layoutX="110.0" layoutY="90.0" onAction="#txtTeachIdOnAction" prefHeight="25.0" prefWidth="221.0" />
-      <TextField fx:id="txtTeachName" layoutX="110.0" layoutY="140.0" prefHeight="25.0" prefWidth="221.0" />
+      <TextField fx:id="txtTeachName" layoutX="110.0" layoutY="140.0" onAction="#txtTeachNameOnAction" prefHeight="25.0" prefWidth="221.0" />
       <TextField fx:id="txtTeachAddress" layoutX="110.0" layoutY="192.0" prefHeight="25.0" prefWidth="221.0" />
       <TextField fx:id="txtContact" layoutX="586.0" layoutY="140.0" onAction="#txtContactOnAction" prefHeight="25.0" prefWidth="189.0" />
-      <JFXButton layoutX="336.0" layoutY="64.0" onAction="#btnSearchOnAction" prefHeight="61.0" prefWidth="71.0" text="." />
+      <JFXButton layoutX="333.0" layoutY="72.0" onAction="#btnSearchOnAction" prefHeight="51.0" prefWidth="43.0" text="." />
       <JFXButton layoutX="354.0" layoutY="192.0" onAction="#btnSaveOnAction" prefHeight="25.0" prefWidth="65.0" styleClass="btnadd" text="Add" />
       <JFXButton layoutX="475.0" layoutY="192.0" onAction="#btnDeleteOnAction" styleClass="btndelete" text="Delete" />
       <JFXButton layoutX="594.0" layoutY="192.0" onAction="#btnUpdateOnUpdate" styleClass="btnclear" text="Update" />
@@ -47,8 +47,8 @@
       </TableView>
       <DatePicker fx:id="dtpckrDOB" layoutX="584.0" layoutY="83.0" prefHeight="25.0" prefWidth="189.0" />
       <JFXButton layoutX="710.0" layoutY="192.0" onAction="#btnClearOnAction" prefHeight="25.0" prefWidth="65.0" styleClass="btnadd" text="Clear" />
-      <JFXButton layoutX="856.0" layoutY="195.0" onAction="#btnGetReportOnAction" styleClass="btngetreport" text="Get Report" />
-      <ImageView fitHeight="51.0" fitWidth="55.0" layoutX="344.0" layoutY="70.0" pickOnBounds="true" preserveRatio="true">
+      <JFXButton layoutX="828.0" layoutY="192.0" onAction="#btnGetReportOnAction" styleClass="btngetreport" text="Get Report" />
+      <ImageView fitHeight="37.0" fitWidth="41.0" layoutX="336.0" layoutY="84.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../img/search-user-img.png" />
          </image>

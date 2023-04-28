@@ -303,4 +303,8 @@ public class ManageTeacherWindowController implements Initializable {
         t1.start();
 
     }
+    @FXML
+    void txtTeachNameOnAction(ActionEvent event) {
+        txtTeachAddress.requestFocus();
+    }
 }
