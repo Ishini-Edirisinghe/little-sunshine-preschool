@@ -65,7 +65,10 @@ public class PaymentsWindowController implements Initializable {
     private JFXComboBox<String> cmbStId;
 
     @FXML
-    private JFXComboBox<String> cmbType;
+    private ComboBox<String> cmbType;
+
+   /* @FXML
+    private JFXComboBox<String> cmbType;*/
 
 
     private ObservableList<PaymentTM> obList = FXCollections.observableArrayList();
@@ -168,6 +171,7 @@ public class PaymentsWindowController implements Initializable {
             if(null!=newValue) { //newValue!=null --> Get more time to compare (newValue object compare)
                 // btnSaveSupplier.setText("Update Supplier");
                 setDataToTextFields(newValue); //Set data to text field of selected row data of table
+
             }
         });
     }
@@ -185,7 +189,7 @@ public class PaymentsWindowController implements Initializable {
             e.printStackTrace();
         }
     }
-
+   // ObservableList<String> dataSet = FXCollections.observableArrayList();
     private void loadType() {
        //  ids = null;
         /*try {
@@ -204,7 +208,9 @@ public class PaymentsWindowController implements Initializable {
         paymentType.add("Card");
         paymentType.add("Online");
 
-        ObservableList<String> dataSet = FXCollections.observableArrayList(paymentType);
+       // dataSet.add(String.valueOf(paymentType));
+
+       ObservableList<String> dataSet = FXCollections.observableArrayList(paymentType);
         cmbType.setItems(dataSet);
 
     }
@@ -213,7 +219,16 @@ public class PaymentsWindowController implements Initializable {
         txtRefNo.setText(paymentTM.getRef_no());
         dtpckrDate.setValue(LocalDate.parse(paymentTM.getDate()));
         cmbStId.setValue(paymentTM.getStid());
-        cmbType.setValue(paymentTM.getType());
+       // paymentTM.getType();
+       // cmbType.setValue("hello");
+        /*try {
+            Payment payment=PaymentModel.getPaymentType(txtRefNo.getText());
+            cmbType.setValue(payment.getType());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }*/
+       cmbType.setValue(paymentTM.getType());
+
     }
 
 

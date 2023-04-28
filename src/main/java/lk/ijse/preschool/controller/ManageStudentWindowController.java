@@ -18,6 +18,7 @@ import lk.ijse.preschool.dto.SkillStatus;
 import lk.ijse.preschool.dto.Student;
 import lk.ijse.preschool.dto.tm.StudentTM;
 import lk.ijse.preschool.model.PlaceStudentModel;
+import lk.ijse.preschool.model.SkillStatusModel;
 import lk.ijse.preschool.model.StudentModel;
 import lk.ijse.preschool.model.TeacherModel;
 import lk.ijse.preschool.util.Regex;
@@ -129,6 +130,39 @@ public class ManageStudentWindowController implements Initializable {
             if(null!=newValue) { //newValue!=null --> Get more time to compare (newValue object compare)
                 btnSaveStudent.setText("Update");
                 setDataToTextFields(newValue); //Set data to text field of selected row data of table
+
+                String studentId = txtStId.getText();
+
+                try {
+                    Student student = StudentModel.searchById(studentId);
+                  //  txtStudentName.setText(student.getName());
+                    SkillStatus skillStatus= SkillStatusModel.search(studentId);
+
+                    if (skillStatus!=null){
+                        cmbWriting.setValue(skillStatus.getWriting());
+                        cmbSinging.setValue(skillStatus.getSinging());
+                        cmbReading.setValue(skillStatus.getReading());
+                        cmbDrawing.setValue(skillStatus.getDrawing());
+                        cmbCrafting.setValue(skillStatus.getCrafting());
+                        cmbCounting.setValue(skillStatus.getCrafting());
+                    }else{
+                        cmbWriting.getItems().clear();
+                        cmbDrawing.getItems().clear();
+                        cmbReading.getItems().clear();
+                        cmbSinging.getItems().clear();
+                        cmbCrafting.getItems().clear();
+                        cmbCounting.getItems().clear();
+                   //     loadStid();
+                    //    loadStatus();
+                        new Alert(Alert.AlertType.ERROR, "No input for Students Skill Please Input Student Skills").show();
+                        // return;
+                    }
+
+
+                } catch (SQLException e) {
+                    //  e.printStackTrace();
+                    new Alert(Alert.AlertType.ERROR, "SQL Error!").show();
+                }
             }
         });
 
@@ -155,6 +189,13 @@ public class ManageStudentWindowController implements Initializable {
         dtpckrDOB.setValue(LocalDate.parse(studentTM.getDOB()));
         txtContact.setText(studentTM.getContact());
         txtParentName.setText(studentTM.getParentsName());
+        try {
+            Student student=StudentModel.searchById(studentTM.getStId());
+            cmbTeacherId.setValue(student.getTeachId());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
     }
 
     private void getAllStudentsToTable(String searchText) {

@@ -74,4 +74,20 @@ public class PaymentModel {
         }
         return codes;
     }
+
+    public static Payment getPaymentType(String ref_no) throws SQLException {
+        String sql = "SELECT * FROM payment WHERE ref_no = ?";
+
+        ResultSet resultSet = CrudUtil.execute(sql,ref_no);
+        if (resultSet.next()) {
+            return new Payment(
+                    resultSet.getString(1),
+                    resultSet.getString(2),
+                    resultSet.getString(3),
+                    resultSet.getString(4)
+            );
+        }
+        return null;
+
+    }
 }
